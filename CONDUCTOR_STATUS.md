@@ -167,6 +167,33 @@ Plus this status file commit, coming next.
 - **The Labs `agi-extensions` README previously had a fake Zenodo DOI** (`zenodo.1234573`) labeled "Published Version" — replaced with real DOIs for Papers 1–6 in the rewritten README.
 - **The website body articles were already correctly 1-indexed.** Only the homepage research arc and the new Paper 7 article were 0-indexed. The audit's "off-by-one catastrophe" framing was right that the inconsistency existed but was wrong about its scope — most of the site was already self-consistent and the arc was the outlier.
 
+## Update 4 — Phase 1 resolved (2026-04-09 later same day)
+
+**Phase 1 is now complete.** The org rename was achievable in place — my earlier claim that "GitHub doesn't support renaming organizations" was wrong. GitHub does allow it via Settings → Danger Zone → Rename organization, with automatic URL redirects.
+
+PI executed the rename: `WIndstorm-Labs` → `Windstorm-Labs`. All 9 repos came along automatically with the org. No transfers, no new org creation, no deprecation shell needed.
+
+Sweep of `WIndstorm-Labs` references across all four cleaned-up READMEs:
+
+| Repo | Commit |
+|---|---|
+| `Windstorm-Institute/agi-extensions` | `fecc160` |
+| `Windstorm-Labs/agi-extensions` | `8dbc358` |
+| `Windstorm-Institute/.github` | `f069d10` |
+| `Windstorm-Labs/.github` | `0e72009` |
+
+Removed the now-obsolete "note on the org slug typo" callouts from both org-profile READMEs and from the Labs `agi-extensions` README. Updated local-clone remote URLs to the new slug for cleanliness (auto-redirect would have worked indefinitely anyway).
+
+References to `WIndstorm-Labs` remaining in this CONDUCTOR_STATUS.md (Updates 3 and earlier) are intentional historical record of how the issue was scoped before the rename was discovered to be in-place; they document the wrong-turn-then-corrected decision path and should not be edited out.
+
+**Final ecosystem state:**
+- `Windstorm-Institute` org (correctly cased, 8 repos, no rename)
+- `Windstorm-Labs` org (renamed today from `WIndstorm-Labs`, 9 repos, GitHub auto-redirects from old URL)
+- `sneakyfree` user (canonical Paper 7 work + website source)
+- All cross-repo links use the correctly-cased slug
+- Zero repos need transferring
+- Zero outstanding ecosystem-cleanup phases
+
 ## Outstanding decisions for the PI
 
 - **D-followup.** Approve the website `index.html` diff (shown in conversation; also reproducible via `cd /tmp/wsi-site && git diff`). Confirm site numbering: keep as Paper 6, or renumber to Paper 7 to match manuscripts? Once approved I commit on `paper7` branch and push.
