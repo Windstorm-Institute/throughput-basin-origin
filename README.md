@@ -10,6 +10,36 @@ This repository contains the complete experimental suite for **Paper 7: The Thro
 
 **THE ANSWER: The throughput basin is DATA-DRIVEN.**
 
+## Background: Papers 1-6
+
+This work builds on the foundational Windstorm Institute research series establishing the throughput basin framework:
+
+**Repository:** [github.com/sneakyfree/fons-constraint](https://github.com/sneakyfree/fons-constraint)
+
+### Citations
+
+1. **Paper 1**: Whitmer III, G.L. (2025). "The Fons Constraint: Universal Convergence in Serial Decoding." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+
+2. **Paper 2**: Whitmer III, G.L. (2025). "Biological Serial Decoding: From DNA to Proteins." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+
+3. **Paper 3**: Whitmer III, G.L. (2025). "Technological Serial Decoding: From Telegraph to Transformers." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+
+4. **Paper 4**: Whitmer III, G.L. (2025). "The Ribosome Benchmark: φ = 1.02." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+
+5. **Paper 5**: Whitmer III, G.L. (2025). "Silicon Inefficiency: 10^9× Above Landauer." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+
+6. **Paper 6**: Whitmer III, G.L. (2025). "AI Language Models: Inherited 4.4 BPT Constraint." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+
+**Key findings from Papers 1-6:**
+- Serial decoding systems converge to τ = 4.16 ± 0.19 bits/event
+- Ribosome operates at φ ≈ 1.02 (2% above thermodynamic minimum)
+- Silicon systems operate ~10^9× above Landauer floor
+- AI models inherit ~4.4 bits/token from biological training data
+
+**The open question:** Is this basin DATA-driven, ARCHITECTURE-driven, or PHYSICS-driven?
+
+**Paper 7 (this repository) provides the definitive answer.**
+
 ## Executive Summary
 
 After 14.5 hours of autonomous experimental execution across 4 major experiments, we found:
