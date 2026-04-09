@@ -2,9 +2,11 @@
 
 **Date:** 2026-04-09  **Hardware:** RTX 5090 (32 GB)
 **Goal:** Test whether vision data produces a different throughput basin than the
-~4 BPT language basin established in Paper 7. A different basin would confirm that
-the basin is data-driven (not architecture-driven), strengthening the path-to-AGI
-roadmap.
+~4 BPT language basin investigated in Paper 7. A different basin would be consistent
+with the data-driven hypothesis at the multimodal level, pending resolution of
+the four blocking items the internal adversarial review identified for the text-only
+experiments (see [`review/adversarial_review.md`](../review/adversarial_review.md)
+and [Paper 7.1 tracking issue #1](https://github.com/sneakyfree/agi-extensions/issues/1)).
 
 ## TL;DR
 
@@ -105,9 +107,12 @@ essential to the core finding.
 
 ## Interpretation
 
-1. **The basin is data-driven, confirmed.** Different modalities sit in
-   wildly different regions of throughput space. Architecture (transformer in
-   both cases) is not the determining factor.
+1. **The data-driven hypothesis is consistent with all four experiments at
+   the modalities tested.** Different modalities sit in wildly different
+   regions of throughput space. Architecture (transformer in both cases) is
+   not the determining factor at this scale. The four blocking items from
+   the adversarial review on the Paper 7 text experiments remain open before
+   this conclusion can be generalized beyond the regime tested.
 2. **Per-token units are not modality-comparable.** A "patch" and a "token"
    carry incomparable information loads — language tokens encode ~3.4 bits of
    linguistic state; vision patches contribute ~0.02 bits to a 1000-way label.

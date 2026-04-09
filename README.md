@@ -22,17 +22,19 @@ This work builds on the foundational Windstorm Institute research series establi
 
 ### Citations
 
-1. **Paper 1**: Whitmer III, G.L. (2025). "The Fons Constraint: Universal Convergence in Serial Decoding." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+1. **Paper 1**: Whitmer III, G.L. (2026). "The Fons Constraint." *Windstorm Institute*. DOI: [10.5281/zenodo.19274048](https://doi.org/10.5281/zenodo.19274048)
 
-2. **Paper 2**: Whitmer III, G.L. (2025). "Biological Serial Decoding: From DNA to Proteins." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+2. **Paper 2**: Whitmer III, G.L. (2026). "The Receiver-Limited Floor: Rate-Distortion Bounds on Serial Decoding Throughput." *Windstorm Institute*. DOI: [10.5281/zenodo.19322973](https://doi.org/10.5281/zenodo.19322973)
 
-3. **Paper 3**: Whitmer III, G.L. (2025). "Technological Serial Decoding: From Telegraph to Transformers." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+3. **Paper 3**: Whitmer III, G.L. (2026). "The Throughput Basin: Cross-Substrate Convergence." *Windstorm Institute*. DOI: [10.5281/zenodo.19323194](https://doi.org/10.5281/zenodo.19323194)
 
-4. **Paper 4**: Whitmer III, G.L. (2025). "The Ribosome Benchmark: φ = 1.02." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+4. **Paper 4**: Whitmer III, G.L. (2026). "The Serial Decoding Basin τ: Five Convergence Experiments." *Windstorm Institute*. DOI: [10.5281/zenodo.19323423](https://doi.org/10.5281/zenodo.19323423)
 
-5. **Paper 5**: Whitmer III, G.L. (2025). "Silicon Inefficiency: 10^9× Above Landauer." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+5. **Paper 5**: Whitmer III, G.L. (2026). "The Dissipative Decoder: Thermodynamic Cost Bounds on the Throughput Basin and Why Silicon Escapes Them." *Windstorm Institute*. DOI: [10.5281/zenodo.19433048](https://doi.org/10.5281/zenodo.19433048)
 
-6. **Paper 6**: Whitmer III, G.L. (2025). "AI Language Models: Inherited 4.4 BPT Constraint." *Windstorm Institute*. DOI: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX)
+6. **Paper 6**: Whitmer III, G.L. (2026). "The Inherited Constraint: How Biological Throughput Limits Shape Language and AI." *Windstorm Institute*. DOI: [10.5281/zenodo.19432911](https://doi.org/10.5281/zenodo.19432911)
+
+7. **Paper 7** *(this repository)*: Whitmer III, G.L. (2026). "The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven." *Windstorm Institute*. **Preprint &mdash; Zenodo deposit pending Paper 7.1.**
 
 **Key findings from Papers 1-6:**
 - Serial decoding systems converge to τ = 4.16 ± 0.19 bits/event
@@ -53,7 +55,7 @@ After 14.5 hours of autonomous experimental execution across 4 major experiments
 3. **Experiment 3 (Architecture)**: No difference between transformer and serial (p=0.688) → Basin is NOT architecture-specific
 4. **Experiment 6 (Thermodynamics)**: GPUs operate at φ ≈ 10^16, 16 orders above Landauer → No physical constraint at ~4 BPT
 
-**Conclusion**: The ~4 BPT basin in natural language reflects the actual statistical properties of natural language itself (~3-4 bits/character), not a universal limit.
+**Hedged conclusion** (read with the [adversarial review](review/adversarial_review.md)): At 92M parameters on Markov-synthetic BPE-tokenized data, the throughput basin tracks training-data token entropy rather than imposing a universal ceiling. Confirmation at larger scale and with hierarchically structured data is required before this can be generalized — see the adversarial review and the [Paper 7.1 tracking issue](https://github.com/sneakyfree/agi-extensions/issues/1).
 
 ## Repository Structure
 
