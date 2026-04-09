@@ -77,6 +77,19 @@ PI greenlit recommendations A–D. Steps executed:
    - **Show-stopper to verify before push:** site uses `Paper 0..5` numbering (off-by-one from manuscript numbering). Paper 7 manuscript becomes Paper 6 on the site. Confirm that's what you want, or I can renumber to Paper 7 throughout.
 6. 🟡 **Exp 8 multimodal arm.** Shipped as deferred per recommendation C. Vision arm CSVs and 4 plots are in the push. Multimodal `summary.json: skipped, NaN` is preserved verbatim — not erased.
 
+## Update 2 — execution log (steps 6–8)
+
+7. ✅ **Long-form article ported.** `articles/throughput-basin-origin.html` ("The Mirror, Not the Wall") created on the website using `inherited-constraint.html` as scaffolding. The body is the T5 long-form, with a dedicated **callout section** ("The part where we tell on ourselves") that foregrounds the four blocking items from the adversarial review. Article-nav prev link points to `inherited-constraint.html`.
+8. ✅ **index.html updates.** Research arc node now points to the article (not GitHub). Publication card #06 links to the article and includes the GitHub URL in the description. New articles-grid card added. Site keeps 0-indexed numbering with "(Paper 7 in manuscript series)" parentheticals.
+9. ✅ **Branch pushed and merged.** `paper7` branch pushed to `sneakyfree/windstorminstitute.org`, fast-forwarded into `main` (`986cb40..e116c35`), pushed. **GitHub Pages now live with the article and the updated index.**
+10. ✅ **Paper 7.1 tracking issue opened.** [`sneakyfree/agi-extensions#1`](https://github.com/sneakyfree/agi-extensions/issues/1) — "Paper 7.1: blocking items from internal adversarial review". 4 blocking items + 4 strongly recommended re-runs as a checklist, with section anchors back into the review.
+
+## Final state
+
+- `sneakyfree/agi-extensions` @ `3492ecc` — Paper 7 manuscript, adversarial review, deep analysis, Exp 8 vision arm, website source content, conductor status. Issue #1 open for Paper 7.1.
+- `Windstorm-Institute/fons-constraint` @ `d225b2e` — backlink added.
+- `sneakyfree/windstorminstitute.org` @ `e116c35` — Paper 6 (ms. 7) live in research arc, publications, and articles. New `articles/throughput-basin-origin.html` published.
+
 ## Outstanding decisions for the PI
 
 - **D-followup.** Approve the website `index.html` diff (shown in conversation; also reproducible via `cd /tmp/wsi-site && git diff`). Confirm site numbering: keep as Paper 6, or renumber to Paper 7 to match manuscripts? Once approved I commit on `paper7` branch and push.
