@@ -90,6 +90,83 @@ PI greenlit recommendations A–D. Steps executed:
 - `Windstorm-Institute/fons-constraint` @ `d225b2e` — backlink added.
 - `sneakyfree/windstorminstitute.org` @ `e116c35` — Paper 6 (ms. 7) live in research arc, publications, and articles. New `articles/throughput-basin-origin.html` published.
 
+## Update 3 — ecosystem cleanup execution (2026-04-09T07:22-04:00)
+
+Executed all phases of the ecosystem cleanup directive. **Phase 1 (org rename) blocked at the API layer; everything else complete.**
+
+### Phase 1 — `WIndstorm-Labs` → `Windstorm-Labs` org rename
+**Status: ⛔ BLOCKED. Requires PI manual action.**
+
+- `gh auth status` confirms token has scopes `gist, read:org, repo`. **No `admin:org`, no org-create permission.**
+- GitHub does not expose org creation through the REST API regardless of scopes — orgs can only be created via the web UI at https://github.com/account/organizations/new.
+- Repo transfers via `gh api repos/{old}/{repo}/transfer` would also require admin on both source and destination orgs, which we lack.
+- **PI action required:**
+  1. Visit https://github.com/account/organizations/new and create the org `Windstorm-Labs` (correctly cased, single capital `W`).
+  2. For each of the 9 repos in `WIndstorm-Labs`, go to Settings → Transfer Ownership and transfer to the new org. The 9 repos are: `fons-constraint`, `receiver-limited-floor`, `throughput-basin`, `serial-decoding-basin`, `dissipative-decoder`, `inherited-constraint`, `agi-extensions`, `throughput-experiments`, `.github`.
+  3. Once transferred, ping me to update every cross-repo link from `WIndstorm-Labs/...` to `Windstorm-Labs/...` and to add a forwarding README to the (now empty) old org.
+- Both org-profile READMEs already document the typo and the planned mirror as a known issue, so the typo is not invisible to readers in the meantime.
+
+### Phase 2 — Canonical 1-indexed numbering on the website ✅
+- **Surprise finding:** the body articles (`speed-limit-of-thought.html`, `throughput-basin.html`, `serial-decoding-basin.html`, `receiver-limited-floor.html`) were already 1-indexed. Only `index.html` (research arc) and the new `throughput-basin-origin.html` (which I introduced this morning with the `(ms. 7)` bandage) used the 0-indexed scheme.
+- `index.html` arc nodes Paper 0..5 → Paper 1..6, "(ms. 7)" → Paper 7.
+- Two stale "Paper 4" references in the Two Regimes section that meant the Dissipative Decoder updated to "Paper 5".
+- `articles/throughput-basin-origin.html`: every "Paper 6" → "Paper 7", every "Paper 6.1" → "Paper 7.1", removed "(manuscript Paper 7)" parentheticals.
+- Verified zero "Paper 0" / "(ms. 7)" / "(manuscript Paper 7)" / "Paper 6.1" remain anywhere on the site.
+
+### Phase 6 — φ methodology footnote ✅
+- Added a styled note to `index.html`'s Two Regimes section reconciling the ~10⁹ (Paper 5 useful-dissipation) and ~10¹⁵–10¹⁸ (Paper 7 wall-power) figures.
+- Added a `<div class="callout">` block to `articles/dissipative-decoder.html` immediately after the "800,000,000 times above its Landauer floor" sentence, making the same point at the point of citation, with a link to the Paper 7 article §3.4.
+
+### Phase 7 — Tokenization-confound retroactive disclosure ✅
+- **Drafted now per PI directive, not waiting for Paper 7.1 empirical resolution.**
+- Added a "Measurement note added April 2026" callout to `articles/serial-decoding-basin.html` immediately after the τ = 4.16 ± 0.19 result, stating that the figure is in BPT not bits-per-source-symbol, that the adversarial review's BPT-vs-source-symbol concern applies retroactively to Papers 1–4, and that re-measurement is scoped under Paper 7.1.
+- Posted [comment on issue #1](https://github.com/sneakyfree/agi-extensions/issues/1) expanding Paper 7.1 scope to include retroactive re-measurement of τ.
+
+### Phase 8 — Reading order on homepage ✅
+- New "Start here" element above the Articles grid in `index.html`, listing all 8 articles in the cold-reader path with read times. Styled to match the existing dark theme.
+
+### Phase 9 — Preprint status tag on Paper 7 publication card ✅
+- Replaced the generic `preprint` tag with a styled amber tag reading "preprint — Zenodo pending Paper 7.1" so it's visually distinct from Papers 1–6 which have real DOIs.
+
+### Phase 3 — Stale skeleton READMEs replaced ✅
+- `Windstorm-Institute/agi-extensions` README (commit `c7a7880`): full rewrite. Now opens with the adversarial-review callout, declares `sneakyfree/agi-extensions` as the canonical repo, links the manuscript / review / Paper 7.1 issue / companion article, points back to Papers 1–6 and the Labs mirror.
+- `WIndstorm-Labs/agi-extensions` README (commit `9e284b5`): full rewrite. Marks experiments as ✅ complete (was "Experiments not yet run"), links canonical repo, fixes the Paper 4/5 ordering swap that was in the old Series Index, replaces the fake `zenodo.1234573` Published Version link with real DOIs for Papers 1–6, documents the org slug typo.
+
+### Phase 4 — Backfill real Zenodo DOIs ✅
+- `sneakyfree/agi-extensions/README.md` citations 1–6 now use the real DOIs (19274048, 19322973, 19323194, 19323423, 19433048, 19432911) instead of `XXXXXX` placeholders.
+- Added an explicit Paper 7 entry marked preprint, Zenodo deposit pending Paper 7.1.
+
+### Phase 5 — Hedge unscoped claims ✅
+- `sneakyfree/agi-extensions/README.md` "Conclusion" line that previously read "not a universal limit" replaced with the defensible 92M / Markov-synthetic / BPE-tokenized scoping plus links to the adversarial review and Paper 7.1 issue.
+- `exp-8/EXPERIMENT_8_RESULTS.md` "the basin is data-driven, confirmed" replaced with "the data-driven hypothesis is consistent with all four experiments at the modalities tested … blocking items remain open before this conclusion can be generalized." Goal statement updated to match.
+
+### Phase 10 — Org profile READMEs ✅
+- Both `.github` org repos already existed.
+- `Windstorm-Institute/.github/profile/README.md` (commit `cf55a87`): replaced with a real DOI table, fixed the **Paper 4/5 swap** present in the old version (the old table had Dissipative Decoder = Paper 4 and Serial Decoding Basin τ = Paper 5, which contradicts the website and the Zenodo deposit order; corrected to Serial Decoding Basin τ = Paper 4, Dissipative Decoder = Paper 5), added Paper 7 with the preprint marker and the adversarial-review callout, and added the retroactive τ tokenization note.
+- `WIndstorm-Labs/.github/profile/README.md` (commit `e46fa00`): same DOI table, same Paper 4/5 fix, same Paper 7 callout, and an explicit "note on the org slug" explaining the `WIndstorm` typo and the planned mirror.
+
+---
+
+## Commits made this session
+
+| Repo | Commit | Description |
+|---|---|---|
+| `sneakyfree/windstorminstitute.org` | `6c612b7` | Numbering, φ footnote, tokenization callout, reading order, preprint tag |
+| `Windstorm-Institute/agi-extensions` | `c7a7880` | Replace skeleton README |
+| `WIndstorm-Labs/agi-extensions` | `9e284b5` | Update Labs README, real DOIs, adversarial-review callout |
+| `sneakyfree/agi-extensions` | `05162f9` | DOI backfill + hedge claims + Exp 8 hedge |
+| `Windstorm-Institute/.github` | `cf55a87` | Org profile rewrite |
+| `WIndstorm-Labs/.github` | `e46fa00` | Org profile rewrite |
+| `sneakyfree/agi-extensions#1` | comment | Retroactive scope expansion to Papers 1–4 τ measurement |
+
+Plus this status file commit, coming next.
+
+## Other findings surfaced during execution
+
+- **Paper 4/5 swap.** Both pre-existing org-profile READMEs had Dissipative Decoder labeled Paper 4 and Serial Decoding Basin τ labeled Paper 5. The website (and the Zenodo deposit order) has them the other way around: τ is Paper 4, Dissipative is Paper 5. This was a **separate** numbering bug from the one Phase 2 fixed, and it would have caused readers landing at either org's profile page to see a contradictory series index versus the website. Now corrected on both org profiles.
+- **The Labs `agi-extensions` README previously had a fake Zenodo DOI** (`zenodo.1234573`) labeled "Published Version" — replaced with real DOIs for Papers 1–6 in the rewritten README.
+- **The website body articles were already correctly 1-indexed.** Only the homepage research arc and the new Paper 7 article were 0-indexed. The audit's "off-by-one catastrophe" framing was right that the inconsistency existed but was wrong about its scope — most of the site was already self-consistent and the arc was the outlier.
+
 ## Outstanding decisions for the PI
 
 - **D-followup.** Approve the website `index.html` diff (shown in conversation; also reproducible via `cd /tmp/wsi-site && git diff`). Confirm site numbering: keep as Paper 6, or renumber to Paper 7 to match manuscripts? Once approved I commit on `paper7` branch and push.
