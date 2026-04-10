@@ -1,0 +1,28 @@
+quantity,point_estimate,ci_low,ci_high,n_resamples,method,notes
+self_eval_syn2,20.524591167646893,,,0,single-seed,"single-seed, CI not estimable"
+self_eval_syn4,22.846428499077568,,,0,single-seed,"single-seed, CI not estimable"
+self_eval_syn8,8.921040037996988,,,0,single-seed,"single-seed, CI not estimable"
+self_eval_syn12,17.402508930723123,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn2_on_syn2,0.0773123929382635,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn2_on_syn4,38.14125014350197,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn2_on_syn8,39.6741136244465,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn2_on_syn12,42.49187737618275,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn4_on_syn2,24.75123679525128,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn4_on_syn4,0.0263945213932169,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn4_on_syn8,30.454390628765463,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn4_on_syn12,27.411205776890306,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn8_on_syn2,39.08801876408536,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn8_on_syn4,39.04293454405757,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn8_on_syn8,7.382541029548992,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn8_on_syn12,38.56955023376588,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn12_on_syn2,31.964711999696096,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn12_on_syn4,22.429399463820605,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn12_on_syn8,26.03613706604301,,,0,single-seed,"single-seed, CI not estimable"
+cross_syn12_on_syn12,5.477732733375283,,,0,single-seed,"single-seed, CI not estimable"
+wikitext_transformer_mean_bpt,3.495435934028827,3.1544865200687395,3.815252119850892,10000,percentile-bootstrap-over-models,n=4 transformer models
+wikitext_serial_mean_bpt,3.346253825776605,2.894202472808137,3.8448585892316234,10000,percentile-bootstrap-over-models,n=3 serial models
+wikitext_diff_trans_minus_serial,0.149182108252222,-0.4114398284141263,0.6984463106555903,10000,percentile-bootstrap-independent,WikiText only (single corpus); see also paired-by-corpus in mixed_effects.txt
+paired_by_corpus_diff_trans_minus_serial,0.14001239460106907,0.04901415053957057,0.22380934425221494,10000,percentile-bootstrap-paired-corpora,n=7 corpora
+mean_structural_bonus_fp16_panel,6.864424719698489,6.751361949160072,6.970090860388598,10000,percentile-bootstrap-over-models,n=8
+mean_cliff_ratio_int3_over_int4,7.0136728176781755,4.887419647601804,9.432877418434762,10000,percentile-bootstrap-over-models,n=8
+mean_log10_phi_exp6,17.03953767913249,16.807940699808846,17.26708964478629,10000,percentile-bootstrap-over-configs,n=31

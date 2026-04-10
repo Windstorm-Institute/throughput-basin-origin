@@ -1,0 +1,29 @@
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: bpt      
+No. Observations: 49      Method:             REML     
+No. Groups:       7       Scale:              3.5120   
+Min. group size:  7       Log-Likelihood:     -125.7767
+Max. group size:  7       Converged:          Yes      
+Mean group size:  7.0                                  
+-------------------------------------------------------
+               Coef. Std.Err.   z   P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept      4.733    0.717 6.603 0.000  3.328  6.138
+arch_bin       0.140    0.948 0.148 0.883 -1.719  1.999
+model Var      0.000                                   
+corpus Var     7.278    3.641                          
+=======================================================
+
+
+FIXED EFFECT arch_bin (transformer=1): beta=0.1400, SE=0.9483, p=0.8826
+Var(model)=0.0001, Var(corpus)=7.2782, Var(resid)=3.5120
+
+Paired-by-corpus fallback (n=7 corpora):
+  diffs (T-S) by corpus: {'csv': 0.156, 'dna': -0.0472, 'math': 0.3078, 'python': 0.228, 'random_ascii': -0.0191, 'shuffled_wikitext': 0.2055, 'wikitext': 0.1492}
+  mean diff = 0.1400, t = 2.8570, p = 0.0289
+
+Naive Welch (from exp3_statistics.csv) p = 0.6880.
+Mixed-effects / paired analyses correctly account for repeated measures across corpora;
+they should be (and are) more conservative or comparable, NOT less. The data still
+provide no evidence of an architecture difference, but also no evidence of equivalence.

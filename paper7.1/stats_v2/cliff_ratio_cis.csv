@@ -1,0 +1,10 @@
+model,params,bpt_int4,bpt_int3,cliff_ratio,n_within_cell,notes,ci_low,ci_high
+EleutherAI/pythia-1.4b,1414647808,3.0460026156268936,17.774453745952307,5.835337650323774,1,"single measurement, no within-cell uncertainty",,
+EleutherAI/pythia-160m,162322944,4.49433318401933,42.17628783598829,9.384326018808776,1,"single measurement, no within-cell uncertainty",,
+EleutherAI/pythia-1b,1011781632,3.13898881943419,27.140700456723625,8.646319569120287,1,"single measurement, no within-cell uncertainty",,
+EleutherAI/pythia-410m,405334016,3.7588968448161664,23.1282048742512,6.152923538230886,1,"single measurement, no within-cell uncertainty",,
+EleutherAI/pythia-70m,70426624,5.1959563582016575,72.04458360439261,13.865509761388287,1,"single measurement, no within-cell uncertainty",,
+openai-community/gpt2,124439808,4.144930478804033,14.88906366417438,3.592114208021754,1,"single measurement, no within-cell uncertainty",,
+openai-community/gpt2-large,774030080,3.4827559971460134,10.3130153313547,2.9611650485436893,1,"single measurement, no within-cell uncertainty",,
+openai-community/gpt2-medium,354823168,3.741990262305749,21.223396578077487,5.671686746987952,1,"single measurement, no within-cell uncertainty",,
+ALL_MEAN,8,,,7.0136728176781755,10000,"bootstrap mean across n=8 models, ci_low=4.8874, ci_high=9.5047",4.887432843277854,9.504667693204365
