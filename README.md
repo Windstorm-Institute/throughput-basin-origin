@@ -227,7 +227,7 @@ MIT License - See LICENSE file for details
 ## Contact
 
 For questions or collaborations:
-- GitHub Issues: [sneakyfree/agi-extensions](https://github.com/Windstorm-Institute/throughput-basin-origin/issues)
+- GitHub Issues: [Windstorm-Institute/throughput-basin-origin](https://github.com/Windstorm-Institute/throughput-basin-origin/issues)
 - Windstorm Institute: contact through GitHub
 
 ---
