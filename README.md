@@ -55,7 +55,7 @@ After 14.5 hours of autonomous experimental execution across 4 major experiments
 3. **Experiment 3 (Architecture)**: No difference between transformer and serial (p=0.688) → Basin is NOT architecture-specific
 4. **Experiment 6 (Thermodynamics)**: GPUs operate at φ ≈ 10^16, 16 orders above Landauer → No physical constraint at ~4 BPT
 
-**Hedged conclusion** (read with the [adversarial review](review/adversarial_review.md)): At 92M parameters on Markov-synthetic BPE-tokenized data, the throughput basin tracks training-data token entropy rather than imposing a universal ceiling. Confirmation at larger scale and with hierarchically structured data is required before this can be generalized — see the adversarial review and the [Paper 7.1 tracking issue](https://github.com/sneakyfree/agi-extensions/issues/1).
+**Hedged conclusion** (read with the [adversarial review](review/adversarial_review.md)): At 92M parameters on Markov-synthetic BPE-tokenized data, the throughput basin tracks training-data token entropy rather than imposing a universal ceiling. Confirmation at larger scale and with hierarchically structured data is required before this can be generalized — see the adversarial review and the [Paper 7.1 tracking issue](https://github.com/Windstorm-Institute/throughput-basin-origin/issues/1).
 
 ## Repository Structure
 
@@ -227,7 +227,7 @@ MIT License - See LICENSE file for details
 ## Contact
 
 For questions or collaborations:
-- GitHub Issues: [sneakyfree/agi-extensions](https://github.com/sneakyfree/agi-extensions/issues)
+- GitHub Issues: [sneakyfree/agi-extensions](https://github.com/Windstorm-Institute/throughput-basin-origin/issues)
 - Windstorm Institute: contact through GitHub
 
 ---
