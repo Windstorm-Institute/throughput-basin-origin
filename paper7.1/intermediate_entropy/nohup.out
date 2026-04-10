@@ -1,0 +1,73 @@
+[2026-04-10 12:24:09] ============================================================
+[2026-04-10 12:24:09] INTERMEDIATE ENTROPY SWEEP — Starting
+[2026-04-10 12:24:09] ============================================================
+[2026-04-10 12:24:09] 
+Phase 1: Generating corpora (CPU)
+[2026-04-10 12:24:09] Generating syn5: K=32, target H=5.0
+[2026-04-10 12:24:09]   Zipf alpha=0.0010, theoretical H=5.0000
+[2026-04-10 12:24:12]   syn5 generated: H_empirical=5.0000, unique=32
+[2026-04-10 12:24:12] Generating syn6: K=64, target H=6.0
+[2026-04-10 12:24:12]   Zipf alpha=0.0010, theoretical H=6.0000
+[2026-04-10 12:24:16]   syn6 generated: H_empirical=6.0000, unique=64
+[2026-04-10 12:24:16] Generating syn7: K=128, target H=7.0
+[2026-04-10 12:24:16]   Zipf alpha=0.0010, theoretical H=7.0000
+[2026-04-10 12:24:20]   syn7 generated: H_empirical=7.0000, unique=128
+[2026-04-10 12:24:20] Entropy measurements saved
+[2026-04-10 12:24:20] 
+Phase 2: Building tokenizers (CPU)
+[2026-04-10 12:24:20] Training tokenizer for syn5
+
+
+
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-10 12:24:31]   Tokenizer trained: vocab=280
+[2026-04-10 12:24:31] Training tokenizer for syn6
+
+
+
+[2026-04-10 12:24:42]   Tokenizer trained: vocab=300
+[2026-04-10 12:24:42] Training tokenizer for syn7
+
+
+
+[2026-04-10 12:24:53]   Tokenizer trained: vocab=340
+[2026-04-10 12:24:53] 
+Phase 3: Waiting for GPU...
+[2026-04-10 12:24:54] GPU free (147 MB used). Proceeding.
+[2026-04-10 12:24:54] 
+Phase 4: Training models
+[2026-04-10 12:24:54] 
+Tokenizing syn5...
+[2026-04-10 12:31:03]   Train: 213735283 tokens, Eval: 23748708 tokens, Eval chars: 40000000
+[2026-04-10 12:31:03] 
+============================================================
+[2026-04-10 12:31:03] Training syn5 seed=42
+[2026-04-10 12:31:03] ============================================================
+[2026-04-10 12:31:04]   85,664,256 params
+/home/user1-gpu/agi-extensions/paper7.1/intermediate_entropy/run_intermediate.py:200: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+/home/user1-gpu/agi-extensions/paper7.1/intermediate_entropy/run_intermediate.py:217: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+[2026-04-10 12:31:32]   step 200/40000, loss=1.4781
+[2026-04-10 12:32:00]   step 400/40000, loss=1.4685
+[2026-04-10 12:32:28]   step 600/40000, loss=1.4633
+[2026-04-10 12:32:56]   step 800/40000, loss=1.4638
+[2026-04-10 12:33:24]   step 1000/40000, loss=1.4630
+[2026-04-10 12:33:51]   step 1200/40000, loss=1.4615
+[2026-04-10 12:34:26]   step 1400/40000, loss=1.4498
+[2026-04-10 12:35:06]   step 1600/40000, loss=1.4669
+[2026-04-10 12:35:46]   step 1800/40000, loss=1.4586
+[2026-04-10 12:36:27]   step 2000/40000, loss=1.4699
+[2026-04-10 12:37:07]   step 2200/40000, loss=1.4616
+[2026-04-10 12:37:39]   step 2400/40000, loss=1.4638
+[2026-04-10 12:38:06]   step 2600/40000, loss=1.4566
+[2026-04-10 12:38:34]   step 2800/40000, loss=1.4720
+[2026-04-10 12:39:02]   step 3000/40000, loss=1.4660
+[2026-04-10 12:39:30]   step 3200/40000, loss=1.4668
+[2026-04-10 12:39:58]   step 3400/40000, loss=1.4678
+[2026-04-10 12:40:26]   step 3600/40000, loss=1.4701
+[2026-04-10 12:40:53]   step 3800/40000, loss=1.4668
+[2026-04-10 12:41:29]   step 4000/40000, loss=1.4622
+[2026-04-10 12:42:10]   step 4200/40000, loss=1.4650
