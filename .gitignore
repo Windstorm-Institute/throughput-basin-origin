@@ -28,3 +28,8 @@ exp-1/tokenizers/
 # Note: Model files are excluded due to size.
 # Trained models available upon request or can be regenerated using:
 # cd exp-1/code && python exp1_train.py
+
+# Paper 7.1 training artifacts
+paper7.1/corpora/
+paper7.1/models/
+paper7.1/tokenizers/
