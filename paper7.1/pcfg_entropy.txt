@@ -1,0 +1,4 @@
+pcfg_corpus_entropy_bits_per_symbol: 7.648266
+pcfg_shuffled_entropy_bits_per_symbol: 7.648266
+unique_terminals: 256
+total_bytes: 25000009
