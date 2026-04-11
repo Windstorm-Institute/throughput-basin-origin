@@ -367,3 +367,11 @@ Evaluating shuffling cascade (seed=137)...
 [2026-04-11 12:44:41] 
   STRUCTURAL BONUS (seed=137): -0.7601 bits/pixel
 [2026-04-11 12:44:41]   (Language structural bonus from Paper 6: ~6.7 bits/token)
+[2026-04-11 12:44:42] Git push: seed 137 committed
+[2026-04-11 12:44:42] 
+Generating plots...
+[2026-04-11 12:44:43] Cascade plot saved
+[2026-04-11 12:44:43] Delta plot saved
+[2026-04-11 12:44:43] 
+Writing report...
+[2026-04-11 12:44:43] Report written
