@@ -272,3 +272,6 @@ Shuffling cascade evaluation:
 [2026-04-11 15:22:19]   pixel_shuffled           : MSE=0.062870, bits/px=0.0710
 [2026-04-11 15:22:19] 
   STRUCTURAL BONUS: 0.6899 bits/pixel
+[2026-04-11 15:22:21] 
+Generating plots...
+[2026-04-11 15:22:22] Plots saved
