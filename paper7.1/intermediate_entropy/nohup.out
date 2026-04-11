@@ -1351,3 +1351,9 @@ Tokenizing syn7...
 [2026-04-11 05:05:42]   step 40000/40000, loss=2.0424
 [2026-04-11 05:07:46]   EVAL step 40000: BPT=2.9473, BPSS*=1.7500
 [2026-04-11 05:09:49]   FINAL: BPT=2.9473, BPSS*=1.7500, BPSS*/H=0.2500, slope=0.00000000
+[2026-04-11 05:09:50] Git push: syn7 results committed
+[2026-04-11 05:09:50] 
+Phase 5: Generating plots
+[2026-04-11 05:09:50] Plot saved: bpt_vs_entropy_full
+[2026-04-11 05:09:50] 
+Phase 6: Writing report
