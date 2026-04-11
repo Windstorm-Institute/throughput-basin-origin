@@ -34,7 +34,7 @@ This work builds on the foundational Windstorm Institute research series establi
 
 6. **Paper 6**: Whitmer III, G.L. (2026). "The Inherited Constraint: How Biological Throughput Limits Shape Language and AI." *Windstorm Institute*. DOI: [10.5281/zenodo.19432911](https://doi.org/10.5281/zenodo.19432911)
 
-7. **Paper 7** *(this repository)*: Whitmer III, G.L. (2026). "The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven." *Windstorm Institute*. DOI: [10.5281/zenodo.19498583](https://doi.org/10.5281/zenodo.19498583)
+7. **Paper 7** *(this repository)*: Whitmer III, G.L. (2026). "The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven." *Windstorm Institute*. DOI: [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582)
 
 **Key findings from Papers 1-6:**
 - Serial decoding systems converge to τ = 4.16 ± 0.19 bits/event
