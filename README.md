@@ -1,6 +1,8 @@
-# AGI Extensions: Throughput Basin Origin Experiments
+# Paper 7: The Throughput Basin Origin
 
-**Windstorm Institute - Paper 7**
+**Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven**
+
+**Windstorm Institute** · [doi:10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -55,12 +57,12 @@ After 14.5 hours of autonomous experimental execution across 4 major experiments
 3. **Experiment 3 (Architecture)**: No difference between transformer and serial (p=0.688) → Basin is NOT architecture-specific
 4. **Experiment 6 (Thermodynamics)**: GPUs operate at φ ≈ 10^16, 16 orders above Landauer → No physical constraint at ~4 BPT
 
-**Hedged conclusion** (read with the [adversarial review](review/adversarial_review.md)): At 92M parameters on Markov-synthetic BPE-tokenized data, the throughput basin tracks training-data token entropy rather than imposing a universal ceiling. Confirmation at larger scale and with hierarchically structured data is required before this can be generalized — see the adversarial review and the [Paper 7.1 tracking issue](https://github.com/Windstorm-Institute/throughput-basin-origin/issues/1).
+**Conclusion** (read with the [adversarial review](review/adversarial_review.md)): At 92M and 1.2B parameters on Markov-synthetic data, models extract bits per source byte equal to the source entropy — confirmed at both scales with identical results. Intermediate entropy levels (SYN-5/6/7) show perfect linear tracking from H=5 through H=8 with no architectural attractor near 4 bits. The basin is data-driven, refined by hierarchical structure: **BPT ≈ source\_entropy − f(structural\_depth)**. See the [Paper 7.1 tracking issue](https://github.com/Windstorm-Institute/throughput-basin-origin/issues/1) for remaining open items (R7, R8).
 
 ## Repository Structure
 
 ```
-agi-extensions/
+throughput-basin-origin/
 ├── exp-1/          # Synthetic Data Training (THE CRITICAL TEST)
 │   ├── code/       # Corpus generation, training, evaluation
 │   ├── corpora/    # SYN-2, SYN-4, SYN-8, SYN-12 (controlled entropy)
@@ -194,7 +196,8 @@ All bugs were self-identified and fixed autonomously during the 14.5-hour execut
   author={Whitmer III, Grant Lavell and Claude Sonnet 4.5},
   institution={Windstorm Institute},
   year={2026},
-  note={Paper 7 of the AGI Extensions Series}
+  note={Paper 7 of the Windstorm Institute Throughput Basin Series},
+  doi={10.5281/zenodo.19498582}
 }
 ```
 
