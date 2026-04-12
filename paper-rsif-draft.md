@@ -6,7 +6,7 @@ The Windstorm Institute, Fort Ann, NY 12827, USA
 
 Email: grantwhitmer3@gmail.com
 
-ORCID: 0000-0000-0000-0000
+ORCID: 0009-0007-3224-755X
 
 ---
 
