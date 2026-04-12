@@ -1,0 +1,6 @@
+modality,source,throughput_per_unit,unit,units_per_sec,bits_per_sec,source_entropy,compression_ratio
+Language,WikiText-2 (Pythia-1.4B),0.85,bits/byte,1250,17.68,4.16,0.10625
+Vision (next-patch),STL-10 96×96,0.76,bits/pixel,829440,630374.4000000001,5.07,0.095
+Vision (MAE),STL-10 224×224,1.39,bits/pixel,4515840,6277017.599999999,3.2,0.17375
+Audio (speech),Synthetic speech,1.8,bits/mel_dim,5504,9907.2,8.0,0.225
+Audio (noise),White noise,0.0,bits/mel_dim,5504,0.0,8.0,0.0
