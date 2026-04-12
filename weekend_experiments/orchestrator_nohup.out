@@ -1,0 +1,116 @@
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:36] WEEKEND EXPERIMENT ORCHESTRATOR — STARTING
+[2026-04-11 21:47:36] Time: 2026-04-11 21:47:36
+[2026-04-11 21:47:36] Target: 13 experiments for Papers 8 and 9
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:36] 
+
+========== PHASE 1: Saturday Night ==========
+
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:36] P8-E1: MAE GENERATIVE VISION THROUGHPUT
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:36] P8-E8: HIGH-RESOLUTION VISUAL ENTROPY
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:36] P9-E4: REAL MODEL WEIGHTS THROUGH HARDWARE QUANTIZATION
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:36] ============================================================
+[2026-04-11 21:47:37]   Loading Pythia-410M...
+[2026-04-11 21:47:45]   Loading facebook/vit-mae-base...
+[2026-04-11 21:47:46]   Processing STL10_96x96: 2000 images, 96×96×3
+[2026-04-11 21:47:50]   STL10_96x96: H_pixel=7.854, H_cond=5.478, H_gzip=6.418, H_png=5.073
+[2026-04-11 21:47:50]   Resizing to 224×224...
+[2026-04-11 21:47:50]   Extracted 4 weight matrices
+[2026-04-11 21:47:50]     attn_qkv: (3072, 1024), range [-0.2705, 0.3096]
+[2026-04-11 21:47:50]     attn_dense: (1024, 1024), range [-0.2321, 0.2334]
+[2026-04-11 21:47:50]     mlp_dense_h_to_4h: (4096, 1024), range [-0.1228, 0.1207]
+[2026-04-11 21:47:50]     mlp_dense_4h_to_h: (1024, 4096), range [-0.2742, 0.2163]
+[2026-04-11 21:47:51]   attn_qkv: INT4 cos=0.905443, INT3 cos=0.634347
+[2026-04-11 21:47:51]   attn_dense: INT4 cos=0.866023, INT3 cos=0.407470
+[2026-04-11 21:47:52]   mlp_dense_h_to_4h: INT4 cos=0.977880, INT3 cos=0.894533
+[2026-04-11 21:47:54]   mlp_dense_4h_to_h: INT4 cos=0.841498, INT3 cos=0.311283
+[2026-04-11 21:47:55] P9-E4 COMPLETE
+[2026-04-11 21:47:57]   MAE-Base: MAE_loss=0.009679, bits/px=1.3795
+[2026-04-11 21:47:57]   Loading facebook/vit-mae-large...
+[2026-04-11 21:48:05]   STL10@224: H_gzip=5.556, H_png=3.196
+[2026-04-11 21:48:05] P8-E8 COMPLETE
+[2026-04-11 21:48:13]   MAE-Large: MAE_loss=0.009395, bits/px=1.4010
+[2026-04-11 21:48:14] P8-E1 COMPLETE
+[2026-04-11 21:48:14] 
+
+========== PHASE 1 COMPLETE ==========
+
+[2026-04-11 21:48:14] 
+
+========== PHASE 2: Patch Invariance ==========
+
+[2026-04-11 21:48:14] ============================================================
+[2026-04-11 21:48:14] P8-E7: PATCH SIZE INVARIANCE
+[2026-04-11 21:48:14] ============================================================
+[2026-04-11 21:48:22]   Pixel variance: 0.069371
+[2026-04-11 21:48:22] 
+  Patch size 8×8: 144 patches/image, dim=192, embed=192
+/home/user1-gpu/agi-extensions/weekend_experiments/orchestrator.py:474: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+/home/user1-gpu/agi-extensions/weekend_experiments/orchestrator.py:493: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-11 21:49:36]     step 5000/20000, loss=0.019643
+[2026-04-11 21:50:44]     step 10000/20000, loss=0.014092
+[2026-04-11 21:52:05]     step 15000/20000, loss=0.013911
+[2026-04-11 21:53:32]     step 20000/20000, loss=0.015844
+/home/user1-gpu/agi-extensions/paper8/p8a_v2_visual_cascade/run_p8a_v2.py:185: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-11 21:53:34]     Result: bits/px=1.1850, bits/patch=910.06
+[2026-04-11 21:53:34] 
+  Patch size 12×12: 64 patches/image, dim=432, embed=432
+[2026-04-11 21:54:48]     step 5000/20000, loss=0.025588
+[2026-04-11 21:56:00]     step 10000/20000, loss=0.018275
+[2026-04-11 21:57:13]     step 15000/20000, loss=0.015421
+[2026-04-11 21:58:27]     step 20000/20000, loss=0.014695
+[2026-04-11 21:58:28]     Result: bits/px=0.9284, bits/patch=713.04
+[2026-04-11 21:58:28] 
+  Patch size 16×16: 36 patches/image, dim=768, embed=512
+[2026-04-11 21:59:45]     step 5000/20000, loss=0.024030
+[2026-04-11 22:01:02]     step 10000/20000, loss=0.017398
+[2026-04-11 22:02:17]     step 15000/20000, loss=0.013975
+[2026-04-11 22:03:32]     step 20000/20000, loss=0.014814
+[2026-04-11 22:03:33]     Result: bits/px=0.7644, bits/patch=587.07
+[2026-04-11 22:03:33] 
+  Patch size 24×24: 16 patches/image, dim=1728, embed=512
+[2026-04-11 22:04:48]     step 5000/20000, loss=0.029552
+[2026-04-11 22:06:02]     step 10000/20000, loss=0.022527
+[2026-04-11 22:07:15]     step 15000/20000, loss=0.016869
+[2026-04-11 22:08:29]     step 20000/20000, loss=0.013985
+[2026-04-11 22:08:30]     Result: bits/px=0.5695, bits/patch=437.39
+[2026-04-11 22:08:30] 
+  Patch size 32×32: 9 patches/image, dim=3072, embed=512
+[2026-04-11 22:09:46]     step 5000/20000, loss=0.031922
+[2026-04-11 22:11:01]     step 10000/20000, loss=0.021567
+[2026-04-11 22:12:15]     step 15000/20000, loss=0.015906
+[2026-04-11 22:13:29]     step 20000/20000, loss=0.014527
+[2026-04-11 22:13:31]     Result: bits/px=0.4470, bits/patch=343.29
+[2026-04-11 22:13:31] 
+  Patch size 48×48: 4 patches/image, dim=6912, embed=512
+[2026-04-11 22:14:48]     step 5000/20000, loss=0.040722
+[2026-04-11 22:16:04]     step 10000/20000, loss=0.020888
+[2026-04-11 22:17:19]     step 15000/20000, loss=0.014061
+[2026-04-11 22:18:35]     step 20000/20000, loss=0.013690
+[2026-04-11 22:18:37]     Result: bits/px=0.2896, bits/patch=222.42
+[2026-04-11 22:18:39] P8-E7 COMPLETE
+[2026-04-11 22:18:39] 
+
+========== PHASE 2 COMPLETE ==========
+
+[2026-04-11 22:18:39] 
+
+============================================================
+[2026-04-11 22:18:39] WEEKEND ORCHESTRATOR — PHASE 1-2 COMPLETE
+[2026-04-11 22:18:39] Experiments completed:
+[2026-04-11 22:18:39]   ✓ p8_e1_mae_throughput
+[2026-04-11 22:18:39]   ✓ p8_e8_highres_entropy
+[2026-04-11 22:18:39]   ✓ p9_e4_real_weights
+[2026-04-11 22:18:39]   ✓ p8_e7_patch_invariance
+[2026-04-11 22:18:39] 
+4/4 Phase 1-2 experiments completed
+[2026-04-11 22:18:39] ============================================================
