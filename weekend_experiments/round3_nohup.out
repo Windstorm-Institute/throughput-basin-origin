@@ -1,0 +1,329 @@
+[2026-04-12 11:39:00] ============================================================
+[2026-04-12 11:39:00] ROUND 3 ORCHESTRATOR: 9 EXPERIMENTS FOR PAPERS 8 AND 9
+[2026-04-12 11:39:00] Started: 2026-04-12 11:39:00
+[2026-04-12 11:39:00] ============================================================
+[2026-04-12 11:39:00] 
+============================================================
+[2026-04-12 11:39:00] EXP 7: BITS-PER-SECOND CROSS-MODAL NORMALIZATION
+[2026-04-12 11:39:00] Skeptic's attack: 'You can't compare bits/pixel to bits/mel_dim.'
+[2026-04-12 11:39:00] ============================================================
+[2026-04-12 11:39:00] 
+============================================================
+[2026-04-12 11:39:00] EXP 1: REAL AUDIO WITH LJ SPEECH
+[2026-04-12 11:39:00] Skeptic's attack: 'Your audio is synthetic sinusoids.'
+[2026-04-12 11:39:00] ============================================================
+[2026-04-12 11:39:00]   Loading LJ Speech...
+[2026-04-12 11:39:00]     LJ Speech failed: Could not load libtorchcodec. Likely causes:
+          1. FFmpeg is not properly installed in your environment. We support
+             versions 4, 5, 6, 7, and 8, and we attempt to load libtorchcodec
+             for each of those versions. Errors for versions not installed on
+             your system are expected; only the error for your installed FFmpeg
+             version is relevant. On Windows, ensure you've installed the
+             "full-shared" version which ships DLLs.
+          2. The PyTorch version (2.11.0+cu130) is not compatible with
+             this version of TorchCodec. Refer to the version compatibility
+             table:
+             https://github.com/pytorch/torchcodec?tab=readme-ov-file#installing-torchcodec.
+          3. Another runtime dependency; see exceptions below.
+
+        The following exceptions were raised as we tried to load libtorchcodec:
+        
+[start of libtorchcodec loading traceback]
+FFmpeg version 8:
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.60: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/_core/ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/libtorchcodec_core8.so
+
+FFmpeg version 7:
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.59: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/_core/ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/libtorchcodec_core7.so
+
+FFmpeg version 6:
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: /home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/libtorchcodec_core6.so: undefined symbol: _ZN3c1013MessageLoggerC1EPKciib
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/_core/ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/libtorchcodec_core6.so
+
+FFmpeg version 5:
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.57: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/_core/ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/libtorchcodec_core5.so
+
+FFmpeg version 4:
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.56: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/_core/ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /home/user1-gpu/.local/lib/python3.12/site-packages/torchcodec/libtorchcodec_core4.so
+[end of libtorchcodec loading traceback].
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'mozilla-foundation/common_voice_17_0' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+[2026-04-12 11:39:02]   Git pushed: Round 3 Exp 7: cross-modal normalization
+[2026-04-12 11:39:02] EXP 7 COMPLETE
+[2026-04-12 11:39:02]     Common Voice also failed: The directory at hf://datasets/mozilla-foundation/common_voice_17_0@11dc88355e899d1bf2df74f01b904a8544a17b33 doesn't contain any data files
+[2026-04-12 11:39:02]     Generating high-quality synthetic speech
+[2026-04-12 11:39:03]   Generating piano music...
+[2026-04-12 11:39:05] 
+  --- speech_synthetic (600s) ---
+[2026-04-12 11:39:09]     Training seed=42...
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_orchestrator.py:205: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_orchestrator.py:220: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-12 11:41:09]       step 10000/50000, loss=0.039198
+[2026-04-12 11:43:01]       step 20000/50000, loss=0.027325
+[2026-04-12 11:44:50]       step 30000/50000, loss=0.023748
+[2026-04-12 11:46:40]       step 40000/50000, loss=0.021724
+[2026-04-12 11:48:34]       step 50000/50000, loss=0.021867
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_orchestrator.py:244: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_orchestrator.py:270: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-12 11:48:36]       speech_synthetic s=42: bpd=0.6253, bonus=0.6253, slope=-3.40e-08
+[2026-04-12 11:48:36]     Training seed=137...
+[2026-04-12 11:50:30]       step 10000/50000, loss=0.037960
+[2026-04-12 11:52:29]       step 20000/50000, loss=0.025323
+[2026-04-12 11:54:33]       step 30000/50000, loss=0.023354
+[2026-04-12 11:56:33]       step 40000/50000, loss=0.021203
+[2026-04-12 11:58:30]       step 50000/50000, loss=0.021980
+[2026-04-12 11:58:32]       speech_synthetic s=137: bpd=0.6346, bonus=0.6346, slope=-3.54e-08
+[2026-04-12 11:58:32] 
+  --- music (600s) ---
+[2026-04-12 11:58:35]     Training seed=42...
+[2026-04-12 12:00:33]       step 10000/50000, loss=0.009536
+[2026-04-12 12:02:33]       step 20000/50000, loss=0.005798
+[2026-04-12 12:04:29]       step 30000/50000, loss=0.003855
+[2026-04-12 12:06:24]       step 40000/50000, loss=0.003106
+[2026-04-12 12:08:21]       step 50000/50000, loss=0.002538
+[2026-04-12 12:08:23]       music s=42: bpd=2.8611, bonus=2.8611, slope=-3.44e-08
+[2026-04-12 12:08:23]     Training seed=137...
+[2026-04-12 12:10:16]       step 10000/50000, loss=0.010575
+[2026-04-12 12:12:11]       step 20000/50000, loss=0.006613
+[2026-04-12 12:14:12]       step 30000/50000, loss=0.003378
+[2026-04-12 12:16:06]       step 40000/50000, loss=0.003319
+[2026-04-12 12:18:04]       step 50000/50000, loss=0.002405
+[2026-04-12 12:18:06]       music s=137: bpd=2.8312, bonus=2.8275, slope=-3.52e-08
+[2026-04-12 12:18:06] 
+  --- noise (600s) ---
+[2026-04-12 12:18:09]     Training seed=42...
+[2026-04-12 12:20:11]       step 10000/50000, loss=0.247945
+[2026-04-12 12:22:12]       step 20000/50000, loss=0.218435
+[2026-04-12 12:24:10]       step 30000/50000, loss=0.207122
+[2026-04-12 12:26:01]       step 40000/50000, loss=0.202905
+[2026-04-12 12:28:00]       step 50000/50000, loss=0.202063
+[2026-04-12 12:28:01]       noise s=42: bpd=0.0000, bonus=0.0000, slope=-1.26e-07
+[2026-04-12 12:28:01]     Training seed=137...
+[2026-04-12 12:30:00]       step 10000/50000, loss=0.242500
+[2026-04-12 12:31:45]       step 20000/50000, loss=0.217003
+[2026-04-12 12:33:51]       step 30000/50000, loss=0.210322
+[2026-04-12 12:35:48]       step 40000/50000, loss=0.204647
+[2026-04-12 12:37:46]       step 50000/50000, loss=0.204466
+[2026-04-12 12:37:49]       noise s=137: bpd=0.0000, bonus=0.0000, slope=-1.23e-07
+[2026-04-12 12:37:49] 
+  --- silence (60s) ---
+[2026-04-12 12:37:49]     Training seed=42...
+[2026-04-12 12:40:02]       step 10000/50000, loss=0.014928
+[2026-04-12 12:42:20]       step 20000/50000, loss=0.009729
+[2026-04-12 12:44:37]       step 30000/50000, loss=0.008179
+[2026-04-12 12:46:54]       step 40000/50000, loss=0.007682
+[2026-04-12 12:49:12]       step 50000/50000, loss=0.007517
+[2026-04-12 12:49:13]       silence s=42: bpd=0.0000, bonus=0.0000, slope=-1.29e-08
+[2026-04-12 12:49:13]     Training seed=137...
+[2026-04-12 12:51:29]       step 10000/50000, loss=0.015510
+[2026-04-12 12:53:48]       step 20000/50000, loss=0.009841
+[2026-04-12 12:56:01]       step 30000/50000, loss=0.008179
+[2026-04-12 12:58:10]       step 40000/50000, loss=0.007640
+[2026-04-12 13:00:23]       step 50000/50000, loss=0.007448
+[2026-04-12 13:00:23]       silence s=137: bpd=0.0000, bonus=0.0000, slope=-1.31e-08
+[2026-04-12 13:00:24]   Git pushed: Round 3 Exp 1: real audio
+[2026-04-12 13:00:24] EXP 1 COMPLETE
+[2026-04-12 13:00:24] 
+============================================================
+[2026-04-12 13:00:24] EXP 2: AWQ QUANTIZATION CLIFF COMPARISON
+[2026-04-12 13:00:24] Skeptic's attack: 'GPTQ/AWQ fixes INT3 — your cliff is bitsandbytes-specific.'
+[2026-04-12 13:00:24] ============================================================
+/home/user1-gpu/.local/lib/python3.12/site-packages/awq/__init__.py:21: DeprecationWarning: 
+I have left this message as the final dev message to help you transition.
+
+Important Notice:
+- AutoAWQ is officially deprecated and will no longer be maintained.
+- The last tested configuration used Torch 2.6.0 and Transformers 4.51.3.
+- If future versions of Transformers break AutoAWQ compatibility, please report the issue to the Transformers project.
+
+Alternative:
+- AutoAWQ has been adopted by the vLLM Project: https://github.com/vllm-project/llm-compressor
+
+For further inquiries, feel free to reach out:
+- X: https://x.com/casper_hansen_
+- LinkedIn: https://www.linkedin.com/in/casper-hansen-804005170/
+
+  warnings.warn(_FINAL_DEV_MESSAGE, category=DeprecationWarning, stacklevel=1)
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+/home/user1-gpu/.local/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-04-12 13:00:24] Exp 2 FAILED: No module named 'transformers.models.qwen3'
+Traceback (most recent call last):
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/round3_orchestrator.py", line 776, in main
+    func()
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/round3_orchestrator.py", line 325, in exp2_gptq_cliff
+    from awq import AutoAWQForCausalLM
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/awq/__init__.py", line 24, in <module>
+    from awq.models.auto import AutoAWQForCausalLM
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/awq/models/__init__.py", line 18, in <module>
+    from .qwen3 import Qwen3AWQForCausalLM
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/awq/models/qwen3.py", line 4, in <module>
+    from transformers.models.qwen3.modeling_qwen3 import (
+ModuleNotFoundError: No module named 'transformers.models.qwen3'
+[2026-04-12 13:00:24] 
+============================================================
+[2026-04-12 13:00:24] EXP 3: END-TO-END BPT THROUGH QUANTIZED LAYERS
+[2026-04-12 13:00:24] Skeptic's attack: 'Per-matrix degradation doesn't mean end-to-end failure.'
+[2026-04-12 13:00:24] ============================================================
+[2026-04-12 13:00:27] 
+  EleutherAI/pythia-410m...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-12 13:00:28]     INT16...
+[2026-04-12 13:00:30]       INT16: BPT=4.2688, bits/byte=0.9558
+[2026-04-12 13:00:30]     INT8...
+[2026-04-12 13:00:36]       INT8: BPT=4.8248, bits/byte=1.0803
+[2026-04-12 13:00:36]     INT4...
+[2026-04-12 13:00:44]       INT4: BPT=16.8923, bits/byte=3.7824
+[2026-04-12 13:00:44]     INT3...
+[2026-04-12 13:00:50]       INT3: BPT=16.0500, bits/byte=3.5938
+[2026-04-12 13:00:50]     INT2...
+[2026-04-12 13:00:57]       INT2: BPT=15.6104, bits/byte=3.4954
+[2026-04-12 13:00:57] 
+  EleutherAI/pythia-1.4b...
+[2026-04-12 13:00:58]     INT16...
+[2026-04-12 13:01:03]       INT16: BPT=3.8112, bits/byte=0.8534
+[2026-04-12 13:01:03]     INT8...
+[2026-04-12 13:01:13]       INT8: BPT=3.8468, bits/byte=0.8614
+[2026-04-12 13:01:13]     INT4...
+[2026-04-12 13:01:22]       INT4: BPT=16.8997, bits/byte=3.7840
+[2026-04-12 13:01:22]     INT3...
+[2026-04-12 13:01:32]       INT3: BPT=15.7466, bits/byte=3.5259
+[2026-04-12 13:01:32]     INT2...
+[2026-04-12 13:01:41]       INT2: BPT=15.6217, bits/byte=3.4979
+[2026-04-12 13:01:42]   Git pushed: Round 3 Exp 3: end-to-end BPT
+[2026-04-12 13:01:42] EXP 3 COMPLETE
+[2026-04-12 13:01:42] 
+============================================================
+[2026-04-12 13:01:42] EXP 4: MULTIPLE MODELS THROUGH HARDWARE QUANTIZATION
+[2026-04-12 13:01:42] Skeptic's attack: 'Only one model tested.'
+[2026-04-12 13:01:42] ============================================================
+[2026-04-12 13:01:42] 
+  EleutherAI/pythia-160m (transformer)...
+[2026-04-12 13:01:43]     Extracted 6 weight matrices
+[2026-04-12 13:01:43]       gpt_neox.layers.0.attention.query_key_value.weight: INT4 cos=0.8546
+[2026-04-12 13:01:43]       gpt_neox.layers.0.attention.dense.weight: INT4 cos=0.8672
+[2026-04-12 13:01:44]       gpt_neox.layers.0.mlp.dense_h_to_4h.weight: INT4 cos=0.9785
+[2026-04-12 13:01:44]       gpt_neox.layers.0.mlp.dense_4h_to_h.weight: INT4 cos=0.8833
+[2026-04-12 13:01:45]       gpt_neox.layers.1.attention.query_key_value.weight: INT4 cos=0.9124
+[2026-04-12 13:01:45]       gpt_neox.layers.1.attention.dense.weight: INT4 cos=0.6901
+[2026-04-12 13:01:45] 
+  EleutherAI/pythia-1.4b (transformer)...
+[2026-04-12 13:01:46]     Extracted 6 weight matrices
+[2026-04-12 13:01:51]       gpt_neox.layers.0.attention.query_key_value.weight: INT4 cos=0.9050
+[2026-04-12 13:01:52]       gpt_neox.layers.0.attention.dense.weight: INT4 cos=0.7172
+[2026-04-12 13:01:58]       gpt_neox.layers.0.mlp.dense_h_to_4h.weight: INT4 cos=0.9705
+[2026-04-12 13:02:04]       gpt_neox.layers.0.mlp.dense_4h_to_h.weight: INT4 cos=0.7364
+[2026-04-12 13:02:09]       gpt_neox.layers.1.attention.query_key_value.weight: INT4 cos=0.7973
+[2026-04-12 13:02:09]       gpt_neox.layers.1.attention.dense.weight: INT4 cos=0.8387
+[2026-04-12 13:02:10] 
+  gpt2-medium (transformer)...
+[2026-04-12 13:02:10]     Extracted 6 weight matrices
+[2026-04-12 13:02:11]       transformer.h.0.mlp.c_fc.weight: INT4 cos=0.7958
+[2026-04-12 13:02:12]       transformer.h.0.mlp.c_proj.weight: INT4 cos=0.2364
+[2026-04-12 13:02:13]       transformer.h.1.mlp.c_fc.weight: INT4 cos=0.2392
+[2026-04-12 13:02:14]       transformer.h.1.mlp.c_proj.weight: INT4 cos=0.2820
+[2026-04-12 13:02:15]       transformer.h.2.mlp.c_fc.weight: INT4 cos=0.8200
+[2026-04-12 13:02:16]       transformer.h.2.mlp.c_proj.weight: INT4 cos=0.2542
+[2026-04-12 13:02:16] 
+  state-spaces/mamba-370m-hf (state-space)...
+The fast path is not available because one of `(selective_state_update, selective_scan_fn, causal_conv1d_fn, causal_conv1d_update, mamba_inner_fn)` is None. Falling back to the sequential implementation of Mamba, as use_mambapy is set to False. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d. For the mamba.py backend, follow https://github.com/alxndrTL/mamba.py.
+[2026-04-12 13:02:31]     Extracted 6 weight matrices
+[2026-04-12 13:02:31]       backbone.layers.0.mixer.A_log: INT4 cos=0.9855
+[2026-04-12 13:02:32]       backbone.layers.0.mixer.in_proj.weight: INT4 cos=0.6632
+[2026-04-12 13:02:32]       backbone.layers.0.mixer.x_proj.weight: INT4 cos=0.8839
+[2026-04-12 13:02:32]       backbone.layers.0.mixer.dt_proj.weight: INT4 cos=0.9186
+[2026-04-12 13:02:33]       backbone.layers.0.mixer.out_proj.weight: INT4 cos=0.6670
+[2026-04-12 13:02:33]       backbone.layers.1.mixer.A_log: INT4 cos=0.9858
+[2026-04-12 13:02:33]   Git pushed: Round 3 Exp 4: multiple models
+[2026-04-12 13:02:33] EXP 4 COMPLETE
+[2026-04-12 13:02:33] 
+
+============================================================
+[2026-04-12 13:02:33] ROUND 3 COMPLETE
+[2026-04-12 13:02:33] ============================================================
+[2026-04-12 13:02:33]   ✓ round3_exp1_real_audio: 9 CSVs, 1 reports
+[2026-04-12 13:02:33]   ✓ round3_exp3_e2e_bpt: 1 CSVs, 1 reports
+[2026-04-12 13:02:33]   ✓ round3_exp4_multi_model: 1 CSVs, 1 reports
+[2026-04-12 13:02:33]   ✓ round3_exp7_bits_per_sec: 1 CSVs, 1 reports
+[2026-04-12 13:02:33] 
+4 experiments completed
