@@ -1,0 +1,5 @@
+source,seed,mode,mse,bits_per_dim
+noise_control,2024,original,1.0155923613320548,0.0
+noise_control,2024,utterance_shuffled,1.0195174361248405,0.0
+noise_control,2024,segment_shuffled,1.0245687147226843,0.0
+noise_control,2024,frame_shuffled,1.4470004265932115,0.0
