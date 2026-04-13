@@ -1,0 +1,5 @@
+source,seed,mode,mse,bits_per_dim
+silence_control,137,original,1.021398536323272,0.0
+silence_control,137,utterance_shuffled,1.0224518076578777,0.0
+silence_control,137,segment_shuffled,1.0378840543369559,0.0
+silence_control,137,frame_shuffled,1.3186709684194977,0.0
