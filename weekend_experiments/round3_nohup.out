@@ -327,3 +327,5 @@ The fast path is not available because one of `(selective_state_update, selectiv
 [2026-04-12 13:02:33]   ✓ round3_exp7_bits_per_sec: 1 CSVs, 1 reports
 [2026-04-12 13:02:33] 
 4 experiments completed
+[2026-04-12 13:02:34]   Git pushed: Round 3: all experiments complete
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
