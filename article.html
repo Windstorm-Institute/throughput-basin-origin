@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Mirror, Not the Wall — The Windstorm Institute</title>
+<meta name="description" content="The Mirror, Not the Wall: Why AI's 4-Bit Throughput Limit Is About the Data, Not the Machine. Companion article to Paper 7, published together with its full internal adversarial review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img{max-width:100%;height:auto}
+
+:root {
+  --bg: #0a0a0b;
+  --surface: #111113;
+  --surface-2: #18181b;
+  --border: #27272a;
+  --border-light: #3f3f46;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --accent: #06b6d4;
+  --accent-dim: #0891b2;
+  --accent-glow: rgba(6, 182, 212, 0.15);
+  --accent-2: #8b5cf6;
+  --warm: #f59e0b;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --serif: 'Lora', Georgia, serif;
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: #22d3ee; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 600; font-size: 0.95rem; color: var(--text);
+  letter-spacing: -0.01em;
+}
+.nav-mark {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; color: white;
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+  letter-spacing: 0.02em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* ─── ARTICLE ─── */
+.article-hero {
+  padding: 140px 0 60px;
+  position: relative;
+  text-align: center;
+}
+.article-hero::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.4;
+}
+.article-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+.article-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
+  color: var(--text-faint); letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.article-back:hover { color: var(--accent); }
+.article-meta {
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--text-faint); letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+}
+.article-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  line-height: 1.2; margin-bottom: 1.5rem;
+}
+.article-hero h1 .gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 50%, var(--warm) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.article-subtitle {
+  font-size: 1.15rem; color: var(--text-muted);
+  line-height: 1.75; max-width: 600px; margin: 0 auto 2rem;
+}
+.article-author {
+  font-size: 0.9rem; color: var(--text-muted);
+}
+.article-author strong { color: var(--text); }
+
+/* Share buttons */
+.share-bar {
+  display: flex; justify-content: center; gap: 1rem;
+  margin-top: 1.5rem;
+}
+.share-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 6px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+  color: var(--text-faint); letter-spacing: 0.04em;
+  cursor: pointer; transition: border-color 0.2s, color 0.2s;
+}
+.share-btn:hover { border-color: var(--border-light); color: var(--text-muted); }
+
+/* Article body */
+.article-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem;
+}
+.article-body h2 {
+  font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em;
+  margin: 3rem 0 1rem;
+  padding-top: 1rem;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 600;
+  margin: 2rem 0 0.75rem;
+}
+.article-body p {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+.article-body strong { color: var(--text); font-weight: 500; }
+.article-body em { font-style: italic; }
+.article-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+}
+.article-body blockquote p {
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 0;
+}
+.article-body .figure {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+.article-body .figure img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.article-body .figure-caption {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+.article-body .callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+.article-body .callout-label {
+  font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+  color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.article-body .callout p { margin-bottom: 0; font-size: 0.95rem; }
+.article-body hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3rem 0;
+}
+
+/* Paper links */
+.paper-ref {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 4px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+  color: var(--accent); white-space: nowrap;
+}
+
+/* Table */
+table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: var(--sans); font-size: 0.9rem; }
+th { text-align: left; padding: 0.75rem 1rem; border-bottom: 2px solid var(--border-light); color: var(--text); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+tr:hover td { background: var(--surface); }
+
+/* Article nav */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+.article-nav a {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+/* Footer */
+.article-footer {
+  max-width: 680px; margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  border-top: 1px solid var(--border);
+}
+.article-footer p {
+  font-size: 0.85rem; color: var(--text-faint); line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .article-hero { padding: 120px 0 40px; }
+  .article-body { padding: 2rem 1.5rem 4rem; }
+  .article-meta { flex-direction: column; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-mark">W</div>
+      The Windstorm Institute
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#articles">Articles</a>
+      <a href="../index.html#publications">Publications</a>
+      <a href="../index.html#labs">Labs</a>
+      <a href="../index.html#team">Team</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <a href="../index.html#articles" class="article-back">&larr; All Articles</a>
+    <div class="article-meta">
+      <span>Paper 7</span>
+      <span>April 2026</span>
+      <span>~12 min read</span>
+      <span>Grant Lavell Whitmer III</span>
+      <span><a href="https://doi.org/10.5281/zenodo.19498582">doi: 10.5281/zenodo.19498582</a></span>
+    </div>
+    <h1>The Mirror, Not the Wall:<br><span class="gradient">Why AI&rsquo;s 4-Bit Throughput Limit Is About the Data, Not the Machine</span></h1>
+    <p class="article-subtitle">Companion article to Paper 7 &mdash; <em>The Throughput Basin Origin</em> &mdash; published together with its full internal adversarial review.</p>
+    <div class="figure" style="margin: 2rem auto;">
+      <img src="../assets/images/web_hero_convergence.png" alt="Convergence hero image">
+    </div>
+    <div class="share-bar">
+      <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'_blank')">Share on X</button>
+      <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')">Share on LinkedIn</button>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <p><em>This article is a companion to Paper 7 &mdash; &ldquo;The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven&rdquo; (2026). The full manuscript and its internal adversarial review are at <a href="https://github.com/Windstorm-Institute/throughput-basin-origin">github.com/Windstorm-Institute/throughput-basin-origin</a>.</em></p>
+
+  <hr>
+
+  <p>For the last six papers in this arc, we&rsquo;ve been circling something strange.</p>
+
+  <p>No matter which language model we measured &mdash; small ones, large ones, open ones, closed ones, models trained by different labs on different hardware in different years &mdash; they all seemed to settle into the same narrow band when we asked how much information they were actually moving per token. Roughly four bits. Not three, not seven. Four, give or take.</p>
+
+  <p>We called it the throughput basin. And like anyone who finds a flat spot in a landscape that should be jagged, we wanted to know why it was there.</p>
+
+  <p>The honest answer, for a long time, was: we didn&rsquo;t know. We had guesses. Maybe it was something about attention. Maybe it was a property of gradient descent. Maybe transformers, as a family, had some hidden ceiling baked into how they route information through their layers. Maybe &mdash; and this was the spookiest version &mdash; we were looking at a soft law of learning machines, the way thermodynamics is a soft law of steam engines.</p>
+
+  <p>Paper 7 is the experiment that finally lets us start to say which of those stories is right.</p>
+
+  <p>It looks, so far, like none of them are. But the &ldquo;so far&rdquo; is doing real work in that sentence, and the rest of this article is about why.</p>
+
+  <h2>The setup, in plain language</h2>
+
+  <p>Here&rsquo;s the thing about a number like &ldquo;four bits per token.&rdquo; It&rsquo;s a measurement of two things at once, and you can&rsquo;t tell them apart by staring harder at the number.</p>
+
+  <p>It&rsquo;s a measurement of the <strong>model</strong> &mdash; how much it can carry.</p>
+
+  <p>And it&rsquo;s a measurement of the <strong>text</strong> &mdash; how much is actually in there to carry.</p>
+
+  <p>If you only ever weigh buckets of water, you will eventually conclude that buckets weigh about eight pounds. That is true. It is also misleading. The buckets aren&rsquo;t the constraint. The water is.</p>
+
+  <p>For six papers we had been weighing buckets of water. We needed to put something else in the bucket.</p>
+
+  <p>So we built a new training corpus from scratch. Not scraped, not filtered, not distilled &mdash; engineered. Token by token, we constructed text whose information density we could <em>prove</em>, mathematically, was about eight bits per token. Twice the basin. We called the corpus SYN-8, for &ldquo;synthetic, eight-bit.&rdquo;</p>
+
+  <p>Then we trained a model on it. Not a fancy new model. Not a bigger model. The <em>same</em> model &mdash; same architecture, same parameter count, same optimizer, same learning rate schedule, same everything &mdash; that in our earlier papers had reliably settled into the four-bit basin when trained on ordinary text. The only thing we changed was what it was reading.</p>
+
+  <h2>What happened</h2>
+
+  <p>It didn&rsquo;t settle at four bits.</p>
+
+  <p>It climbed. And it kept climbing, past the basin, past the place where every prior model in the arc had flattened out, and it tracked the eight-bit ceiling of its new diet remarkably closely &mdash; 8.0 bits per source byte on a source whose engineered entropy is exactly 8.0. Not approximately. Exactly. And when we trained a model fourteen times larger &mdash; 1.2 billion parameters instead of 92 million &mdash; it extracted the same 8.0 bits per source byte. Scale didn&rsquo;t change the answer. The mirror didn&rsquo;t crack.</p>
+
+  <p>The earlier models weren&rsquo;t hitting a wall. They were hitting a <em>surface</em> &mdash; the surface of the language they were trained on. English, like every natural human language, is enormously redundant. Most of what comes next in a sentence is, on some level, already implied by what came before. That redundancy has a number attached to it, and the number is roughly four bits per token, and that is the number we kept measuring, over and over, in model after model, because that is the number that was <em>in the room</em>.</p>
+
+  <p>The model was a mirror. We had been measuring the wall behind it.</p>
+
+  <h2>Why this matters more than it sounds like it matters</h2>
+
+  <p>I want to be careful here, because it would be easy to read this result and shrug. <em>Okay, so the limit was in the data. So what? The data is what we have. The limit is still the limit.</em></p>
+
+  <p>That shrug is wrong, and it&rsquo;s wrong in an important way.</p>
+
+  <p>When you believe a limit lives inside the machine, you start designing around the machine. You build bigger machines. You change the architecture. You add layers, you swap activations, you reach for exotic optimizers. You spend years and billions of dollars trying to drill through a wall that, it turns out, isn&rsquo;t load-bearing.</p>
+
+  <p>When you believe the limit lives inside the data, the entire problem rotates ninety degrees. Suddenly the interesting question isn&rsquo;t &ldquo;how do we make a smarter model?&rdquo; It&rsquo;s &ldquo;what would it take to put richer information in front of the one we already have?&rdquo; Those are completely different research programs. They fund different labs, hire different people, publish in different venues, and they answer to different definitions of progress.</p>
+
+  <p>Paper 7 doesn&rsquo;t tell us which program is right for any particular goal. It tells us they were never the same program in the first place, and the field has been quietly conflating them.</p>
+
+  <h2>What the result is <em>not</em> saying</h2>
+
+  <p>A few things this paper does not claim, because I have already watched smart people read the abstract and run too far with it.</p>
+
+  <p>It is <strong>not</strong> saying that natural language is &ldquo;low quality.&rdquo; Four bits per token is a staggering amount of structure; the redundancy is what makes language <em>learnable</em> at all. A corpus with no redundancy would also have nothing to predict, and a model trained on it would learn nothing useful about the world. The basin is a feature of communication, not a bug.</p>
+
+  <p>It is <strong>not</strong> saying that scaling is over, or that architecture doesn&rsquo;t matter. SYN-8 still has to be <em>trained</em>, by a model with enough capacity to actually represent eight bits of structure per token. A small enough network, given the same corpus, would still flatten out below the ceiling &mdash; just at a <em>different</em> basin, one set by capacity instead of by data. Paper 7 separates two effects that used to be tangled. It does not abolish either of them.</p>
+
+  <p>And it is <strong>not</strong> saying we have a recipe for &ldquo;eight-bit English.&rdquo; SYN-8 is a synthetic corpus. It is information-dense, but it is not, in any meaningful sense, <em>about</em> anything. Building real-world text that carries more bits per token without becoming gibberish is a much harder problem, and one we are explicitly not claiming to have solved. We&rsquo;re claiming the problem is the right problem.</p>
+
+  <h2>What we learned about the ruler</h2>
+
+  <p>There is a twist in this story that we did not expect, and it is arguably more important than the main result.</p>
+
+  <p>When we trained a 1.2-billion-parameter model on SYN-8, the headline number came back as 3.82 bits per token. Not eight. <em>Four.</em> For about twelve hours, we thought we had falsified our own thesis. The automated report declared it: &ldquo;THESIS FALSIFIED AT SCALE.&rdquo;</p>
+
+  <p>It hadn&rsquo;t. The 3.82 was a measurement artifact. The training script had built a different tokenizer &mdash; one with a vocabulary of 444 tokens instead of the 8,192 used in the original experiment. A smaller vocabulary means each token covers more source data, which mechanically halves the bits-per-token number even though the model extracts the same total information. When we measured in <em>bits per source byte</em> instead of bits per token, the number was 8.0. At both 92 million and 1.2 billion parameters. Identical.</p>
+
+  <p>The lesson is uncomfortable: <strong>bits per token is not a portable metric.</strong> Change the tokenizer and the number changes, even if the model and the data are the same. The metric we had been using for seven papers &mdash; the metric the entire field uses &mdash; is a property of the packaging, not of the information. Bits per source byte (or per source symbol, or per pixel) is the correct measure. We are saying this publicly because it applies retroactively to our own earlier papers, not just to this one.</p>
+
+  <h2>Filling the gap</h2>
+
+  <p>The original Paper 7 tested entropy levels 2, 4, 8, and 12 bits. But the basin sits at four. There was a hole in the data from 4 to 8 &mdash; exactly the range where the basin lives. A critic could reasonably ask: maybe something weird happens at five bits, or six, or seven. Maybe there is an architectural attractor near four that only shows up in that range.</p>
+
+  <p>So we built three more corpora &mdash; SYN-5 (five-bit entropy), SYN-6 (six bits), SYN-7 (seven bits) &mdash; and trained models on each. Every one of them tracked its source entropy perfectly, to three decimal places. No kink. No plateau. No attractor. The mirror is smooth all the way through the zone where the basin lives. If there were an architectural ceiling at four bits, these models would have hit it. They didn&rsquo;t.</p>
+
+  <h2>The equation</h2>
+
+  <p>But the mirror is not the whole story. When we built a corpus with eight-bit entropy <em>and</em> hierarchical grammatical structure &mdash; a probabilistic context-free grammar, the kind of recursive nesting that natural language has &mdash; the model achieved 6.59 bits per token. Not eight (what flat data yields) and not four (what natural language yields). Somewhere in between.</p>
+
+  <p>This means the basin is not just about how much entropy is in the data. It is about how much of that entropy the model can <em>compress away</em> by exploiting the data&rsquo;s structure. Natural language has deep hierarchical structure &mdash; syntax, semantics, discourse &mdash; and a model can use that structure to predict what comes next, which reduces the bits it needs to record per token. Flat synthetic data has no structure, so nothing gets compressed. The PCFG data has moderate structure, so some of it gets compressed.</p>
+
+  <p>The equation is: <strong>BPT &asymp; source entropy &minus; f(structural depth)</strong>. The basin reflects both the entropy <em>and</em> the exploitable structure of the training data. For natural language, about 6.7 bits of the ~10.8-bit unigram entropy is compressible through hierarchy. What&rsquo;s left is ~4 bits. That is the basin.</p>
+
+  <h2>The part where we tell on ourselves</h2>
+
+  <p>This is where every other version of this article would end &mdash; with the metaphor, the bow on top, the link to the PDF. We&rsquo;re going to do something else first, because the institute&rsquo;s whole job is to do this part out loud.</p>
+
+  <p>Before we wrote this article, before we even finished the manuscript, we ran an internal adversarial review on our own experiments. The review&rsquo;s job was to read the CSVs alongside the draft and find every place we had quietly overclaimed. It found eight. Four of them are blocking &mdash; meaning the headline above (<em>&ldquo;the basin is data-driven&rdquo;</em>) is not yet earned by the present experiments alone, and the next paper has to fix them before the headline becomes load-bearing.</p>
+
+  <div class="callout">
+    <div class="callout-label">Internal Adversarial Review &mdash; Status Update (April 2026)</div>
+    <p>Before publishing Paper 7, we ran an internal adversarial review that identified four blocking items. We published the review alongside the paper and committed to resolving them. Here is where they stand:</p>
+    <p><strong>1. Self-eval vs cross-corpus diagonal disagree.</strong> <em>RESOLVED.</em> The cross-corpus eval script used text from the training split (data leakage). A unified harness on provably disjoint held-out data produces SYN-8 = 9.06 BPT. The self-eval number was correct; the cross-corpus diagonal was contaminated.</p>
+    <p><strong>2. Energy and BPT measurements don&rsquo;t reconcile.</strong> <em>RESOLVED.</em> The energy experiment fed 10,000-token sequences to models trained with 2,048-token context windows. Positions beyond 2,048 undergo rotary extrapolation collapse, inflating BPT by ~3&times;. Corrected &phi; range: 10<sup>15.7</sup>&ndash;10<sup>18.8</sup>. The headline survives.</p>
+    <p><strong>3. The 8.92 number is in the wrong units.</strong> <em>RESOLVED &mdash; and the resolution taught us something.</em> BPT is tokenizer-dependent: the same model on the same data produces BPT=8.0 or BPT=3.8 depending on the tokenizer vocabulary size. Bits per source byte is the correct tokenizer-independent metric. Under that metric, SYN-8 = 8.0 bits/source byte at both 92M and 1.2B parameters. See &ldquo;What we learned about the ruler&rdquo; above.</p>
+    <p><strong>4. We don&rsquo;t have learning curves.</strong> <em>RESOLVED.</em> SYN-8 plateaus at 8.0 BPT by training step 2,000 (slope: &minus;0.00001 BPT per 1,000 steps). The model was not still descending.</p>
+    <p style="margin-top: 1rem;">Two recommended items remain open: GPTQ quantization cliff verification (R7) and fair-kernel Mamba energy comparison (R8). The full review is at <a href="https://github.com/Windstorm-Institute/throughput-basin-origin/blob/main/review/adversarial_review.md">review/adversarial_review.md</a>; the tracking issue is at <a href="https://github.com/Windstorm-Institute/throughput-basin-origin/issues/1">Paper 7.1 issue #1</a>.</p>
+  </div>
+
+  <p>You may be wondering why we publish the review at all. The answer is that the review <em>is</em> the headline. The institute&rsquo;s stated value is that the falsification attempt should arrive at the same time as the claim it constrains, not six months later in someone else&rsquo;s reply paper. When we first published this article, all four items were open. Now all four are resolved, and we are updating the article to reflect that &mdash; publicly, with the same prominence we gave the original concerns.</p>
+
+  <p>The defensible version of the headline is now substantially wider than when we first wrote it. <em>At 92M and 1.2B parameters, on Markov synthetic data at entropy levels 5 through 8 bits, models extract bits per source byte equal to source entropy &mdash; with no architectural attractor near four bits at any scale or entropy level tested. The basin reflects training-data entropy minus exploitable hierarchical structure.</em></p>
+
+  <h2>The mirror</h2>
+
+  <p>There is a moment, in almost every long research arc, when the thing you have been studying turns out to be the thing you were studying <em>with</em>. You spent years measuring something and slowly came to realize you were measuring your own ruler.</p>
+
+  <p>That is what Paper 7 is, for us. The four-bit basin was real. It was reproducible. It was robust across families and scales and training regimes, and it deserved every bit of attention we gave it. But it is not a property of the models. It is a property of the text those models were swimming in &mdash; its entropy and its exploitable structure &mdash; reflected back so consistently that it looked, for a while, like a law of nature.</p>
+
+  <p>It was a mirror. We mistook it for a wall.</p>
+
+  <p>The good news about mirrors is that, once you know they&rsquo;re mirrors, you can step around them. The path to higher-throughput AI does not run through new architectures or new physics. It runs through richer data &mdash; vision, audio, embodied experience &mdash; because compression below source entropy is forbidden by Shannon, and natural language sits at four bits per token because that is approximately what its biological producers could put there.</p>
+
+  <p>And the mirror is smooth. We checked. From five bits to eight, the model tracks the data, linearly, at 92 million and 1.2 billion parameters alike. No kink near four. No hidden attractor. Just the data, reflected back.</p>
+
+  <hr>
+
+  <p style="font-size: 0.9rem; color: var(--text-faint); text-align: center; font-family: var(--sans);">
+    <em>The Throughput Basin Origin</em> is Paper 7 of the Windstorm series.<br>
+    Zenodo: <a href="https://doi.org/10.5281/zenodo.19498582">doi.org/10.5281/zenodo.19498582</a> &middot;
+    Code &amp; data: <a href="https://github.com/Windstorm-Institute/throughput-basin-origin">github.com/Windstorm-Institute/throughput-basin-origin</a><br>
+    <a href="https://doi.org/10.5281/zenodo.19498582">Download the full paper (PDF)</a>
+  </p>
+
+</article>
+
+<!-- ARTICLE NAV -->
+<div class="article-nav">
+  <a href="inherited-constraint.html">&larr; The Inherited Constraint</a>
+  <a href="vision-basin.html">The Vision Basin (Paper 8) &rarr;</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="article-footer">
+  <p>&copy; 2026 The Windstorm Institute &middot; Fort Ann, New York &middot; <a href="../index.html">Home</a></p>
+</footer>
+
+</body>
+</html>
