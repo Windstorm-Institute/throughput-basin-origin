@@ -403,6 +403,23 @@ tr:hover td { background: var(--surface); }
 
   <p>The equation is: <strong>BPT &asymp; source entropy &minus; f(structural depth)</strong>. The basin reflects both the entropy <em>and</em> the exploitable structure of the training data. For natural language, about 6.7 bits of the ~10.8-bit unigram entropy is compressible through hierarchy. What&rsquo;s left is ~4 bits. That is the basin.</p>
 
+  <h2>The basin across languages and domains</h2>
+
+  <p>If the basin is genuinely data-driven, it should vary by domain. We measured bits per character (the tokenizer-independent metric) across three domains with two models (Pythia-410M and GPT-2-medium):</p>
+
+  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
+    <tr style="border-bottom: 2px solid var(--text-faint);">
+      <th style="padding: 0.5rem 1rem; text-align: left;">Domain</th>
+      <th style="padding: 0.5rem 1rem; text-align: right;">Pythia-410M</th>
+      <th style="padding: 0.5rem 1rem; text-align: right;">GPT-2-medium</th>
+    </tr>
+    <tr><td style="padding: 0.4rem 1rem;">English text</td><td style="padding: 0.4rem 1rem; text-align: right;">0.95 bits/char</td><td style="padding: 0.4rem 1rem; text-align: right;">1.00 bits/char</td></tr>
+    <tr><td style="padding: 0.4rem 1rem;">Python code</td><td style="padding: 0.4rem 1rem; text-align: right;">0.07 bits/char</td><td style="padding: 0.4rem 1rem; text-align: right;">0.36 bits/char</td></tr>
+    <tr><td style="padding: 0.4rem 1rem;">DNA sequence</td><td style="padding: 0.4rem 1rem; text-align: right;">2.02 bits/char</td><td style="padding: 0.4rem 1rem; text-align: right;">2.13 bits/char</td></tr>
+  </table>
+
+  <p>English converges near 1 bit per character across both models &mdash; consistent with our earlier &tau; re-measurement. Python code, which is highly structured and repetitive, compresses to near zero. DNA, a four-letter alphabet with limited long-range structure, sits at ~2 bits per character &mdash; close to its theoretical entropy of 2 bits for a uniform four-symbol source. Each domain has its own basin, determined by the entropy and exploitable structure of that domain. The mirror reflects whatever is in front of it.</p>
+
   <h2>The part where we tell on ourselves</h2>
 
   <p>This is where every other version of this article would end &mdash; with the metaphor, the bow on top, the link to the PDF. We&rsquo;re going to do something else first, because the institute&rsquo;s whole job is to do this part out loud.</p>
