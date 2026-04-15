@@ -10,6 +10,7 @@
 | white_noise | 1.5196 | 1992 |
 | pink_noise | 1.3302 | 1992 |
 | am_sweep | 0.582 | 1992 |
+| lj_speech_real | 0.0949 | 64287 |
 
 ## Mel-Spectrogram Entropy
 
@@ -21,6 +22,7 @@
 | white_noise | 6.3004 | 626 |
 | pink_noise | 6.2769 | 626 |
 | am_sweep | 5.2982 | 626 |
+| lj_speech_real | 6.2553 | 28754 |
 
 ## Interpretation
 

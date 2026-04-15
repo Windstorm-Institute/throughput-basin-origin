@@ -11,3 +11,5 @@ mel_spectrogram,chord_3note,5.371,626
 mel_spectrogram,white_noise,6.3004,626
 mel_spectrogram,pink_noise,6.2769,626
 mel_spectrogram,am_sweep,5.2982,626
+wav2vec2_fp32,lj_speech_real,0.0949,64287
+mel_spectrogram,lj_speech_real,6.2553,28754
