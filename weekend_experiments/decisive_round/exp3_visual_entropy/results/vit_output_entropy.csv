@@ -1,0 +1,15 @@
+model,image_type,complexity_rank,output_entropy_bits,n_images
+ViT-B/16,uniform_gray,0,8.21875,64
+ViT-B/16,gradient,1,8.375,64
+ViT-B/16,blocks_4x4,2,8.0546875,64
+ViT-B/16,blocks_16x16,3,7.80078125,64
+ViT-B/16,noise_gaussian,4,7.48828125,64
+ViT-B/16,noise_uniform,5,6.5625,64
+ViT-B/16,cifar10_real,3.5,3.59765625,64
+ViT-L/16,uniform_gray,0,7.796875,64
+ViT-L/16,gradient,1,7.97265625,64
+ViT-L/16,blocks_4x4,2,8.546875,64
+ViT-L/16,blocks_16x16,3,8.390625,64
+ViT-L/16,noise_gaussian,4,8.671875,64
+ViT-L/16,noise_uniform,5,8.5703125,64
+ViT-L/16,cifar10_real,3.5,3.271484375,64
