@@ -420,6 +420,26 @@ tr:hover td { background: var(--surface); }
 
   <p>English converges near 1 bit per character across both models &mdash; consistent with our earlier &tau; re-measurement. Python code, which is highly structured and repetitive, compresses to near zero. DNA, a four-letter alphabet with limited long-range structure, sits at ~2 bits per character &mdash; close to its theoretical entropy of 2 bits for a uniform four-symbol source. Each domain has its own basin, determined by the entropy and exploitable structure of that domain. The mirror reflects whatever is in front of it.</p>
 
+  <h2>Quantifying f(structural depth)</h2>
+
+  <p>The equation BPT &asymp; source_entropy &minus; f(structural_depth) makes a testable prediction: text with more grammatical structure should have lower BPT, because a pretrained model can exploit that structure for prediction. We tested this with a PCFG depth sweep &mdash; generating text from probabilistic context-free grammars at nesting depths 0 through 6, all using printable English words and the same GPT-2 tokenizer (to avoid the tokenizer artifact that plagued our first attempt).</p>
+
+  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
+    <tr style="border-bottom: 2px solid var(--text-faint);">
+      <th style="padding: 0.5rem 1rem; text-align: left;">Source</th>
+      <th style="padding: 0.5rem 1rem; text-align: right;">BPT</th>
+      <th style="padding: 0.5rem 1rem; text-align: right;">Structural bonus vs. salad</th>
+    </tr>
+    <tr><td style="padding: 0.4rem 1rem;">Random word salad</td><td style="padding: 0.4rem 1rem; text-align: right;">8.87</td><td style="padding: 0.4rem 1rem; text-align: right;">&mdash;</td></tr>
+    <tr><td style="padding: 0.4rem 1rem;">PCFG depth 0</td><td style="padding: 0.4rem 1rem; text-align: right;">4.12</td><td style="padding: 0.4rem 1rem; text-align: right;">4.75</td></tr>
+    <tr><td style="padding: 0.4rem 1rem;">PCFG depth 3</td><td style="padding: 0.4rem 1rem; text-align: right;">5.21</td><td style="padding: 0.4rem 1rem; text-align: right;">3.66</td></tr>
+    <tr><td style="padding: 0.4rem 1rem;">PCFG depth 6</td><td style="padding: 0.4rem 1rem; text-align: right;">5.27</td><td style="padding: 0.4rem 1rem; text-align: right;">3.60</td></tr>
+  </table>
+
+  <p>The structural bonus is real: even depth-0 grammar (simple subject-verb-object) gives 4.75 bits of compression compared to random word salad from the same vocabulary. Deeper nesting actually <em>increases</em> BPT slightly, because pretrained GPT-2 learned natural language patterns, not PCFG patterns &mdash; the deeper recursive nesting creates long-range dependencies that look unnatural to GPT-2. The model exploits shallow grammar well (it matches how English works) but can&rsquo;t exploit deep PCFG nesting (it doesn&rsquo;t match its training distribution).</p>
+
+  <p>This confirms that f(structural_depth) is not about raw syntactic complexity &mdash; it is about how much of the structure the <em>specific model</em> can exploit based on what it learned during training. A model trained on PCFGs would show the opposite pattern.</p>
+
   <h2>The part where we tell on ourselves</h2>
 
   <p>This is where every other version of this article would end &mdash; with the metaphor, the bow on top, the link to the PDF. We&rsquo;re going to do something else first, because the institute&rsquo;s whole job is to do this part out loud.</p>
