@@ -40,6 +40,18 @@
 ## Paper 8: Cross-modal throughput basins
 
 ### Claim 4: Vision throughput tracks image entropy
+| Entropy Level | Name | Eval Loss (mean ± std) | 95% CI |
+|---|---|---|---|
+| 0 | uniform | 0.000001 ± 0.000000 | [0.000001, 0.000001] |
+| 1 | 4-color-blocks | 0.065132 ± 0.025058 | [0.035907, 0.097102] |
+| 2 | 16-color-blocks | 0.075606 ± 0.004090 | [0.069823, 0.078562] |
+| 3 | 64-color-pixels | 0.084080 ± 0.001041 | [0.082636, 0.085052] |
+| 4 | natural-like | 0.013662 ± 0.000210 | [0.013472, 0.013955] |
+| 5 | gaussian-noise | 0.057536 ± 0.000001 | [0.057535, 0.057537] |
+| 6 | uniform-noise | 0.083332 ± 0.000000 | [0.083332, 0.083333] |
+
+*86M-param ViT-MAE trained from scratch at each level. 3 seeds.*
+
 ## Paper 9: The quantization cliff is about level quality
 
 ### Claim 5: NF4 preserves structural bonus; symmetric destroys it
@@ -48,7 +60,7 @@
 | FP16 | 6.3986 ± 0.0086 | [6.3910, 6.4064] | 5 |
 | BNB_NF4 | 6.3664 ± 0.0091 | [6.3582, 6.3745] | 5 |
 | SYM_INT4 | 0.2033 ± 0.0176 | [0.1886, 0.2179] | 5 |
-| SYM_INT8 | 6.4053 ± 0.0088 | [6.3987, 6.4135] | 5 |
+| SYM_INT8 | 6.4053 ± 0.0088 | [6.3984, 6.4133] | 5 |
 
 **FP16 vs SYM_INT4:** Welch t=633.74, p=2.84e-15, Cohen's d=400.81 (LARGE)
 **NF4 vs SYM_INT4:** Welch t=623.09, p=1.16e-15, Cohen's d=394.08 (LARGE)
