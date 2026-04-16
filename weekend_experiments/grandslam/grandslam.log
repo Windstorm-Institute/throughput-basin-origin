@@ -1,0 +1,385 @@
+[2026-04-15 20:26:18] ======================================================================
+[2026-04-15 20:26:18] GRAND SLAM EXPERIMENT SUITE
+[2026-04-15 20:26:18] Bulletproof. Every CI. Every p-value. Every tree barked up.
+[2026-04-15 20:26:18] ======================================================================
+[2026-04-15 20:26:18]   GPU: 147/32607 MB (0% mem), 0% compute, 31966 MB free
+[2026-04-15 20:26:18] 
+======================================================================
+[2026-04-15 20:26:18] >>> GS1: Visual MAE from scratch (86M, THE BIG ONE)
+[2026-04-15 20:26:18] ======================================================================
+[2026-04-15 20:26:18] 
+======================================================================
+[2026-04-15 20:26:18] GS1: VISUAL MAE FROM SCRATCH — 86M PARAMS, 224×224
+[2026-04-15 20:26:18] 7 entropy levels × 3 seeds. Batch 128. Target: 20+ GB VRAM.
+[2026-04-15 20:26:18] ======================================================================
+[2026-04-15 20:26:18] 
+  [uniform] seed=42 (entropy ≈ ~0 bits/pixel)
+[2026-04-15 20:26:19]     Model: 111.9M params
+[2026-04-15 20:26:19]   GPU: 1123/32607 MB (3% mem), 0% compute, 30990 MB free
+[2026-04-15 20:26:39]     Epoch  0: train_loss=0.030086
+[2026-04-15 20:28:14]     Epoch  5: train_loss=0.000132
+[2026-04-15 20:29:50]     Epoch 10: train_loss=0.000014
+[2026-04-15 20:31:06]     Epoch 14: train_loss=0.000001
+[2026-04-15 20:31:06]   GPU: 7953/32607 MB (24% mem), 98% compute, 24160 MB free
+[2026-04-15 20:31:06]   GS1: Visual MAE from scratch (86M, THE BIG ONE) FAILED: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/grandslam.py", line 169, in __getitem__
+    rng = np.random.RandomState(self.seed * 100000 + idx)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/mtrand.pyx", line 185, in numpy.random.mtrand.RandomState.__init__
+  File "_mt19937.pyx", line 168, in numpy.random._mt19937.MT19937._legacy_seeding
+  File "_mt19937.pyx", line 182, in numpy.random._mt19937.MT19937._legacy_seeding
+ValueError: Seed must be between 0 and 2**32 - 1
+
+Traceback (most recent call last):
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/grandslam.py", line 1040, in main
+    fn()
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/grandslam.py", line 414, in gs1_visual_mae
+    for batch in eval_loader:
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/_utils.py", line 785, in reraise
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/grandslam.py", line 169, in __getitem__
+    rng = np.random.RandomState(self.seed * 100000 + idx)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/mtrand.pyx", line 185, in numpy.random.mtrand.RandomState.__init__
+  File "_mt19937.pyx", line 168, in numpy.random._mt19937.MT19937._legacy_seeding
+  File "_mt19937.pyx", line 182, in numpy.random._mt19937.MT19937._legacy_seeding
+ValueError: Seed must be between 0 and 2**32 - 1
+
+[2026-04-15 20:31:26] 
+======================================================================
+[2026-04-15 20:31:26] >>> GS2: Scale invariance (160M/410M/1.4B)
+[2026-04-15 20:31:26] ======================================================================
+[2026-04-15 20:31:26] 
+======================================================================
+[2026-04-15 20:31:26] GS2: SCALE INVARIANCE — Pythia 160M / 410M / 1.4B
+[2026-04-15 20:31:26] Same 7 corpora, prove bits/byte is scale-invariant
+[2026-04-15 20:31:26] ======================================================================
+[2026-04-15 20:31:36]   Loaded 7 corpora: ['english', 'german', 'french', 'spanish', 'dna', 'python', 'medical']
+[2026-04-15 20:31:36] 
+  Loading Pythia-160M...
+[2026-04-15 20:31:37]   GPU: 3495/32607 MB (10% mem), 0% compute, 28618 MB free
+[2026-04-15 20:31:37]     Pythia-160M × english...
+[2026-04-15 20:31:38]       BPT=4.9897±0.0051, bits/char=1.1342, bits/byte=1.1326
+[2026-04-15 20:31:38]     Pythia-160M × german...
+[2026-04-15 20:31:39]       BPT=4.1785±0.0128, bits/char=1.5211, bits/byte=1.4647
+[2026-04-15 20:31:39]     Pythia-160M × french...
+[2026-04-15 20:31:40]       BPT=4.2491±0.0070, bits/char=1.3416, bits/byte=1.2975
+[2026-04-15 20:31:40]     Pythia-160M × spanish...
+[2026-04-15 20:31:41]       BPT=4.2976±0.0078, bits/char=1.3140, bits/byte=1.2864
+[2026-04-15 20:31:41]     Pythia-160M × dna...
+[2026-04-15 20:31:42]       BPT=4.6689±0.0015, bits/char=2.1221, bits/byte=2.1221
+[2026-04-15 20:31:42]     Pythia-160M × python...
+[2026-04-15 20:31:43]       BPT=3.3091±0.0026, bits/char=1.0963, bits/byte=1.0963
+[2026-04-15 20:31:43]     Pythia-160M × medical...
+[2026-04-15 20:31:44]       BPT=4.7125±0.0294, bits/char=0.9400, bits/byte=0.9400
+[2026-04-15 20:31:45] 
+  Loading Pythia-410M...
+[2026-04-15 20:31:45]   GPU: 1889/32607 MB (5% mem), 10% compute, 30224 MB free
+[2026-04-15 20:31:45]     Pythia-410M × english...
+[2026-04-15 20:31:48]       BPT=4.2582±0.0054, bits/char=0.9680, bits/byte=0.9666
+[2026-04-15 20:31:48]     Pythia-410M × german...
+[2026-04-15 20:31:50]       BPT=3.5307±0.0076, bits/char=1.2853, bits/byte=1.2376
+[2026-04-15 20:31:50]     Pythia-410M × french...
+[2026-04-15 20:31:52]       BPT=3.5290±0.0066, bits/char=1.1142, bits/byte=1.0776
+[2026-04-15 20:31:52]     Pythia-410M × spanish...
+[2026-04-15 20:31:55]       BPT=3.5715±0.0047, bits/char=1.0920, bits/byte=1.0690
+[2026-04-15 20:31:55]     Pythia-410M × dna...
+[2026-04-15 20:31:57]       BPT=4.5102±0.0009, bits/char=2.0500, bits/byte=2.0500
+[2026-04-15 20:31:57]     Pythia-410M × python...
+[2026-04-15 20:31:59]       BPT=2.9673±0.0027, bits/char=0.9831, bits/byte=0.9831
+[2026-04-15 20:31:59]     Pythia-410M × medical...
+[2026-04-15 20:32:02]       BPT=4.0439±0.0282, bits/char=0.8067, bits/byte=0.8067
+[2026-04-15 20:32:02] 
+  Loading Pythia-1.4B...
+[2026-04-15 20:32:03]   GPU: 3943/32607 MB (12% mem), 18% compute, 28170 MB free
+[2026-04-15 20:32:03]     Pythia-1.4B × english...
+[2026-04-15 20:32:09]       BPT=3.8085±0.0079, bits/char=0.8657, bits/byte=0.8645
+[2026-04-15 20:32:09]     Pythia-1.4B × german...
+[2026-04-15 20:32:14]       BPT=3.0855±0.0066, bits/char=1.1232, bits/byte=1.0815
+[2026-04-15 20:32:14]     Pythia-1.4B × french...
+[2026-04-15 20:32:20]       BPT=3.1007±0.0054, bits/char=0.9790, bits/byte=0.9468
+[2026-04-15 20:32:20]     Pythia-1.4B × spanish...
+[2026-04-15 20:32:25]       BPT=3.1321±0.0026, bits/char=0.9576, bits/byte=0.9375
+[2026-04-15 20:32:25]     Pythia-1.4B × dna...
+[2026-04-15 20:32:31]       BPT=4.4876±0.0008, bits/char=2.0397, bits/byte=2.0397
+[2026-04-15 20:32:31]     Pythia-1.4B × python...
+[2026-04-15 20:32:36]       BPT=2.8049±0.0025, bits/char=0.9293, bits/byte=0.9293
+[2026-04-15 20:32:36]     Pythia-1.4B × medical...
+[2026-04-15 20:32:42]       BPT=3.6632±0.0273, bits/char=0.7307, bits/byte=0.7307
+[2026-04-15 20:32:43] GS2 COMPLETE
+[2026-04-15 20:32:43] 
+======================================================================
+[2026-04-15 20:32:43] >>> GS3: Structural bonus at scale (1.4B)
+[2026-04-15 20:32:43] ======================================================================
+[2026-04-15 20:32:43] 
+======================================================================
+[2026-04-15 20:32:43] GS3: STRUCTURAL BONUS AT SCALE — Pythia-1.4B
+[2026-04-15 20:32:43] 5 shuffle seeds × 4 quant methods. Welch t-tests. Cohen's d.
+[2026-04-15 20:32:43] ======================================================================
+[2026-04-15 20:32:44] 
+  Pythia-1.4B × FP16...
+[2026-04-15 20:32:46]   GPU: 3615/32607 MB (11% mem), 15% compute, 28498 MB free
+[2026-04-15 20:32:49]     seed=42: orig=3.6545, shuf=10.0541, bonus=6.3996
+[2026-04-15 20:32:53]     seed=137: orig=3.6545, shuf=10.0418, bonus=6.3873
+[2026-04-15 20:32:56]     seed=271: orig=3.6545, shuf=10.0676, bonus=6.4131
+[2026-04-15 20:33:00]     seed=314: orig=3.6545, shuf=10.0478, bonus=6.3933
+[2026-04-15 20:33:03]     seed=577: orig=3.6545, shuf=10.0541, bonus=6.3996
+[2026-04-15 20:33:03] 
+  Pythia-1.4B × SYM_INT4...
+[2026-04-15 20:33:20]   GPU: 3615/32607 MB (11% mem), 0% compute, 28498 MB free
+[2026-04-15 20:33:24]     seed=42: orig=17.0279, shuf=17.2493, bonus=0.2214
+[2026-04-15 20:33:27]     seed=137: orig=17.0279, shuf=17.2230, bonus=0.1952
+[2026-04-15 20:33:30]     seed=271: orig=17.0279, shuf=17.2518, bonus=0.2240
+[2026-04-15 20:33:34]     seed=314: orig=17.0279, shuf=17.2267, bonus=0.1989
+[2026-04-15 20:33:37]     seed=577: orig=17.0279, shuf=17.2046, bonus=0.1768
+[2026-04-15 20:33:37] 
+  Pythia-1.4B × SYM_INT8...
+[2026-04-15 20:33:53]   GPU: 3615/32607 MB (11% mem), 14% compute, 28498 MB free
+[2026-04-15 20:33:57]     seed=42: orig=3.6915, shuf=10.0969, bonus=6.4055
+[2026-04-15 20:34:00]     seed=137: orig=3.6915, shuf=10.0861, bonus=6.3946
+[2026-04-15 20:34:04]     seed=271: orig=3.6915, shuf=10.1121, bonus=6.4206
+[2026-04-15 20:34:07]     seed=314: orig=3.6915, shuf=10.0907, bonus=6.3993
+[2026-04-15 20:34:11]     seed=577: orig=3.6915, shuf=10.0981, bonus=6.4066
+[2026-04-15 20:34:11] 
+  Pythia-1.4B × BNB_NF4...
+[2026-04-15 20:34:13]   GPU: 2157/32607 MB (6% mem), 13% compute, 29956 MB free
+[2026-04-15 20:34:17]     seed=42: orig=3.7367, shuf=10.1048, bonus=6.3681
+[2026-04-15 20:34:20]     seed=137: orig=3.7367, shuf=10.0907, bonus=6.3540
+[2026-04-15 20:34:24]     seed=271: orig=3.7367, shuf=10.1181, bonus=6.3813
+[2026-04-15 20:34:28]     seed=314: orig=3.7367, shuf=10.0974, bonus=6.3607
+[2026-04-15 20:34:32]     seed=577: orig=3.7367, shuf=10.1046, bonus=6.3679
+[2026-04-15 20:34:33] GS3 COMPLETE
+[2026-04-15 20:34:33] 
+======================================================================
+[2026-04-15 20:34:33] >>> GS4: The Killer Table
+[2026-04-15 20:34:33] ======================================================================
+[2026-04-15 20:34:33] 
+======================================================================
+[2026-04-15 20:34:33] GS4: THE KILLER TABLE — Unified Cross-Modal Summary
+[2026-04-15 20:34:33] ======================================================================
+[2026-04-15 20:34:34] GS4 COMPLETE
+[2026-04-15 20:34:34] 
+======================================================================
+[2026-04-15 20:34:34] GRAND SLAM COMPLETE
+[2026-04-15 20:34:34] Every tree. Every branch. Every leaf.
+[2026-04-15 20:34:34] ======================================================================
+[2026-04-15 20:34:35]   GPU: 870/32607 MB (2% mem), 0% compute, 31243 MB free
+[2026-04-15 20:37:46] ======================================================================
+[2026-04-15 20:37:46] GS1 RELAUNCH — Visual MAE from scratch (seed fix applied)
+[2026-04-15 20:37:46] ======================================================================
+[2026-04-15 20:37:46]   GPU: 148/32607 MB (0% mem), 0% compute, 31965 MB free
+[2026-04-15 20:37:46] 
+======================================================================
+[2026-04-15 20:37:46] GS1: VISUAL MAE FROM SCRATCH — 86M PARAMS, 224×224
+[2026-04-15 20:37:46] 7 entropy levels × 3 seeds. Batch 128. Target: 20+ GB VRAM.
+[2026-04-15 20:37:46] ======================================================================
+[2026-04-15 20:37:46] 
+  [uniform] seed=42 (entropy ≈ ~0 bits/pixel)
+[2026-04-15 20:37:47]     Model: 111.9M params
+[2026-04-15 20:37:47]   GPU: 1124/32607 MB (3% mem), 0% compute, 30989 MB free
+[2026-04-15 20:38:07]     Epoch  0: train_loss=0.030029
+[2026-04-15 20:39:42]     Epoch  5: train_loss=0.000139
+[2026-04-15 20:41:17]     Epoch 10: train_loss=0.000013
+[2026-04-15 20:42:34]     Epoch 14: train_loss=0.000001
+[2026-04-15 20:42:34]   GPU: 7953/32607 MB (24% mem), 98% compute, 24160 MB free
+[2026-04-15 20:42:36]     RESULT: eval_loss=0.000001 ± 0.000000
+[2026-04-15 20:42:36] 
+  [uniform] seed=137 (entropy ≈ ~0 bits/pixel)
+[2026-04-15 20:42:56]     Epoch  0: train_loss=0.026001
+[2026-04-15 20:44:31]     Epoch  5: train_loss=0.000134
+[2026-04-15 20:46:07]     Epoch 10: train_loss=0.000014
+[2026-04-15 20:47:23]     Epoch 14: train_loss=0.000001
+[2026-04-15 20:47:23]   GPU: 7957/32607 MB (24% mem), 98% compute, 24156 MB free
+[2026-04-15 20:47:26]     RESULT: eval_loss=0.000001 ± 0.000000
+[2026-04-15 20:47:26] 
+  [uniform] seed=271 (entropy ≈ ~0 bits/pixel)
+[2026-04-15 20:47:45]     Epoch  0: train_loss=0.028547
+[2026-04-15 20:49:21]     Epoch  5: train_loss=0.000127
+[2026-04-15 20:50:56]     Epoch 10: train_loss=0.000013
+[2026-04-15 20:52:12]     Epoch 14: train_loss=0.000001
+[2026-04-15 20:52:12]   GPU: 7941/32607 MB (24% mem), 98% compute, 24172 MB free
+[2026-04-15 20:52:15]     RESULT: eval_loss=0.000001 ± 0.000000
+[2026-04-15 20:52:15] 
+  [4-color-blocks] seed=42 (entropy ≈ ~2 bits/pixel)
+[2026-04-15 20:52:35]     Epoch  0: train_loss=0.071973
+[2026-04-15 20:54:10]     Epoch  5: train_loss=0.063143
+[2026-04-15 20:55:46]     Epoch 10: train_loss=0.063096
+[2026-04-15 20:57:02]     Epoch 14: train_loss=0.063095
+[2026-04-15 20:57:02]   GPU: 7791/32607 MB (23% mem), 97% compute, 24322 MB free
+[2026-04-15 20:57:05]     RESULT: eval_loss=0.062387 ± 0.000327
+[2026-04-15 20:57:05] 
+  [4-color-blocks] seed=137 (entropy ≈ ~2 bits/pixel)
+[2026-04-15 20:57:25]     Epoch  0: train_loss=0.076826
+[2026-04-15 20:59:00]     Epoch  5: train_loss=0.067536
+[2026-04-15 21:00:36]     Epoch 10: train_loss=0.067517
+[2026-04-15 21:01:52]     Epoch 14: train_loss=0.067509
+[2026-04-15 21:01:52]   GPU: 7955/32607 MB (24% mem), 97% compute, 24158 MB free
+[2026-04-15 21:01:55]     RESULT: eval_loss=0.035907 ± 0.000553
+[2026-04-15 21:01:55] 
+  [4-color-blocks] seed=271 (entropy ≈ ~2 bits/pixel)
+[2026-04-15 21:02:15]     Epoch  0: train_loss=0.053835
+[2026-04-15 21:03:50]     Epoch  5: train_loss=0.045058
+[2026-04-15 21:05:26]     Epoch 10: train_loss=0.045041
+[2026-04-15 21:06:42]     Epoch 14: train_loss=0.045042
+[2026-04-15 21:06:42]   GPU: 7963/32607 MB (24% mem), 98% compute, 24150 MB free
+[2026-04-15 21:06:45]     RESULT: eval_loss=0.097102 ± 0.000286
+[2026-04-15 21:06:45] 
+  [16-color-blocks] seed=42 (entropy ≈ ~4 bits/pixel)
+[2026-04-15 21:07:05]     Epoch  0: train_loss=0.097272
+[2026-04-15 21:08:40]     Epoch  5: train_loss=0.086919
+[2026-04-15 21:10:16]     Epoch 10: train_loss=0.086901
+[2026-04-15 21:11:32]     Epoch 14: train_loss=0.086898
+[2026-04-15 21:11:32]   GPU: 7953/32607 MB (24% mem), 97% compute, 24160 MB free
+[2026-04-15 21:11:35]     RESULT: eval_loss=0.069823 ± 0.000125
+[2026-04-15 21:11:35] 
+  [16-color-blocks] seed=137 (entropy ≈ ~4 bits/pixel)
+[2026-04-15 21:11:55]     Epoch  0: train_loss=0.099826
+[2026-04-15 21:13:30]     Epoch  5: train_loss=0.090672
+[2026-04-15 21:15:06]     Epoch 10: train_loss=0.090650
+[2026-04-15 21:16:22]     Epoch 14: train_loss=0.090642
+[2026-04-15 21:16:22]   GPU: 7957/32607 MB (24% mem), 98% compute, 24156 MB free
+[2026-04-15 21:16:25]     RESULT: eval_loss=0.078562 ± 0.000258
+[2026-04-15 21:16:25] 
+  [16-color-blocks] seed=271 (entropy ≈ ~4 bits/pixel)
+[2026-04-15 21:16:45]     Epoch  0: train_loss=0.099531
+[2026-04-15 21:18:20]     Epoch  5: train_loss=0.091396
+[2026-04-15 21:19:56]     Epoch 10: train_loss=0.091366
+[2026-04-15 21:21:12]     Epoch 14: train_loss=0.091348
+[2026-04-15 21:21:12]   GPU: 7951/32607 MB (24% mem), 98% compute, 24162 MB free
+[2026-04-15 21:21:15]     RESULT: eval_loss=0.078433 ± 0.000141
+[2026-04-15 21:21:15] 
+  [64-color-pixels] seed=42 (entropy ≈ ~6 bits/pixel)
+[2026-04-15 21:21:35]     Epoch  0: train_loss=0.104307
+[2026-04-15 21:23:10]     Epoch  5: train_loss=0.094775
+[2026-04-15 21:24:46]     Epoch 10: train_loss=0.094753
+[2026-04-15 21:26:03]     Epoch 14: train_loss=0.094742
+[2026-04-15 21:26:03]   GPU: 7965/32607 MB (24% mem), 97% compute, 24148 MB free
+[2026-04-15 21:26:06]     RESULT: eval_loss=0.085052 ± 0.000019
+[2026-04-15 21:26:06] 
+  [64-color-pixels] seed=137 (entropy ≈ ~6 bits/pixel)
+[2026-04-15 21:26:26]     Epoch  0: train_loss=0.085049
+[2026-04-15 21:28:01]     Epoch  5: train_loss=0.076431
+[2026-04-15 21:29:37]     Epoch 10: train_loss=0.076411
+[2026-04-15 21:30:54]     Epoch 14: train_loss=0.076401
+[2026-04-15 21:30:54]   GPU: 7957/32607 MB (24% mem), 98% compute, 24156 MB free
+[2026-04-15 21:30:57]     RESULT: eval_loss=0.084551 ± 0.000021
+[2026-04-15 21:30:57] 
+  [64-color-pixels] seed=271 (entropy ≈ ~6 bits/pixel)
+[2026-04-15 21:31:17]     Epoch  0: train_loss=0.094940
+[2026-04-15 21:32:53]     Epoch  5: train_loss=0.086048
+[2026-04-15 21:34:29]     Epoch 10: train_loss=0.086028
+[2026-04-15 21:35:45]     Epoch 14: train_loss=0.086017
+[2026-04-15 21:35:45]   GPU: 7944/32607 MB (24% mem), 98% compute, 24169 MB free
+[2026-04-15 21:35:48]     RESULT: eval_loss=0.082636 ± 0.000020
+[2026-04-15 21:35:48] 
+  [natural-like] seed=42 (entropy ≈ structured bits/pixel)
+[2026-04-15 21:36:18]     Epoch  0: train_loss=0.058287
+[2026-04-15 21:38:41]     Epoch  5: train_loss=0.020977
+[2026-04-15 21:41:04]     Epoch 10: train_loss=0.015081
+[2026-04-15 21:42:58]     Epoch 14: train_loss=0.013525
+[2026-04-15 21:42:58]   GPU: 7960/32607 MB (24% mem), 98% compute, 24153 MB free
+[2026-04-15 21:43:08]     RESULT: eval_loss=0.013560 ± 0.000414
+[2026-04-15 21:43:08] 
+  [natural-like] seed=137 (entropy ≈ structured bits/pixel)
+[2026-04-15 21:43:37]     Epoch  0: train_loss=0.057546
+[2026-04-15 21:46:13]     Epoch  5: train_loss=0.020987
+[2026-04-15 21:48:36]     Epoch 10: train_loss=0.014851
+[2026-04-15 21:50:30]     Epoch 14: train_loss=0.013426
+[2026-04-15 21:50:30]   GPU: 7941/32607 MB (24% mem), 95% compute, 24172 MB free
+[2026-04-15 21:50:40]     RESULT: eval_loss=0.013472 ± 0.000341
+[2026-04-15 21:50:40] 
+  [natural-like] seed=271 (entropy ≈ structured bits/pixel)
+[2026-04-15 21:51:10]     Epoch  0: train_loss=0.057737
+[2026-04-15 21:53:32]     Epoch  5: train_loss=0.021418
+[2026-04-15 21:55:55]     Epoch 10: train_loss=0.015189
+[2026-04-15 21:57:51]     Epoch 14: train_loss=0.013843
+[2026-04-15 21:57:51]   GPU: 7791/32607 MB (23% mem), 98% compute, 24322 MB free
+[2026-04-15 21:58:01]     RESULT: eval_loss=0.013955 ± 0.000356
+[2026-04-15 21:58:01] 
+  [gaussian-noise] seed=42 (entropy ≈ ~7 bits/pixel)
+[2026-04-15 21:58:21]     Epoch  0: train_loss=0.066983
+[2026-04-15 21:59:57]     Epoch  5: train_loss=0.057560
+[2026-04-15 22:01:33]     Epoch 10: train_loss=0.057541
+[2026-04-15 22:02:50]     Epoch 14: train_loss=0.057534
+[2026-04-15 22:02:50]   GPU: 7797/32607 MB (23% mem), 98% compute, 24316 MB free
+[2026-04-15 22:02:56]     RESULT: eval_loss=0.057537 ± 0.000022
+[2026-04-15 22:02:56] 
+  [gaussian-noise] seed=137 (entropy ≈ ~7 bits/pixel)
+[2026-04-15 22:03:16]     Epoch  0: train_loss=0.066449
+[2026-04-15 22:04:53]     Epoch  5: train_loss=0.057561
+[2026-04-15 22:06:29]     Epoch 10: train_loss=0.057542
+[2026-04-15 22:07:46]     Epoch 14: train_loss=0.057532
+[2026-04-15 22:07:46]   GPU: 7941/32607 MB (24% mem), 98% compute, 24172 MB free
+[2026-04-15 22:07:52]     RESULT: eval_loss=0.057535 ± 0.000016
+[2026-04-15 22:07:52] 
+  [gaussian-noise] seed=271 (entropy ≈ ~7 bits/pixel)
+[2026-04-15 22:08:12]     Epoch  0: train_loss=0.066397
+[2026-04-15 22:09:48]     Epoch  5: train_loss=0.057559
+[2026-04-15 22:11:24]     Epoch 10: train_loss=0.057543
+[2026-04-15 22:12:41]     Epoch 14: train_loss=0.057534
+[2026-04-15 22:12:41]   GPU: 7767/32607 MB (23% mem), 97% compute, 24346 MB free
+[2026-04-15 22:12:47]     RESULT: eval_loss=0.057535 ± 0.000017
+[2026-04-15 22:12:47] 
+  [uniform-noise] seed=42 (entropy ≈ ~8 bits/pixel)
+[2026-04-15 22:13:08]     Epoch  0: train_loss=0.092793
+[2026-04-15 22:14:45]     Epoch  5: train_loss=0.083367
+[2026-04-15 22:16:23]     Epoch 10: train_loss=0.083346
+[2026-04-15 22:17:42]     Epoch 14: train_loss=0.083335
+[2026-04-15 22:17:42]   GPU: 7949/32607 MB (24% mem), 58% compute, 24164 MB free
+[2026-04-15 22:17:45]     RESULT: eval_loss=0.083332 ± 0.000028
+[2026-04-15 22:17:45] 
+  [uniform-noise] seed=137 (entropy ≈ ~8 bits/pixel)
+[2026-04-15 22:18:05]     Epoch  0: train_loss=0.092241
+[2026-04-15 22:19:43]     Epoch  5: train_loss=0.083366
+[2026-04-15 22:21:21]     Epoch 10: train_loss=0.083345
+[2026-04-15 22:22:40]     Epoch 14: train_loss=0.083335
+[2026-04-15 22:22:40]   GPU: 7949/32607 MB (24% mem), 98% compute, 24164 MB free
+[2026-04-15 22:22:43]     RESULT: eval_loss=0.083333 ± 0.000019
+[2026-04-15 22:22:43] 
+  [uniform-noise] seed=271 (entropy ≈ ~8 bits/pixel)
+[2026-04-15 22:23:03]     Epoch  0: train_loss=0.092189
+[2026-04-15 22:24:41]     Epoch  5: train_loss=0.083368
+[2026-04-15 22:26:19]     Epoch 10: train_loss=0.083346
+[2026-04-15 22:27:38]     Epoch 14: train_loss=0.083335
+[2026-04-15 22:27:38]   GPU: 7949/32607 MB (24% mem), 98% compute, 24164 MB free
+[2026-04-15 22:27:41]     RESULT: eval_loss=0.083332 ± 0.000026
+[2026-04-15 22:27:41] 
+  Evaluating pretrained MAE-Large on real image datasets...
+[2026-04-15 22:27:44]   GPU: 1469/32607 MB (4% mem), 0% compute, 30644 MB free
+[2026-04-15 22:27:44]     MAE-Large on CIFAR-100 (100 classes)...
+[2026-04-15 22:28:00]       CIFAR-100: loss=0.062688 (10000 images)
+[2026-04-15 22:28:00]     MAE-Large on STL-10 (96×96 upscaled)...
+[2026-04-15 22:28:16]       STL-10: loss=0.163544 (8000 images)
+[2026-04-15 22:28:16]     MAE-Large on synthetic entropy levels...
+[2026-04-15 22:28:18]       uniform: loss=0.000108
+[2026-04-15 22:28:20]       4-color-blocks: loss=1.946552
+[2026-04-15 22:28:21]       16-color-blocks: loss=2.373395
+[2026-04-15 22:28:23]       64-color-pixels: loss=1.861310
+[2026-04-15 22:28:25]       natural-like: loss=0.138662
+[2026-04-15 22:28:27]       gaussian-noise: loss=1.127743
+[2026-04-15 22:28:29]       uniform-noise: loss=1.633487
+[2026-04-15 22:28:31] GS1 COMPLETE
+[2026-04-15 22:28:31] GS1 RELAUNCH COMPLETE
