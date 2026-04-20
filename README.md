@@ -2,7 +2,7 @@
 
 **Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven**
 
-**Windstorm Institute** · [doi:10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582)
+**Windstorm Institute** · [doi:10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582) (concept DOI, always-latest) · **Current version: v1.6** ([10.5281/zenodo.19672654](https://doi.org/10.5281/zenodo.19672654), April 2026)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
