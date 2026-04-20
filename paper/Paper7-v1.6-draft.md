@@ -389,7 +389,7 @@ Whitmer III, G.L. (2026e). The Dissipative Decoder. *Windstorm Institute Paper 5
 
 Whitmer III, G.L. (2026f). The Inherited Constraint. *Windstorm Institute Paper 6.* doi:10.5281/zenodo.19432911.
 
-Whitmer III, G.L. (2026h). The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates. *Windstorm Institute Paper 8 (preprint).* DOI pending. github.com/Windstorm-Institute/vision-basin.
+Whitmer III, G.L. (2026h). The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates. *Windstorm Institute Paper 8.* Concept DOI: [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827). Latest version v2.2: [10.5281/zenodo.19672828](https://doi.org/10.5281/zenodo.19672828).
 
 Whitmer III, G.L. (2026i). The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count. *Windstorm Institute Paper 9 (preprint).* DOI pending. github.com/Windstorm-Institute/hardware-basin.
 
