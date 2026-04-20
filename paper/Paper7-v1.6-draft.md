@@ -371,7 +371,7 @@ The bulletproof verification round (v1.5) replicates the central PCFG-structure 
 
 The refined hypothesis: **BPT ≈ source\_entropy − f(structural\_depth)**. SYN-8 = 9.06 BPT (8.0 bits/source byte at both 92M and 1.2B). SYN-5/6/7 track source entropy linearly with no attractor near 4 bits. PCFG-8 = 6.59 BPT. Three loss functions converge. All adversarial-review blocking items (B1–B4 plus the original four killing predictions) are resolved. The basin is inherited from both the entropy and the exploitable structure of training data, not from the architecture, the thermodynamics, the loss function, or the scale of the model.
 
-Generalization to non-transformer architectures (state-space at fair-kernel parity, diffusion, mixture-of-experts), to non-Latin scripts (Chinese, Arabic, Devanagari), and to alternative quantization schemes (GPTQ end-to-end, AWQ, fair-kernel Mamba energy) remain open and are scoped under Paper 7.1. The cross-modal extension to vision, audio, and image generation is reported separately in Paper 8 (Whitmer 2026h, preprint); the hardware extension to quantization-cliff mechanisms is reported in Paper 9 (Whitmer 2026i, preprint).
+Generalization to non-transformer architectures (state-space at fair-kernel parity, diffusion, mixture-of-experts), to non-Latin scripts (Chinese, Arabic, Devanagari), and to alternative quantization schemes (GPTQ end-to-end, AWQ, fair-kernel Mamba energy) remain open and are scoped under Paper 7.1. The cross-modal extension to vision, audio, and image generation is reported separately in Paper 8 (Whitmer 2026h, doi:10.5281/zenodo.19672827); the hardware extension to quantization-cliff mechanisms is reported in Paper 9 (Whitmer 2026i, doi:10.5281/zenodo.19672921).
 
 ---
 
@@ -391,7 +391,7 @@ Whitmer III, G.L. (2026f). The Inherited Constraint. *Windstorm Institute Paper 
 
 Whitmer III, G.L. (2026h). The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates. *Windstorm Institute Paper 8.* Concept DOI: [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827). Latest version v2.2: [10.5281/zenodo.19672828](https://doi.org/10.5281/zenodo.19672828).
 
-Whitmer III, G.L. (2026i). The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count. *Windstorm Institute Paper 9 (preprint).* DOI pending. github.com/Windstorm-Institute/hardware-basin.
+Whitmer III, G.L. (2026i). The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count. *Windstorm Institute Paper 9.* Concept DOI: [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921). Latest version v2.2: [10.5281/zenodo.19672922](https://doi.org/10.5281/zenodo.19672922).
 
 ---
 
