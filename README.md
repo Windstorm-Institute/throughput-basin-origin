@@ -10,11 +10,11 @@
 
 This repository contains the complete experimental suite for **Paper 7: The Throughput Basin Origin**, which definitively answers whether the observed convergence to τ ≈ 3-6 bits/event in serial decoding systems is driven by DATA, ARCHITECTURE, or PHYSICS.
 
-**Tentative finding (read with §Adversarial Review below):** at 92M parameters, on Markov synthetic data, the achieved BPT tracks training-corpus token entropy rather than collapsing to ~4 BPT. The full strength of "the basin is data-driven" is **not** earned by these experiments in isolation; the internal adversarial review names the specific re-runs (Paper 7.1) required before that stronger statement holds.
+**Headline (v1.6):** at both 92M and 1.2B parameters, on Markov synthetic data across entropy levels 5 through 8 bits, the achieved bits-per-source-byte tracks source entropy with no architectural attractor near 4 bits. The refined equation: **BPT ≈ source\_entropy − f(structural\_depth)**. All four adversarial-review blocking items (B1-B4) are resolved (see ⚠ box below). Paper 7.1 open work is now *future generalization* (R7 GPTQ, R8 fair-kernel Mamba, cross-architecture state-space/diffusion/MoE, non-Latin scripts) rather than blocking issues.
 
 > ### ⚠ Read this before the results
 >
-> This repository ships with its own internal adversarial review at [`review/adversarial_review.md`](review/adversarial_review.md). The review identifies four blocking issues in the experimental record (self-eval vs cross-corpus diagonal disagreement, an Exp 6 vs Exp 2/3 BPT discrepancy that propagates into every reported φ, a BPT-vs-bits-per-source-symbol unit confound, and missing learning curves) plus several recommended re-runs. The formal manuscript ([`paper/Paper7-Throughput-Basin-Origin-v1.2.pdf`](paper/Paper7-Throughput-Basin-Origin-v1.2.pdf)) §5.2 lists every item and scopes them as Paper 7.1. **The headline numbers in the tables below are reproduced verbatim from the experimental CSVs and have not been re-run; read them through the §5.2 caveats.** The institute's practice is to publish falsification attempts at the same time as the claims they constrain, not after.
+> This repository ships with its own internal adversarial review at [`review/adversarial_review.md`](review/adversarial_review.md). The review (dated 2026-04-09) identified four blocking issues in the experimental record: self-eval vs cross-corpus diagonal disagreement (B1), an Exp 6 vs Exp 2/3 BPT discrepancy that propagated into every reported φ (B2), a BPT-vs-bits-per-source-symbol unit confound (B3), and missing learning curves (B4). **All four are now resolved.** B1 was data leakage in the cross-corpus eval (unified harness gives SYN-8 = 9.06 BPT). B2 was rotary-extrapolation collapse on 10K-token sequences in 2K-context models (corrected log₁₀φ = 15.7-18.8). B3 became Paper 7's central methodological finding (BPT is tokenizer-dependent; bits-per-source-byte is the correct invariant; the same SYN-8 data produces BPT=8.0 at vocab-8192 and BPT=3.8 at vocab-444 while bits-per-source-byte stays at 8.0). B4 was confirmed: SYN-8 plateaus at 8.0 BPT by step 2,000. The formal manuscript ([`paper/Paper7-Throughput-Basin-Origin-v1.6.pdf`](paper/Paper7-Throughput-Basin-Origin-v1.6.pdf)) §3.7-3.12 documents the resolutions; §5 lists the remaining *future generalization* work (R7, R8, cross-architecture, non-Latin scripts) as scoped Paper 7.1 follow-ups, not as blocking items. The institute's practice is to publish falsification attempts at the same time as the claims they constrain — and to publish the resolutions at the same time as the resolutions land.
 
 ## Background: Papers 1-6
 
@@ -36,7 +36,11 @@ This work builds on the foundational Windstorm Institute research series establi
 
 6. **Paper 6**: Whitmer III, G.L. (2026). "The Inherited Constraint: How Biological Throughput Limits Shape Language and AI." *Windstorm Institute*. DOI: [10.5281/zenodo.19432911](https://doi.org/10.5281/zenodo.19432911)
 
-7. **Paper 7** *(this repository)*: Whitmer III, G.L. (2026). "The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven." *Windstorm Institute*. DOI: [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582)
+7. **Paper 7** *(this repository)*: Whitmer III, G.L. (2026). "The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582). Latest version v1.6: [10.5281/zenodo.19672654](https://doi.org/10.5281/zenodo.19672654)
+
+8. **Paper 8**: Whitmer III, G.L. (2026). "The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827). Latest version v2.2: [10.5281/zenodo.19672828](https://doi.org/10.5281/zenodo.19672828)
+
+9. **Paper 9**: Whitmer III, G.L. (2026). "The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921). Latest version v2.2: [10.5281/zenodo.19672922](https://doi.org/10.5281/zenodo.19672922)
 
 **Key findings from Papers 1-6:**
 - Serial decoding systems converge to τ = 4.16 ± 0.19 bits/event
@@ -85,8 +89,15 @@ throughput-basin-origin/
 ├── orchestration/  # Autonomous experiment orchestrator
 │   └── logs/       # Execution logs
 │
-├── PAPER7_MASTER_SUMMARY.md  # Complete research report
-└── README.md                 # This file
+├── paper/                       # Versioned manuscript PDFs (v1.5, v1.6) + markdown sources
+├── paper7.1/                    # Active follow-up work (R7/R8/cross-arch experiments in progress)
+├── paper8/                      # Paper 8 preliminary scripts (canonical at Windstorm-Institute/vision-basin)
+├── paper9/                      # Paper 9 preliminary scripts (canonical at Windstorm-Institute/hardware-basin)
+├── archived_runs/               # Historical operational logs (CONDUCTOR_STATUS, autonomous-execution reports, etc.)
+├── scripts/                     # Utility scripts (orchestration, figure generation)
+├── review/adversarial_review.md # Internal adversarial review (dated 2026-04-09; all blocking items now resolved per §3.7-3.12 of v1.6 manuscript)
+├── grandslam_supplementary.pdf  # Statistical supplementary materials for Papers 7, 8, 9
+└── README.md                    # This file
 ```
 
 ## Key Findings
@@ -240,6 +251,6 @@ For questions or collaborations:
 **Models Trained**: 5 synthetic GPT-2 models (92M params each)
 **Data Points**: 47,392 measurements across all experiments
 
-**Status:** Paper 7 is published with its internal adversarial review attached. The defensible claim is *"at 92M, on Markov synthetic data, training-corpus token entropy is the dominant predictor of achieved BPT and we find no positive evidence of a transformer-specific ~4-bit ceiling in this regime."* The stronger claim (*"the basin is data-driven, full stop"*) requires the Paper 7.1 re-runs scoped in [`paper/Paper7-Throughput-Basin-Origin-v1.2.pdf`](paper/Paper7-Throughput-Basin-Origin-v1.2.pdf) §5.2.
+**Status (v1.6, April 2026):** Paper 7 is published with its internal adversarial review attached. The four adversarial-review blocking items (B1-B4) are all resolved — see the ⚠ box at the top of this README and §3.7-3.12 of [`paper/Paper7-Throughput-Basin-Origin-v1.6.pdf`](paper/Paper7-Throughput-Basin-Origin-v1.6.pdf). The data-driven hypothesis survives nine falsification experiments at 92M and 1.2B parameters; the refined equation **BPT ≈ source\_entropy − f(structural\_depth)** is verified at effect sizes up to Cohen's *d* = 400.81 (GS3, *p* = 2.84×10⁻¹⁵). Future generalization to non-transformer architectures (state-space at fair-kernel parity, diffusion, MoE), non-Latin scripts (Chinese, Arabic, Devanagari), and alternative quantizers (GPTQ, AWQ) remains open and is scoped under the [Paper 7.1 tracking issue](https://github.com/Windstorm-Institute/throughput-basin-origin/issues/1) as future work — not as blocking items.
 
-**Exp 8 (Vision Basin, Phase 1):** vision arm complete (`exp-8/results/exp8a..c_*.csv`, 4 plots in `exp-8/plots/`). The multimodal arm (`exp8d_multimodal.csv`) is recorded as `skipped` / NaN in `summary.json` and is deferred to a debugged re-run before Paper 8 is finalized.
+**Trilogy completion:** The cross-modal extension is reported in **Paper 8** ([Vision Basin](https://github.com/Windstorm-Institute/vision-basin), DOI [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827)). The hardware-substrate extension is reported in **Paper 9** ([Hardware Basin](https://github.com/Windstorm-Institute/hardware-basin), DOI [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921)). Together, Papers 7-9 form the data-driven-basin trilogy across language, perception, and quantization-inference substrate. Preliminary scripts for Papers 8 and 9 are mirrored in the `paper8/` and `paper9/` subdirectories of this conductor repo.
