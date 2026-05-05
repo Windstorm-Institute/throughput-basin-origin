@@ -254,3 +254,12 @@ For questions or collaborations:
 **Status (v1.6, April 2026):** Paper 7 is published with its internal adversarial review attached. The four adversarial-review blocking items (B1-B4) are all resolved — see the ⚠ box at the top of this README and §3.7-3.12 of [`paper/Paper7-Throughput-Basin-Origin-v1.6.pdf`](paper/Paper7-Throughput-Basin-Origin-v1.6.pdf). The data-driven hypothesis survives nine falsification experiments at 92M and 1.2B parameters; the refined equation **BPT ≈ source\_entropy − f(structural\_depth)** is verified at effect sizes up to Cohen's *d* = 400.81 (GS3, *p* = 2.84×10⁻¹⁵). Future generalization to non-transformer architectures (state-space at fair-kernel parity, diffusion, MoE), non-Latin scripts (Chinese, Arabic, Devanagari), and alternative quantizers (GPTQ, AWQ) remains open and is scoped under the [Paper 7.1 tracking issue](https://github.com/Windstorm-Institute/throughput-basin-origin/issues/1) as future work — not as blocking items.
 
 **Trilogy completion:** The cross-modal extension is reported in **Paper 8** ([Vision Basin](https://github.com/Windstorm-Institute/vision-basin), DOI [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827)). The hardware-substrate extension is reported in **Paper 9** ([Hardware Basin](https://github.com/Windstorm-Institute/hardware-basin), DOI [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921)). Together, Papers 7-9 form the data-driven-basin trilogy across language, perception, and quantization-inference substrate. Preliminary scripts for Papers 8 and 9 are mirrored in the `paper8/` and `paper9/` subdirectories of this conductor repo.
+
+## Discuss this paper
+
+- **Discuss the paper's ideas** → [Comments on the website article](https://windstorminstitute.org/articles/throughput-basin-origin.html#comments) (powered by GitHub Discussions on the website repo)
+- **Typo, citation issue, or paper-content correction?** → [Open an Issue on this repo](../../issues)
+- **Bug in the analysis code, or a reproduction question?** → [Issue](https://github.com/Windstorm-Labs/throughput-basin-origin/issues) or [Discussion](https://github.com/Windstorm-Labs/throughput-basin-origin/discussions) on the Labs repo
+
+---
+
