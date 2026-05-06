@@ -83,7 +83,7 @@ throughput-basin-origin/
 │   └── results/    # Statistical tests, 7-corpus evaluation
 │
 ├── exp-6/          # Thermodynamic Energy Survey
-│   ├── code/       # Energy measurement on RTX 5090
+│   ├── code/       # Energy measurement on Nvidia GPU
 │   └── results/    # φ calculations, Landauer comparison
 │
 ├── orchestration/  # Autonomous experiment orchestrator
@@ -132,7 +132,7 @@ Basin emerges from data statistics, not architectural constraints.
 
 ### 4. Massive Thermodynamic Headroom (Experiment 6)
 
-RTX 5090 efficiency: **φ ≈ 10^15 to 10^18**
+Nvidia GPU efficiency: **φ ≈ 10^15 to 10^18**
 - Current GPUs: 15-18 orders above Landauer limit
 - Ribosome: φ ≈ 1.02 (2% above Landauer)
 - Gap: **~16 orders of magnitude improvement possible**
@@ -234,7 +234,7 @@ MIT License - See LICENSE file for details
 ## Acknowledgments
 
 - **Research Agent**: Claude Sonnet 4.5 (Anthropic)
-- **Computing**: Varon-1 (RTX 5090, 96GB RAM)
+- **Computing**: Varon-1 (Nvidia GPU, 96 GB system RAM)
 - **Supervision**: Windstorm Institute - Grant Lavell Whitmer III
 - **Execution Model**: Fully autonomous overnight run
 
@@ -247,7 +247,7 @@ For questions or collaborations:
 ---
 
 **Total Runtime**: 14.5 hours autonomous execution
-**GPU Hours**: ~50 hours on RTX 5090
+**GPU Hours**: ~50 hours on Nvidia GPU
 **Models Trained**: 5 synthetic GPT-2 models (92M params each)
 **Data Points**: 47,392 measurements across all experiments
 
