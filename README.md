@@ -297,4 +297,4 @@ For questions or collaborations:
 
 ---
 
-*License: CC BY 4.0*
+*License: MIT (code) and CC BY 4.0 (data, figures, paper text). See [LICENSE](LICENSE).*
