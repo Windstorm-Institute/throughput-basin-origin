@@ -204,7 +204,7 @@ All bugs were self-identified and fixed autonomously during the 14.5-hour execut
 ```bibtex
 @techreport{whitmer2026basin,
   title={The Throughput Basin Origin: Data-Driven Convergence in Serial Decoding Systems},
-  author={Whitmer III, Grant Lavell and Claude Sonnet 4.5},
+  author={Whitmer III, Grant Lavell},
   institution={Windstorm Institute},
   year={2026},
   note={Paper 7 of the Windstorm Institute Throughput Basin Series},
