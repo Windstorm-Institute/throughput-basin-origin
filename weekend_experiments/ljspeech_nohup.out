@@ -1,0 +1,158 @@
+[2026-04-13 10:21:36] ============================================================
+[2026-04-13 10:21:36] REAL LJ SPEECH AUDIO EXPERIMENT
+[2026-04-13 10:21:36] Source: /tmp/ljspeech_manual/LJSpeech-1.1/wavs — 13,100 wav files of single-speaker English
+[2026-04-13 10:21:36] ============================================================
+[2026-04-13 10:21:36] Loading wav files...
+[2026-04-13 10:21:36]   Found 13100 files
+[2026-04-13 10:21:36]     Loaded 0/3000
+[2026-04-13 10:21:36]     Loaded 500/3000
+[2026-04-13 10:21:37]     Loaded 1000/3000
+[2026-04-13 10:21:37]     Loaded 1500/3000
+[2026-04-13 10:21:37]     Loaded 2000/3000
+[2026-04-13 10:21:37]     Loaded 2500/3000
+[2026-04-13 10:21:38]   Total audio: 19920 seconds (5.5 hours)
+[2026-04-13 10:21:38]   Generating piano music...
+[2026-04-13 10:21:39] 
+  Source entropies (gzip on PCM):
+[2026-04-13 10:21:39]     speech_ljspeech_REAL: 13.964 bits/sample
+[2026-04-13 10:21:39]     music_synthetic: 14.199 bits/sample
+[2026-04-13 10:21:39]     noise_control: 15.783 bits/sample
+[2026-04-13 10:21:39]     silence_control: 9.372 bits/sample
+[2026-04-13 10:23:14]     speech_ljspeech_REAL: 857882 mel frames
+[2026-04-13 10:23:17]     music_synthetic: 25840 mel frames
+[2026-04-13 10:23:19]     noise_control: 12920 mel frames
+[2026-04-13 10:23:19]     silence_control: 2584 mel frames
+[2026-04-13 10:23:19] 
+  === speech_ljspeech_REAL ===
+[2026-04-13 10:23:19]     Training seed=42...
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:176: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:191: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 10:24:38]       step 10000/50000, loss=0.079094
+[2026-04-13 10:25:55]       step 20000/50000, loss=0.071531
+[2026-04-13 10:27:11]       step 30000/50000, loss=0.065003
+[2026-04-13 10:28:28]       step 40000/50000, loss=0.061808
+[2026-04-13 10:29:45]       step 50000/50000, loss=0.059459
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:214: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:247: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 10:30:16]       speech_ljspeech_REAL s=42: bpd=1.8853, bonus=1.8853, slope=-8.75e-08
+[2026-04-13 10:30:16]     Training seed=137...
+[2026-04-13 10:31:33]       step 10000/50000, loss=0.082412
+[2026-04-13 10:32:50]       step 20000/50000, loss=0.072488
+[2026-04-13 10:34:08]       step 30000/50000, loss=0.064675
+[2026-04-13 10:35:25]       step 40000/50000, loss=0.059230
+[2026-04-13 10:36:43]       step 50000/50000, loss=0.062716
+[2026-04-13 10:37:15]       speech_ljspeech_REAL s=137: bpd=1.8876, bonus=1.8876, slope=-8.54e-08
+[2026-04-13 10:37:15]     Training seed=2024...
+[2026-04-13 10:38:32]       step 10000/50000, loss=0.081469
+[2026-04-13 10:39:48]       step 20000/50000, loss=0.069529
+[2026-04-13 10:41:05]       step 30000/50000, loss=0.063452
+[2026-04-13 10:42:23]       step 40000/50000, loss=0.061473
+[2026-04-13 10:43:44]       step 50000/50000, loss=0.061882
+[2026-04-13 10:44:16]       speech_ljspeech_REAL s=2024: bpd=1.8846, bonus=1.8846, slope=-9.19e-08
+[2026-04-13 10:44:16] 
+  === music_synthetic ===
+[2026-04-13 10:44:16]     Training seed=42...
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:176: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:191: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 10:45:42]       step 10000/50000, loss=0.008918
+[2026-04-13 10:47:05]       step 20000/50000, loss=0.006262
+[2026-04-13 10:48:30]       step 30000/50000, loss=0.005425
+[2026-04-13 10:49:51]       step 40000/50000, loss=0.003322
+[2026-04-13 10:51:12]       step 50000/50000, loss=0.002481
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:214: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:247: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 10:51:14]       music_synthetic s=42: bpd=2.6697, bonus=2.6697, slope=-4.46e-08
+[2026-04-13 10:51:14]     Training seed=137...
+[2026-04-13 10:52:36]       step 10000/50000, loss=0.015617
+[2026-04-13 10:53:58]       step 20000/50000, loss=0.005758
+[2026-04-13 10:55:20]       step 30000/50000, loss=0.004082
+[2026-04-13 10:56:41]       step 40000/50000, loss=0.003385
+[2026-04-13 10:58:02]       step 50000/50000, loss=0.002913
+[2026-04-13 10:58:05]       music_synthetic s=137: bpd=2.6734, bonus=2.6734, slope=-4.47e-08
+[2026-04-13 10:58:05]     Training seed=2024...
+[2026-04-13 10:59:27]       step 10000/50000, loss=0.008098
+[2026-04-13 11:00:48]       step 20000/50000, loss=0.005677
+[2026-04-13 11:02:10]       step 30000/50000, loss=0.004386
+[2026-04-13 11:03:33]       step 40000/50000, loss=0.002733
+[2026-04-13 11:04:54]       step 50000/50000, loss=0.002656
+[2026-04-13 11:04:56]       music_synthetic s=2024: bpd=2.7002, bonus=2.7002, slope=-4.42e-08
+[2026-04-13 11:04:57] 
+  === noise_control ===
+[2026-04-13 11:04:57]     Training seed=42...
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:176: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:191: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 11:06:23]       step 10000/50000, loss=0.124897
+[2026-04-13 11:07:46]       step 20000/50000, loss=0.107760
+[2026-04-13 11:09:11]       step 30000/50000, loss=0.101234
+[2026-04-13 11:10:36]       step 40000/50000, loss=0.098060
+[2026-04-13 11:12:00]       step 50000/50000, loss=0.101110
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:214: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:247: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 11:12:02]       noise_control s=42: bpd=0.0000, bonus=0.0000, slope=-7.90e-08
+[2026-04-13 11:12:02]     Training seed=137...
+[2026-04-13 11:13:26]       step 10000/50000, loss=0.127379
+[2026-04-13 11:14:49]       step 20000/50000, loss=0.109604
+[2026-04-13 11:16:15]       step 30000/50000, loss=0.101615
+[2026-04-13 11:17:40]       step 40000/50000, loss=0.098463
+[2026-04-13 11:19:05]       step 50000/50000, loss=0.097799
+[2026-04-13 11:19:07]       noise_control s=137: bpd=0.0000, bonus=0.0000, slope=-7.74e-08
+[2026-04-13 11:19:07]     Training seed=2024...
+[2026-04-13 11:20:32]       step 10000/50000, loss=0.125029
+[2026-04-13 11:21:56]       step 20000/50000, loss=0.108210
+[2026-04-13 11:23:22]       step 30000/50000, loss=0.101077
+[2026-04-13 11:24:46]       step 40000/50000, loss=0.098282
+[2026-04-13 11:26:12]       step 50000/50000, loss=0.098157
+[2026-04-13 11:26:14]       noise_control s=2024: bpd=0.0000, bonus=0.0000, slope=-7.69e-08
+[2026-04-13 11:26:15] 
+  === silence_control ===
+[2026-04-13 11:26:15]     Training seed=42...
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:176: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:191: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 11:28:12]       step 10000/50000, loss=0.014998
+[2026-04-13 11:30:09]       step 20000/50000, loss=0.009656
+[2026-04-13 11:32:07]       step 30000/50000, loss=0.008239
+[2026-04-13 11:34:04]       step 40000/50000, loss=0.007864
+[2026-04-13 11:36:01]       step 50000/50000, loss=0.007525
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:214: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/home/user1-gpu/agi-extensions/weekend_experiments/round3_real_ljspeech.py:247: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+[2026-04-13 11:36:03]       silence_control s=42: bpd=0.0000, bonus=0.0000, slope=-1.32e-08
+[2026-04-13 11:36:03]     Training seed=137...
+[2026-04-13 11:38:00]       step 10000/50000, loss=0.015338
+[2026-04-13 11:39:58]       step 20000/50000, loss=0.009904
+[2026-04-13 11:41:55]       step 30000/50000, loss=0.008262
+[2026-04-13 11:43:52]       step 40000/50000, loss=0.007612
+[2026-04-13 11:45:49]       step 50000/50000, loss=0.007552
+[2026-04-13 11:45:51]       silence_control s=137: bpd=0.0000, bonus=0.0000, slope=-1.32e-08
+[2026-04-13 11:45:51]     Training seed=2024...
+[2026-04-13 11:47:48]       step 10000/50000, loss=0.014769
+[2026-04-13 11:49:45]       step 20000/50000, loss=0.010124
+[2026-04-13 11:51:42]       step 30000/50000, loss=0.008191
+[2026-04-13 11:53:32]       step 40000/50000, loss=0.007606
+[2026-04-13 11:55:19]       step 50000/50000, loss=0.007465
+[2026-04-13 11:55:20]       silence_control s=2024: bpd=0.0000, bonus=0.0000, slope=-1.32e-08
+[2026-04-13 11:55:20] 
+  === COMPARISON: Real vs Synthetic Speech ===
+[2026-04-13 11:55:20]     Real LJ Speech:     1.8858 bits/mel_dim
+[2026-04-13 11:55:20]     Synthetic formants: 0.6300 bits/mel_dim
+[2026-04-13 11:55:20]     VERDICT: Differ by 199% — synthetic was NOT a good proxy
+[2026-04-13 11:55:21] 
+============================================================
+[2026-04-13 11:55:21] REAL LJ SPEECH EXPERIMENT COMPLETE
+[2026-04-13 11:55:21] Real speech throughput: 1.8858 bits/mel_dim
+[2026-04-13 11:55:21] ============================================================

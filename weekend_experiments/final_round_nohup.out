@@ -1,0 +1,332 @@
+[2026-04-13 12:47:13] ============================================================
+[2026-04-13 12:47:13] FINAL ROUND: DECISIVE EXPERIMENTS FOR PAPERS 7, 8, 9
+[2026-04-13 12:47:13] Started: 2026-04-13 12:47:13
+[2026-04-13 12:47:13] ============================================================
+[2026-04-13 12:47:13] 
+============================================================
+[2026-04-13 12:47:13] 
+============================================================[2026-04-13 12:47:13] P7-F1: τ RE-MEASUREMENT ACROSS FULL MODEL ZOO
+
+[2026-04-13 12:47:13] ============================================================
+[2026-04-13 12:47:13] P9-F2: LEVEL ALLOCATION ACROSS ALL MODELS (CPU)
+[2026-04-13 12:47:13] ============================================================
+[2026-04-13 12:47:14] 
+  EleutherAI/pythia-160m...
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'ptb_text_only' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+[2026-04-13 12:47:17]     weight: sym4=0.8544, nf4=0.9717
+[2026-04-13 12:47:17] P7-F1: τ full zoo FAILED: Dataset scripts are no longer supported, but found ptb_text_only.py
+Traceback (most recent call last):
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/final_round.py", line 587, in main
+    func()
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/final_round.py", line 65, in p7_f1_tau_full
+    ptb = load_dataset("ptb_text_only", "penn_treebank", split="test", trust_remote_code=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/datasets/load.py", line 1488, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/datasets/load.py", line 1133, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/datasets/load.py", line 1032, in dataset_module_factory
+    raise e1 from None
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/datasets/load.py", line 992, in dataset_module_factory
+    raise RuntimeError(f"Dataset scripts are no longer supported, but found {filename}")
+RuntimeError: Dataset scripts are no longer supported, but found ptb_text_only.py
+[2026-04-13 12:47:17] 
+============================================================
+[2026-04-13 12:47:17] P9-F1: CAN NF4 PUSH THE CLIFF BELOW INT4?
+[2026-04-13 12:47:17] ============================================================
+[2026-04-13 12:47:18]     weight: sym4=0.8544, nf4=0.9717
+[2026-04-13 12:47:18] 
+  EleutherAI/pythia-410m...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-13 12:47:19]     FP16...
+[2026-04-13 12:47:20]     weight: sym4=0.8544, nf4=0.9717
+[2026-04-13 12:47:20] 
+  EleutherAI/pythia-410m...
+[2026-04-13 12:47:21]       BPT=4.2688
+[2026-04-13 12:47:21]     BNB_INT8...
+bitsandbytes library load error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+Traceback (most recent call last):
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 320, in <module>
+    lib = get_native_library()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/user1-gpu/.local/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 298, in get_native_library
+    dll = ct.cdll.LoadLibrary(str(binary_path))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 460, in LoadLibrary
+    return self._dlltype(name)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+[2026-04-13 12:47:24]     weight: sym4=0.9065, nf4=0.9727
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 12:47:25]       ERROR: 
+🚨 CUDA SETUP ERROR: Missing dependency: libnvJitLink.so.13 🚨
+
+CUDA 13.x runtime libraries were not found in the LD_LIBRARY_PATH.
+
+To fix this, make sure that:
+1. You have installed CUDA 13.x toolkit on your system
+2. The CUDA runtime libraries are in your LD_LIBRARY_PATH
+
+You can add them with (and persist the change by adding the line to your .bashrc):
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/cuda-13.x/                    lib64
+
+Original error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+
+🔍 Run this command for detailed diagnostics:
+python -m bitsandbytes
+
+If you've tried everything and still have issues:
+1. Include ALL version info (operating system, bitsandbytes, pytorch, cuda, python)
+2. Describe what you've tried in detail
+3. Open an issue with this information:
+   https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Native code method attempted to call: lib.cint8_vector_quant()
+[2026-04-13 12:47:25]     BNB_NF4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 12:47:25]     weight: sym4=0.9065, nf4=0.9727
+[2026-04-13 12:47:25]       ERROR: 
+🚨 CUDA SETUP ERROR: Missing dependency: libnvJitLink.so.13 🚨
+
+CUDA 13.x runtime libraries were not found in the LD_LIBRARY_PATH.
+
+To fix this, make sure that:
+1. You have installed CUDA 13.x toolkit on your system
+2. The CUDA runtime libraries are in your LD_LIBRARY_PATH
+
+You can add them with (and persist the change by adding the line to your .bashrc):
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/cuda-13.x/                    lib64
+
+Original error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+
+🔍 Run this command for detailed diagnostics:
+python -m bitsandbytes
+
+If you've tried everything and still have issues:
+1. Include ALL version info (operating system, bitsandbytes, pytorch, cuda, python)
+2. Describe what you've tried in detail
+3. Open an issue with this information:
+   https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Native code method attempted to call: lib.cquantize_blockwise_fp16_nf4()
+[2026-04-13 12:47:25]     BNB_FP4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 12:47:25]       ERROR: 
+🚨 CUDA SETUP ERROR: Missing dependency: libnvJitLink.so.13 🚨
+
+CUDA 13.x runtime libraries were not found in the LD_LIBRARY_PATH.
+
+To fix this, make sure that:
+1. You have installed CUDA 13.x toolkit on your system
+2. The CUDA runtime libraries are in your LD_LIBRARY_PATH
+
+You can add them with (and persist the change by adding the line to your .bashrc):
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/cuda-13.x/                    lib64
+
+Original error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+
+🔍 Run this command for detailed diagnostics:
+python -m bitsandbytes
+
+If you've tried everything and still have issues:
+1. Include ALL version info (operating system, bitsandbytes, pytorch, cuda, python)
+2. Describe what you've tried in detail
+3. Open an issue with this information:
+   https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Native code method attempted to call: lib.cquantize_blockwise_fp16_fp4()
+[2026-04-13 12:47:25]     SYM_INT8...
+[2026-04-13 12:47:27]       BPT=4.7777
+[2026-04-13 12:47:27]     SYM_INT4...
+[2026-04-13 12:47:29]     weight: sym4=0.9065, nf4=0.9727
+[2026-04-13 12:47:29] 
+  EleutherAI/pythia-1.4b...
+[2026-04-13 12:47:29]       BPT=16.7563
+[2026-04-13 12:47:29]     SYM_INT3...
+[2026-04-13 12:47:31]       BPT=16.0455
+[2026-04-13 12:47:31] 
+  EleutherAI/pythia-1.4b...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-13 12:47:32]     FP16...
+[2026-04-13 12:47:34]       BPT=3.8112
+[2026-04-13 12:47:34]     BNB_INT8...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 12:47:35]       ERROR: 
+🚨 CUDA SETUP ERROR: Missing dependency: libnvJitLink.so.13 🚨
+
+CUDA 13.x runtime libraries were not found in the LD_LIBRARY_PATH.
+
+To fix this, make sure that:
+1. You have installed CUDA 13.x toolkit on your system
+2. The CUDA runtime libraries are in your LD_LIBRARY_PATH
+
+You can add them with (and persist the change by adding the line to your .bashrc):
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/cuda-13.x/                    lib64
+
+Original error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+
+🔍 Run this command for detailed diagnostics:
+python -m bitsandbytes
+
+If you've tried everything and still have issues:
+1. Include ALL version info (operating system, bitsandbytes, pytorch, cuda, python)
+2. Describe what you've tried in detail
+3. Open an issue with this information:
+   https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Native code method attempted to call: lib.cint8_vector_quant()
+[2026-04-13 12:47:35]     BNB_NF4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 12:47:35]       ERROR: 
+🚨 CUDA SETUP ERROR: Missing dependency: libnvJitLink.so.13 🚨
+
+CUDA 13.x runtime libraries were not found in the LD_LIBRARY_PATH.
+
+To fix this, make sure that:
+1. You have installed CUDA 13.x toolkit on your system
+2. The CUDA runtime libraries are in your LD_LIBRARY_PATH
+
+You can add them with (and persist the change by adding the line to your .bashrc):
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/cuda-13.x/                    lib64
+
+Original error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+
+🔍 Run this command for detailed diagnostics:
+python -m bitsandbytes
+
+If you've tried everything and still have issues:
+1. Include ALL version info (operating system, bitsandbytes, pytorch, cuda, python)
+2. Describe what you've tried in detail
+3. Open an issue with this information:
+   https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Native code method attempted to call: lib.cquantize_blockwise_fp16_nf4()
+[2026-04-13 12:47:35]     BNB_FP4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 12:47:36]       ERROR: 
+🚨 CUDA SETUP ERROR: Missing dependency: libnvJitLink.so.13 🚨
+
+CUDA 13.x runtime libraries were not found in the LD_LIBRARY_PATH.
+
+To fix this, make sure that:
+1. You have installed CUDA 13.x toolkit on your system
+2. The CUDA runtime libraries are in your LD_LIBRARY_PATH
+
+You can add them with (and persist the change by adding the line to your .bashrc):
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/cuda-13.x/                    lib64
+
+Original error: libnvJitLink.so.13: cannot open shared object file: No such file or directory
+
+🔍 Run this command for detailed diagnostics:
+python -m bitsandbytes
+
+If you've tried everything and still have issues:
+1. Include ALL version info (operating system, bitsandbytes, pytorch, cuda, python)
+2. Describe what you've tried in detail
+3. Open an issue with this information:
+   https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Native code method attempted to call: lib.cquantize_blockwise_fp16_fp4()
+[2026-04-13 12:47:36]     SYM_INT8...
+[2026-04-13 12:47:42]     weight: sym4=0.9062, nf4=0.9791
+[2026-04-13 12:47:43]       BPT=3.7936
+[2026-04-13 12:47:43]     SYM_INT4...
+[2026-04-13 12:47:46]     weight: sym4=0.9062, nf4=0.9791
+[2026-04-13 12:47:49]       BPT=16.8713
+[2026-04-13 12:47:49]     SYM_INT3...
+[2026-04-13 12:47:56]       BPT=15.7505
+[2026-04-13 12:47:56] P9-F1 COMPLETE
+[2026-04-13 12:47:56] 
+============================================================
+[2026-04-13 12:47:56] P8-F1: PRETRAINED MODEL THROUGHPUT SURVEY (20+ models)
+[2026-04-13 12:47:56] ============================================================
+[2026-04-13 12:47:57]   EleutherAI/pythia-70m...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-13 12:48:00]     weight: sym4=0.9062, nf4=0.9791
+[2026-04-13 12:48:00] 
+  gpt2-medium...
+[2026-04-13 12:48:04]     BPT=5.8047, bits/byte=1.2997
+[2026-04-13 12:48:04]   EleutherAI/pythia-160m...
+[2026-04-13 12:48:04]     weight: sym4=0.8503, nf4=0.9472
+[2026-04-13 12:48:05]     weight: sym4=0.8503, nf4=0.9472
+[2026-04-13 12:48:06]     BPT=5.0007, bits/byte=1.1197
+[2026-04-13 12:48:06]   EleutherAI/pythia-410m...
+[2026-04-13 12:48:08]     BPT=4.2688, bits/byte=0.9558
+[2026-04-13 12:48:08]   EleutherAI/pythia-1b...
+[2026-04-13 12:48:09]     weight: sym4=0.8503, nf4=0.9472
+[2026-04-13 12:48:10] P9-F2 COMPLETE
+[2026-04-13 12:48:31]     BPT=3.9885, bits/byte=0.8931
+[2026-04-13 12:48:31]   EleutherAI/pythia-1.4b...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-13 12:48:34]     BPT=3.8112, bits/byte=0.8534
+[2026-04-13 12:48:34]   gpt2...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 12:48:43]     BPT=4.9834, bits/byte=1.1051
+[2026-04-13 12:48:43]   gpt2-medium...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 12:48:45]     BPT=4.5169, bits/byte=1.0016
+[2026-04-13 12:48:45]   gpt2-large...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 12:49:17]     BPT=4.3036, bits/byte=0.9543
+[2026-04-13 12:49:17]   gpt2-xl...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 12:50:18]     BPT=4.1546, bits/byte=0.9213
+[2026-04-13 12:50:18] 
+  Vision models (MAE)...
+[2026-04-13 12:50:25]   MAE-Base...
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+[2026-04-13 12:50:27]     bits/pixel=1.3253
+[2026-04-13 12:50:27]   MAE-Large...
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+[2026-04-13 12:50:30]     bits/pixel=1.3561
+[2026-04-13 12:50:31] P8-F1 COMPLETE
+[2026-04-13 12:50:31] 
+============================================================
+[2026-04-13 12:50:31] FINAL ROUND COMPLETE
+[2026-04-13 12:50:31] ============================================================
+[2026-04-13 12:50:31]   ✓ p9_f1_nf4_int3
+[2026-04-13 12:50:31]   ✓ p8_f1_throughput_survey
+[2026-04-13 12:50:31]   ✓ p9_f2_level_allocation_all
+[2026-04-13 12:50:31] 
+3/4 experiments completed

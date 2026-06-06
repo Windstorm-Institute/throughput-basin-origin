@@ -1,0 +1,231 @@
+[2026-04-15 19:07:04] ============================================================
+[2026-04-15 19:07:04] DECISIVE ROUND PHASE 2 — FULL GPU
+[2026-04-15 19:07:04] GPU: 32 GB RTX 5090 — targeting >55% utilization
+[2026-04-15 19:07:04] ============================================================
+[2026-04-15 19:07:04]   GPU: 147/32607 MB (0% mem), 0% compute
+[2026-04-15 19:07:04] 
+>>> Starting Exp 5 (PCFG depth sweep)
+[2026-04-15 19:07:04] 
+============================================================
+[2026-04-15 19:07:04] EXP 5: PCFG DEPTH SWEEP — FIXED GPT-2 TOKENIZER
+[2026-04-15 19:07:04] Does f(structural_depth) increase with grammar depth?
+[2026-04-15 19:07:04] ============================================================
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-15 19:07:05]   Loading GPT-2 (124M) for PCFG evaluation...
+[2026-04-15 19:07:06]   GPU: 921/32607 MB (2% mem), 0% compute
+[2026-04-15 19:07:06]     Depth 0...
+Token indices sequence length is longer than the specified maximum sequence length for this model (233088 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-15 19:07:07]       Depth 0: BPT=4.1175, src_entropy=3.90 bits/char, 100254 tokens
+[2026-04-15 19:07:07]     Depth 1...
+[2026-04-15 19:07:09]       Depth 1: BPT=4.9311, src_entropy=3.89 bits/char, 100254 tokens
+[2026-04-15 19:07:09]     Depth 2...
+[2026-04-15 19:07:10]       Depth 2: BPT=5.1223, src_entropy=3.88 bits/char, 100254 tokens
+[2026-04-15 19:07:10]     Depth 3...
+[2026-04-15 19:07:11]       Depth 3: BPT=5.2089, src_entropy=3.88 bits/char, 100254 tokens
+[2026-04-15 19:07:11]     Depth 4...
+[2026-04-15 19:07:12]       Depth 4: BPT=5.2420, src_entropy=3.87 bits/char, 100254 tokens
+[2026-04-15 19:07:12]     Depth 5...
+[2026-04-15 19:07:13]       Depth 5: BPT=5.2672, src_entropy=3.87 bits/char, 100254 tokens
+[2026-04-15 19:07:13]     Depth 6...
+[2026-04-15 19:07:14]       Depth 6: BPT=5.2731, src_entropy=3.87 bits/char, 100254 tokens
+[2026-04-15 19:07:14]     Random word salad baseline...
+[2026-04-15 19:07:15]       Random salad: BPT=8.8713
+[2026-04-15 19:07:15] EXP 5 COMPLETE
+[2026-04-15 19:07:15] 
+>>> Starting Exp 3 (Visual entropy)
+[2026-04-15 19:07:15] 
+============================================================
+[2026-04-15 19:07:15] EXP 3: VISUAL ENTROPY TRACKING CURVE
+[2026-04-15 19:07:15] How does vision throughput change with image complexity?
+[2026-04-15 19:07:15] ============================================================
+[2026-04-15 19:07:16]   Part A: MAE reconstruction loss vs image complexity
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+[2026-04-15 19:07:18]   GPU: 1001/32607 MB (3% mem), 0% compute
+[2026-04-15 19:07:18]   Downloading CIFAR-10 for real image baselines...
+  0%|          | 0.00/170M [00:00<?, ?B/s]  0%|          | 65.5k/170M [00:00<05:33, 511kB/s]  0%|          | 229k/170M [00:00<02:51, 995kB/s]   1%|          | 918k/170M [00:00<00:54, 3.09MB/s]  2%|▏         | 3.67M/170M [00:00<00:15, 10.8MB/s]  5%|▌         | 8.91M/170M [00:00<00:06, 23.9MB/s]  9%|▊         | 14.5M/170M [00:00<00:04, 32.0MB/s] 12%|█▏        | 20.5M/170M [00:00<00:03, 40.4MB/s] 15%|█▍        | 25.4M/170M [00:00<00:03, 41.1MB/s] 19%|█▉        | 32.3M/170M [00:01<00:02, 49.3MB/s] 22%|██▏       | 37.4M/170M [00:01<00:02, 46.9MB/s] 26%|██▌       | 43.6M/170M [00:01<00:02, 47.1MB/s] 30%|██▉       | 50.4M/170M [00:01<00:02, 52.9MB/s] 33%|███▎      | 55.9M/170M [00:01<00:02, 50.7MB/s] 36%|███▌      | 61.6M/170M [00:01<00:02, 52.4MB/s] 39%|███▉      | 66.9M/170M [00:01<00:02, 50.8MB/s] 43%|████▎     | 73.3M/170M [00:01<00:01, 49.2MB/s] 47%|████▋     | 79.9M/170M [00:01<00:01, 53.6MB/s] 50%|█████     | 85.4M/170M [00:02<00:01, 50.7MB/s] 54%|█████▍    | 92.1M/170M [00:02<00:01, 55.3MB/s] 57%|█████▋    | 97.8M/170M [00:02<00:01, 51.7MB/s] 60%|██████    | 103M/170M [00:02<00:01, 49.9MB/s]  64%|██████▍   | 110M/170M [00:02<00:01, 53.9MB/s] 68%|██████▊   | 115M/170M [00:02<00:01, 50.2MB/s] 71%|███████▏  | 122M/170M [00:02<00:00, 50.1MB/s] 75%|███████▌  | 128M/170M [00:02<00:00, 49.8MB/s] 79%|███████▉  | 135M/170M [00:03<00:00, 54.8MB/s] 83%|████████▎ | 141M/170M [00:03<00:00, 52.2MB/s] 86%|████████▌ | 147M/170M [00:03<00:00, 50.2MB/s] 90%|█████████ | 154M/170M [00:03<00:00, 55.9MB/s] 94%|█████████▍| 160M/170M [00:03<00:00, 52.0MB/s] 97%|█████████▋| 166M/170M [00:03<00:00, 50.5MB/s]100%|██████████| 170M/170M [00:03<00:00, 46.1MB/s]
+[2026-04-15 19:07:24]     MAE on uniform_gray...
+/home/user1-gpu/agi-extensions/weekend_experiments/decisive_phase2_full.py:147: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.no_grad(), autocast(dtype=torch.float16):
+[2026-04-15 19:07:25]       MAE loss=0.000022, bits/pixel≈0.0000
+[2026-04-15 19:07:25]     MAE on gradient...
+[2026-04-15 19:07:27]       MAE loss=0.000191, bits/pixel≈0.0000
+[2026-04-15 19:07:27]     MAE on blocks_4x4...
+[2026-04-15 19:07:28]       MAE loss=1.796778, bits/pixel≈2.4698
+[2026-04-15 19:07:28]     MAE on blocks_16x16...
+[2026-04-15 19:07:30]       MAE loss=2.604553, bits/pixel≈2.7376
+[2026-04-15 19:07:30]     MAE on noise_gaussian...
+[2026-04-15 19:07:33]       MAE loss=1.135447, bits/pixel≈2.1387
+[2026-04-15 19:07:33]     MAE on noise_uniform...
+[2026-04-15 19:07:34]       MAE loss=1.646955, bits/pixel≈2.4070
+[2026-04-15 19:07:34]   GPU: 1367/32607 MB (4% mem), 11% compute
+[2026-04-15 19:07:34]     MAE on CIFAR-10 (real images)...
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+/home/user1-gpu/agi-extensions/weekend_experiments/decisive_phase2_full.py:183: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.no_grad(), autocast(dtype=torch.float16):
+[2026-04-15 19:07:36]       CIFAR-10: MAE loss=0.070993, bits/pixel≈0.1390
+[2026-04-15 19:07:36] 
+  Part B: ViT suite — classification entropy across architectures
+[2026-04-15 19:07:36]     Loading ViT-B/16...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+[2026-04-15 19:07:45]   GPU: 995/32607 MB (3% mem), 0% compute
+[2026-04-15 19:07:45]       ViT-B/16 on uniform_gray: output entropy=8.2188 bits
+[2026-04-15 19:07:45]       ViT-B/16 on gradient: output entropy=8.3750 bits
+[2026-04-15 19:07:45]       ViT-B/16 on blocks_4x4: output entropy=8.0547 bits
+[2026-04-15 19:07:45]       ViT-B/16 on blocks_16x16: output entropy=7.8008 bits
+[2026-04-15 19:07:45]       ViT-B/16 on noise_gaussian: output entropy=7.4883 bits
+[2026-04-15 19:07:46]       ViT-B/16 on noise_uniform: output entropy=6.5625 bits
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+[2026-04-15 19:07:46]       ViT-B/16 on CIFAR-10: output entropy=3.5977 bits
+[2026-04-15 19:07:46]     Loading ViT-L/16...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+[2026-04-15 19:08:01]   GPU: 1415/32607 MB (4% mem), 3% compute
+[2026-04-15 19:08:02]       ViT-L/16 on uniform_gray: output entropy=7.7969 bits
+[2026-04-15 19:08:02]       ViT-L/16 on gradient: output entropy=7.9727 bits
+[2026-04-15 19:08:02]       ViT-L/16 on blocks_4x4: output entropy=8.5469 bits
+[2026-04-15 19:08:02]       ViT-L/16 on blocks_16x16: output entropy=8.3906 bits
+[2026-04-15 19:08:02]       ViT-L/16 on noise_gaussian: output entropy=8.6719 bits
+[2026-04-15 19:08:02]       ViT-L/16 on noise_uniform: output entropy=8.5703 bits
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+[2026-04-15 19:08:03]       ViT-L/16 on CIFAR-10: output entropy=3.2715 bits
+[2026-04-15 19:08:03] 
+  Part C: MAE patch-size sensitivity
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/models/vit/feature_extraction_vit.py:28: FutureWarning: The class ViTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use ViTImageProcessor instead.
+  warnings.warn(
+[2026-04-15 19:08:04]     Effective patch size 16x16...
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+[2026-04-15 19:08:05]       patch 16: loss=0.068724, bits/pixel≈0.1156
+[2026-04-15 19:08:05]     Effective patch size 32x32...
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+[2026-04-15 19:08:06]       patch 32: loss=0.076523, bits/pixel≈0.1931
+[2026-04-15 19:08:06]     Effective patch size 64x64...
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+[2026-04-15 19:08:07]       patch 64: loss=0.133007, bits/pixel≈0.5919
+[2026-04-15 19:08:08] EXP 3 COMPLETE
+[2026-04-15 19:08:08] 
+>>> Starting Exp 4 (Audio throughput)
+[2026-04-15 19:08:08] 
+============================================================
+[2026-04-15 19:08:08] EXP 4: REAL AUDIO THROUGHPUT — MAESTRO PIANO + LJ SPEECH
+[2026-04-15 19:08:08] Does audio throughput track source complexity?
+[2026-04-15 19:08:08] ============================================================
+[2026-04-15 19:08:08]   Loading wav2vec2-base-960h...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of Wav2Vec2ForCTC were not initialized from the model checkpoint at facebook/wav2vec2-base-960h and are newly initialized: ['wav2vec2.masked_spec_embed']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[2026-04-15 19:08:17]   GPU: 977/32607 MB (2% mem), 0% compute
+[2026-04-15 19:08:17]     wav2vec2 on silence...
+[2026-04-15 19:08:17]       silence: entropy=nan bits/frame, 1992 frames
+[2026-04-15 19:08:17]     wav2vec2 on pure_440hz...
+[2026-04-15 19:08:18]       pure_440hz: entropy=nan bits/frame, 1992 frames
+[2026-04-15 19:08:18]     wav2vec2 on chord_3note...
+[2026-04-15 19:08:18]       chord_3note: entropy=nan bits/frame, 1992 frames
+[2026-04-15 19:08:18]     wav2vec2 on white_noise...
+[2026-04-15 19:08:18]       white_noise: entropy=nan bits/frame, 1992 frames
+[2026-04-15 19:08:18]     wav2vec2 on pink_noise...
+[2026-04-15 19:08:18]       pink_noise: entropy=nan bits/frame, 1992 frames
+[2026-04-15 19:08:18]     wav2vec2 on am_sweep...
+[2026-04-15 19:08:18]       am_sweep: entropy=nan bits/frame, 1992 frames
+[2026-04-15 19:08:18]   GPU: 1039/32607 MB (3% mem), 24% compute
+[2026-04-15 19:08:18]     Generating synthetic piano audio...
+[2026-04-15 19:08:18]       Synth piano: entropy=nan bits/frame, 1992 frames
+[2026-04-15 19:08:19] EXP 4 COMPLETE
+[2026-04-15 19:08:19] 
+============================================================
+[2026-04-15 19:08:19] DECISIVE ROUND PHASE 2 — ALL EXPERIMENTS COMPLETE
+[2026-04-15 19:08:19] ============================================================
+[2026-04-15 19:08:19]   GPU: 813/32607 MB (2% mem), 0% compute

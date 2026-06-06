@@ -1,0 +1,35 @@
+[2026-04-15 19:16:41] 
+============================================================
+[2026-04-15 19:16:41] EXP 4 (FIXED): AUDIO THROUGHPUT — FP32 + MEL SPECTROGRAM
+[2026-04-15 19:16:41] ============================================================
+[2026-04-15 19:16:42]   Loading wav2vec2-base-960h in FP32...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of Wav2Vec2ForCTC were not initialized from the model checkpoint at facebook/wav2vec2-base-960h and are newly initialized: ['wav2vec2.masked_spec_embed']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[2026-04-15 19:16:43]   GPU: 1053/32607 MB (3% mem), 0% compute
+[2026-04-15 19:16:43]   === Method 1: wav2vec2 output entropy (FP32) ===
+[2026-04-15 19:16:43]     silence...
+[2026-04-15 19:16:43]       silence: entropy=1.3091 bits/frame
+[2026-04-15 19:16:43]     pure_440hz...
+[2026-04-15 19:16:43]       pure_440hz: entropy=2.9639 bits/frame
+[2026-04-15 19:16:43]     chord_3note...
+[2026-04-15 19:16:44]       chord_3note: entropy=0.6604 bits/frame
+[2026-04-15 19:16:44]     white_noise...
+[2026-04-15 19:16:44]       white_noise: entropy=1.5196 bits/frame
+[2026-04-15 19:16:44]     pink_noise...
+[2026-04-15 19:16:44]       pink_noise: entropy=1.3302 bits/frame
+[2026-04-15 19:16:44]     am_sweep...
+[2026-04-15 19:16:44]       am_sweep: entropy=0.5820 bits/frame
+[2026-04-15 19:16:44]   === Method 2: Mel-spectrogram entropy ===
+[2026-04-15 19:16:44]       silence: mel entropy=0.0000 bits/frame (626 frames)
+[2026-04-15 19:16:44]       pure_440hz: mel entropy=5.3495 bits/frame (626 frames)
+[2026-04-15 19:16:44]       chord_3note: mel entropy=5.3710 bits/frame (626 frames)
+[2026-04-15 19:16:44]       white_noise: mel entropy=6.3004 bits/frame (626 frames)
+[2026-04-15 19:16:44]       pink_noise: mel entropy=6.2769 bits/frame (626 frames)
+[2026-04-15 19:16:44]       am_sweep: mel entropy=5.2982 bits/frame (626 frames)
+[2026-04-15 19:16:44]   === LJ Speech (real audio) ===
+[2026-04-15 19:16:48]       LJ Speech wav2vec2: 0.0949 bits/frame (64287 frames)
+[2026-04-15 19:16:53]       LJ Speech mel: 6.2553 bits/frame (28754 frames)
+[2026-04-15 19:16:53]   GPU: 1601/32607 MB (4% mem), 0% compute
+[2026-04-15 19:16:54] EXP 4 (FIXED) COMPLETE

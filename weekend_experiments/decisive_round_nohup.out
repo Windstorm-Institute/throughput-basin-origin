@@ -1,0 +1,69 @@
+[2026-04-15 10:22:44] ============================================================
+[2026-04-15 10:22:44] DECISIVE ROUND: 2 HIGHEST-PRIORITY EXPERIMENTS
+[2026-04-15 10:22:44] Hardware-aware: yields to other GPU users
+[2026-04-15 10:22:44] GPU free: 11007 MB
+[2026-04-15 10:22:44] ============================================================
+[2026-04-15 10:22:44] 
+============================================================
+[2026-04-15 10:22:44] EXP 1: STRUCTURAL BONUS — NF4 vs SYMMETRIC
+[2026-04-15 10:22:44] Does level allocation preserve MEANING, not just numbers?
+[2026-04-15 10:22:44] ============================================================
+[2026-04-15 10:22:44]   GPU available: 11007 MB free
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-15 10:22:48]   FP16...
+[2026-04-15 10:22:48]   GPU available: 11007 MB free
+[2026-04-15 10:22:58]     BPT_orig=3.8112, BPT_shuf=10.0462, bonus=6.2350
+[2026-04-15 10:23:03]   BNB_NF4...
+[2026-04-15 10:23:03]   GPU available: 10374 MB free
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-15 10:23:15]     BPT_orig=3.8973, BPT_shuf=10.0982, bonus=6.2009
+[2026-04-15 10:23:20]   SYM_INT4...
+[2026-04-15 10:23:20]   GPU available: 9662 MB free
+[2026-04-15 10:23:36]     BPT_orig=16.8997, BPT_shuf=17.1769, bonus=0.2772
+[2026-04-15 10:23:41]   SYM_INT8...
+[2026-04-15 10:23:41]   GPU available: 15094 MB free
+[2026-04-15 10:23:58]     BPT_orig=3.8468, BPT_shuf=10.0898, bonus=6.2430
+[2026-04-15 10:24:04] EXP 1 COMPLETE
+[2026-04-15 10:24:04] 
+============================================================
+[2026-04-15 10:24:04] EXP 2: τ IN MULTIPLE LANGUAGES AND DOMAINS
+[2026-04-15 10:24:04] Is the basin about English, about language, or about structure?
+[2026-04-15 10:24:04] ============================================================
+[2026-04-15 10:24:04]   GPU available: 9702 MB free
+[2026-04-15 10:24:05]   Loading Chinese text...
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'cc100' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+[2026-04-15 10:24:06]     Chinese failed: Dataset scripts are no longer supported, but found cc100.py
+[2026-04-15 10:24:06]   Loading Python code...
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'codeparrot/github-code' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+[2026-04-15 10:24:07]     Python code failed: Dataset scripts are no longer supported, but found github-code.py
+[2026-04-15 10:24:07]     Python (synthetic): 1185000 chars
+[2026-04-15 10:24:07]   Generating DNA sequence...
+[2026-04-15 10:24:07]     DNA: 500000 chars
+[2026-04-15 10:24:07] 
+  Pythia-410M (EleutherAI/pythia-410m)...
+[2026-04-15 10:24:07]   GPU available: 9702 MB free
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-15 10:24:10]     english: BPT=4.2201, bits/char=0.9526, bits/byte=0.9510, bytes/char=1.00
+[2026-04-15 10:24:11]     python_code: BPT=0.1904, bits/char=0.0691, bits/byte=0.0691, bytes/char=1.00
+[2026-04-15 10:24:13]     dna_sequence: BPT=4.4333, bits/char=2.0208, bits/byte=2.0208, bytes/char=1.00
+[2026-04-15 10:24:18] 
+  GPT-2-medium (gpt2-medium)...
+[2026-04-15 10:24:18]   GPU available: 9702 MB free
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Token indices sequence length is longer than the specified maximum sequence length for this model (44681 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-15 10:24:22]     english: BPT=4.4650, bits/char=0.9975, bits/byte=0.9958, bytes/char=1.00
+[2026-04-15 10:24:23]     python_code: BPT=0.7852, bits/char=0.3578, bits/byte=0.3578, bytes/char=1.00
+[2026-04-15 10:24:25]     dna_sequence: BPT=4.0942, bits/char=2.1275, bits/byte=2.1275, bytes/char=1.00
+[2026-04-15 10:24:30] EXP 2 COMPLETE
+[2026-04-15 10:24:30] 
+============================================================
+[2026-04-15 10:24:30] DECISIVE ROUND PHASE 1 COMPLETE
+[2026-04-15 10:24:30] Remaining experiments (3-6) need more GPU — run when machine is free
+[2026-04-15 10:24:30] ============================================================

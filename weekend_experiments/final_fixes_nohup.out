@@ -1,0 +1,102 @@
+[2026-04-13 16:17:12] ============================================================
+[2026-04-13 16:17:12] FINAL FIXES: Completing the two failed experiments
+[2026-04-13 16:17:12] ============================================================
+[2026-04-13 16:17:12] 
+============================================================
+[2026-04-13 16:17:12] FIX P7-F1: τ ACROSS 9 MODELS × 2 CORPORA
+[2026-04-13 16:17:12] Using LAMBADA as second corpus (PTB loader is deprecated)
+[2026-04-13 16:17:12] ============================================================
+[2026-04-13 16:17:17]   WikiText-2: 1288512 chars
+[2026-04-13 16:17:17]   LAMBADA: 1754999 chars
+[2026-04-13 16:17:17] 
+  EleutherAI/pythia-70m...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-13 16:17:18]     wikitext2: BPT=5.8047, bits/byte=1.2997
+[2026-04-13 16:17:19]     lambada: BPT=6.5361, bits/byte=1.5700
+[2026-04-13 16:17:19] 
+  EleutherAI/pythia-160m...
+[2026-04-13 16:17:21]     wikitext2: BPT=5.0007, bits/byte=1.1197
+[2026-04-13 16:17:22]     lambada: BPT=5.7875, bits/byte=1.3901
+[2026-04-13 16:17:22] 
+  EleutherAI/pythia-410m...
+[2026-04-13 16:17:25]     wikitext2: BPT=4.2688, bits/byte=0.9558
+[2026-04-13 16:17:26]     lambada: BPT=5.1152, bits/byte=1.2287
+[2026-04-13 16:17:26] 
+  EleutherAI/pythia-1b...
+[2026-04-13 16:17:29]     wikitext2: BPT=3.9885, bits/byte=0.8931
+[2026-04-13 16:17:30]     lambada: BPT=4.9133, bits/byte=1.1802
+[2026-04-13 16:17:30] 
+  EleutherAI/pythia-1.4b...
+[2026-04-13 16:17:35]     wikitext2: BPT=3.8112, bits/byte=0.8534
+[2026-04-13 16:17:37]     lambada: BPT=4.7749, bits/byte=1.1469
+[2026-04-13 16:17:37] 
+  gpt2...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 16:17:38]     wikitext2: BPT=4.9834, bits/byte=1.1051
+[2026-04-13 16:17:39]     lambada: BPT=5.7087, bits/byte=1.3635
+[2026-04-13 16:17:39] 
+  gpt2-medium...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 16:17:42]     wikitext2: BPT=4.5169, bits/byte=1.0016
+[2026-04-13 16:17:43]     lambada: BPT=5.2877, bits/byte=1.2629
+[2026-04-13 16:17:43] 
+  gpt2-large...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 16:17:47]     wikitext2: BPT=4.3036, bits/byte=0.9543
+[2026-04-13 16:17:49]     lambada: BPT=5.1360, bits/byte=1.2267
+[2026-04-13 16:17:49] 
+  gpt2-xl...
+Token indices sequence length is longer than the specified maximum sequence length for this model (286177 > 1024). Running this sequence through the model will result in indexing errors
+[2026-04-13 16:17:54]     wikitext2: BPT=4.1546, bits/byte=0.9213
+[2026-04-13 16:17:56]     lambada: BPT=5.0342, bits/byte=1.2024
+[2026-04-13 16:17:57] P7-F1 FIX COMPLETE
+[2026-04-13 16:17:57] 
+============================================================
+[2026-04-13 16:17:57] FIX P9-F1: NF4 END-TO-END BPT (with CUDA lib fix)
+[2026-04-13 16:17:57] ============================================================
+[2026-04-13 16:17:58]   Loaded 8 existing results
+[2026-04-13 16:17:58] 
+  EleutherAI/pythia-410m...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-13 16:17:58]     BNB NF4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 16:18:01]       NF4 BPT=4.6735 ← THIS IS THE KEY NUMBER
+[2026-04-13 16:18:01]     BNB FP4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 16:18:03]       FP4 BPT=4.9678
+[2026-04-13 16:18:03]     BNB INT8...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 16:18:05]       INT8 BPT=4.2783
+[2026-04-13 16:18:05] 
+  EleutherAI/pythia-1.4b...
+/home/user1-gpu/.local/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1617: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be deprecated in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-04-13 16:18:06]     BNB NF4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 16:18:08]       NF4 BPT=3.8973 ← THIS IS THE KEY NUMBER
+[2026-04-13 16:18:08]     BNB FP4...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 16:18:10]       FP4 BPT=3.9981
+[2026-04-13 16:18:10]     BNB INT8...
+`low_cpu_mem_usage` was None, now set to True since model is quantized.
+[2026-04-13 16:18:13]       INT8 BPT=3.8154
+[2026-04-13 16:18:13] P9-F1 fix FAILED: dict contains fields not in fieldnames: 'bits'
+Traceback (most recent call last):
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/final_fixes.py", line 347, in main
+    fix_p9_f1()
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/final_fixes.py", line 297, in fix_p9_f1
+    save_csv(all_results, f"{OUT}/results/nf4_vs_symmetric_complete.csv")
+  File "/home/user1-gpu/agi-extensions/weekend_experiments/final_fixes.py", line 47, in save_csv
+    w.writerows(data)
+  File "/usr/lib/python3.12/csv.py", line 167, in writerows
+    return self.writer.writerows(map(self._dict_to_list, rowdicts))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/csv.py", line 159, in _dict_to_list
+    raise ValueError("dict contains fields not in fieldnames: "
+ValueError: dict contains fields not in fieldnames: 'bits'
+[2026-04-13 16:18:13] 
+============================================================
+[2026-04-13 16:18:13] ALL FIXES COMPLETE
+[2026-04-13 16:18:13] ============================================================
