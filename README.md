@@ -46,7 +46,7 @@ This work builds on the foundational Windstorm Institute research series establi
 - Serial decoding systems converge to τ = 4.16 ± 0.19 bits/event
 - Ribosome operates at φ ≈ 1.02 (2% above thermodynamic minimum)
 - Silicon systems operate ~10^9× above Landauer floor
-- AI models inherit ~4.4 bits/token from biological training data
+- AI models inherit ~4 bits/token from biological training data
 
 **The open question:** Is this basin DATA-driven, ARCHITECTURE-driven, or PHYSICS-driven?
 
