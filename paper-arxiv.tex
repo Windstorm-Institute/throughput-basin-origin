@@ -1,28 +1,14 @@
-% Paper 7 in The Windstorm Series
-\documentclass[12pt,a4paper]{article}
-
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{natbib}
-\usepackage{booktabs}
-\usepackage[margin=1in]{geometry}
-
+\documentclass[11pt]{article}
+\usepackage{wsi-style}
+\wsirunhead{The Throughput Basin Origin}
 \title{Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven}
-
-\author{Grant Lavell Whitmer III\\
-The Windstorm Institute\\
-Fort Ann, NY 12827, USA\\
-\texttt{grantwhitmer3@gmail.com}}
-
+\author{Grant Whitmer}
 \date{March 2026}
-
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Six preceding papers established that serial decoding systems converge to approximately 3--6 bits per event and proposed that AI inherits this constraint through training data. This final paper distinguishes three competing hypotheses---architectural, thermodynamic, and data-driven---via four orthogonal experiments. Experiment~1: GPT-2 trained on controlled-entropy synthetic corpora achieves 8.92 bits-per-token on an 8-bit source, definitively falsifying the architectural ceiling hypothesis. Scaling to 1.2B parameters confirms scale invariance. Experiment~2: all eight models tested show a universal phase transition at INT4-to-INT3 quantization with greater than 200\% degradation, identifying the minimum viable weight precision. Experiment~3: transformers versus Mamba/RWKV show no significant BPT difference ($p = 0.688$), confirming architecture is not the limiting factor. Experiment~4: GPU efficiency is $10^{15}$--$10^{18}$ above the Landauer limit, ruling out energy constraints. These results establish that AI's approximately 4-bit throughput is data-driven: models learn training-distribution entropy, and natural language carries approximately 4 bits per token because it evolved inside biologically constrained brains. A critical finding is that BPT is tokenizer-dependent; bits per source byte is the correct metric.
+Six preceding papers established that serial decoding systems converge to approximately 3--6 bits per event and proposed that AI inherits this constraint through training data. This final paper distinguishes three competing hypotheses---architectural, thermodynamic, and data-driven---via four orthogonal experiments. Experiment~1: GPT-2 trained on controlled-entropy synthetic corpora achieves 8.92 bits-per-token on an 8-bit source, definitively falsifying the architectural ceiling hypothesis. Scaling to 1.2B parameters confirms scale invariance. Experiment~2: all eight models tested (Pythia and GPT-2 families) show a phase transition at INT4-to-INT3 quantization with greater than 190\% degradation (a factor of roughly 3--14$\times$), identifying the minimum viable weight precision. Experiment~3: transformers versus Mamba show no significant BPT difference ($p = 0.688$), consistent with architecture not being the limiting factor. Experiment~4: GPU efficiency is $10^{15}$--$10^{18}$ above the Landauer limit, ruling out energy constraints. These results indicate that AI's approximately 4-bit throughput is best explained as data-driven: models learn training-distribution entropy, and natural language carries approximately 4 bits per token because it evolved inside biologically constrained brains. A critical finding is that BPT is tokenizer-dependent; bits per source byte is the correct metric.
 \end{abstract}
 
 \noindent\textbf{Keywords:} synthetic data training; quantization cliff; architecture comparison; Landauer limit; data-driven convergence; bits per source byte; tokenizer dependence; weight precision; orthogonal falsification; causal chain
@@ -68,6 +54,10 @@ Transformer models (Pythia, GPT-2) and non-transformer architectures (Mamba, RWK
 
 GPU energy consumption was measured for all models on the RTX 5090. The thermodynamic efficiency ratio $\phi = \text{measured energy} / \text{Landauer minimum}$ was computed to quantify the gap between current silicon and the theoretical thermodynamic floor.
 
+\subsection{Metric Hierarchy}
+
+Results are reported under a three-tier metric hierarchy, in decreasing order of tokenizer-independence. (1)~\emph{Bits per source byte}: total cross-entropy bits divided by the number of raw source units; tokenizer- and encoding-independent, and the preferred metric for cross-experiment comparison. (2)~\emph{Bits per source character} (BPSS$^*$): tokenizer-independent but encoding-dependent. (3)~\emph{Bits per token} (BPT): tokenizer-dependent and not valid across tokenizers. The scale test (Experiment~1) demonstrates the dependence directly: identical SYN-8 data yields BPT $= 8.0$ at vocabulary 8192 and BPT $= 3.8$ at vocabulary 444, while bits per source byte stays fixed at 8.0.
+
 \section{Results}
 
 \subsection{Experiment 1: Synthetic Data Training}
@@ -90,13 +80,13 @@ SYN-12 & 12 bits & 17.4 & ${\sim}12.0$ \\
 
 SYN-8 achieves 8.92 BPT---not compressed to approximately 4 BPT. This definitively falsifies the architectural ceiling hypothesis. The model learns the entropy of its training distribution rather than compressing it to an intrinsic bottleneck.
 
-At 1.2B parameters (R5 scale test), SYN-8 still extracts 8.0 bits per source byte, confirming scale invariance. Intermediate entropy corpora (SYN-5, SYN-6, SYN-7) show perfect linear tracking from $H = 5$ through $H = 8$ with no architectural attractor near 4 bits.
+At 1.2B parameters (R5 scale test), SYN-8 still extracts 8.0 bits per source byte, confirming scale invariance. Intermediate entropy corpora (SYN-5, SYN-6, SYN-7) track source entropy closely and linearly from $H = 5$ through $H = 8$, with no architectural attractor near 4 bits.
 
 \textbf{Critical methodological finding:} BPT is tokenizer-dependent. The same model on the same data produces BPT $= 8.0$ or BPT $= 3.8$ depending solely on tokenizer vocabulary size. Bits per source byte is the correct tokenizer-independent metric. This finding affects the interpretation of all prior BPT measurements in the series and should be noted when comparing values across papers.
 
 \subsection{Experiment 2: Quantization Cliff}
 
-All 8 models show a universal phase transition at INT4 to INT3 quantization:
+All 8 models (Pythia and GPT-2 families) show a phase transition at INT4 to INT3 quantization:
 
 \begin{table}[ht]
 \centering
@@ -114,11 +104,31 @@ INT2 & 17.64 & $+$421\% \\
 \label{tab:quant}
 \end{table}
 
-The cliff is sharp and universal across all 8 models tested; the collapse begins at INT3 and is not strictly monotone (in 5 of 8 models INT2 partially recovers below INT3---e.g.\ Pythia-410M INT2 BPT 17.64 versus INT3 BPT 23.13). INT4 is the minimum viable weight precision. The structural bonus collapses at the same threshold, suggesting that INT3 weights cannot maintain the parameter precision needed to exploit linguistic structure. Three independent tests (software quantization, pure arithmetic via PyRTL, and real trained weights) confirm the cliff is mathematical rather than a software artifact: it reflects the rate-distortion threshold between 7 quantization levels (INT4, $\log_2 \approx 2.8$ bits) and 3 levels (INT3, $\log_2 \approx 1.6$ bits).
+The cliff is sharp and consistent across all 8 models tested (two decoder-transformer families); the collapse begins at INT3 and is not strictly monotone (in 5 of 8 models INT2 partially recovers below INT3---e.g.\ Pythia-410M INT2 BPT 17.64 versus INT3 BPT 23.13). INT4 is the minimum viable weight precision. The structural bonus collapses at the same threshold, suggesting that INT3 weights cannot maintain the parameter precision needed to exploit linguistic structure. Three independent tests (software quantization, pure arithmetic via PyRTL, and real trained weights) confirm the cliff is mathematical rather than a software artifact: it reflects the rate-distortion threshold between 7 quantization levels (INT4, $\log_2 \approx 2.8$ bits) and 3 levels (INT3, $\log_2 \approx 1.6$ bits).
+
+\begin{table}[ht]
+\centering
+\caption{INT4$\to$INT3 degradation across all eight models (BPT).}
+\label{tab:quant8}
+\begin{tabular}{lccc}
+\toprule
+Model & INT4 & INT3 & Ratio \\
+\midrule
+Pythia-70M & 5.20 & 72.04 & 13.9$\times$ \\
+Pythia-160M & 4.49 & 42.18 & 9.4$\times$ \\
+Pythia-410M & 3.76 & 23.13 & 6.2$\times$ \\
+Pythia-1B & 3.14 & 27.14 & 8.6$\times$ \\
+Pythia-1.4B & 3.05 & 17.77 & 5.8$\times$ \\
+GPT-2 & 4.15 & 14.89 & 3.6$\times$ \\
+GPT-2-medium & 3.74 & 21.22 & 5.7$\times$ \\
+GPT-2-large & 3.48 & 10.31 & 3.0$\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Experiment 3: Architecture Comparison}
 
-Transformers and Mamba/RWKV produce statistically indistinguishable BPT across 7 corpora (Welch $t$-test: $p = 0.688$). Both architectures converge to the same values on natural language (approximately 3.4 BPT), structured code (approximately 2.0 BPT on CSV, approximately 0.3 BPT on Python source), and shuffled text (approximately 10.2 BPT). The shuffling cascade also produces identical structural bonus profiles across architectures: syntax contributes approximately 3.3 bits in both transformer and non-transformer models. Architecture is not the limiting factor---the data distribution is. This result extends the vocabulary-independence finding from Paper~2~\cite{whitmer2026floor}: not only is vocabulary size irrelevant, but the fundamental computational architecture (attention versus recurrence versus state-space) is also irrelevant. The training data determines the throughput.
+Transformers and Mamba show no significant BPT difference in the primary Welch test across 7 corpora (Welch $t$-test: $p = 0.688$); a paired analysis finds at most a small transformer offset ($\sim$0.14 BPT), far too small to constitute an architectural ceiling. Both architectures converge to the same values on natural language (approximately 3.4 BPT), structured code (approximately 2.0 BPT on CSV, approximately 0.3 BPT on Python source), and shuffled text (approximately 10.2 BPT). The shuffling cascade also produces identical structural bonus profiles across architectures: syntax contributes approximately 3.3 bits in both transformer and non-transformer models. Architecture is not the limiting factor---the data distribution is. This result extends the vocabulary-independence finding from Paper~2~\cite{whitmer2026floor}: not only is vocabulary size irrelevant, but the fundamental computational architecture (attention versus recurrence versus state-space) is also irrelevant. The training data determines the throughput.
 
 \subsection{Experiment 4: Thermodynamic Energy Survey}
 
@@ -128,11 +138,44 @@ GPU efficiency $\phi$ is approximately $10^{15}$ to $10^{18}$ (fifteen to eighte
 
 \subsection{The Origin Is Data-Driven}
 
-The four experiments converge on a single conclusion: the approximately 4-bit throughput of AI language models is data-driven. The architectural hypothesis is falsified (SYN-8 achieves 8.92 BPT). The thermodynamic hypothesis is falsified ($\phi \sim 10^{16}$). The data-driven hypothesis is confirmed: models extract the entropy of their training distribution, and natural language has approximately 4 bits per token because the biological systems that produced it are constrained to the throughput basin.
+\begin{table}[ht]
+\centering
+\caption{Falsification framework: each hypothesis makes a distinct killing prediction, and the observed result is shown against it.}
+\label{tab:falsify}
+\begin{tabular}{lll}
+\toprule
+Hypothesis & Killing prediction & Observed \\
+\midrule
+Architectural & SYN-8 $\to\sim$4 BPT; Mamba $\neq$ Pythia & SYN-8 $= 8.9$; no ceiling \\
+Thermodynamic & energy floor above 4 BPT & $\phi\sim10^{15.7}$--$10^{18.8}$ \\
+Intrinsic compression & cross-corpus attractor near 4 & off-diagonal 22--42 BPT \\
+Loss-function artifact & different loss $\to$ different basin & CE 8.00, MSE 8.20, LS 8.06 \\
+Scale-dependent & 1.2B compresses SYN-8 toward 4 & 1.2B extracts 8.0 bits/byte \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Cross-corpus evaluation (BPT). Rows: training corpus; columns: evaluation corpus. Off-diagonal values of 22--42 BPT show no shared attractor near 4 bits.}
+\label{tab:cross}
+\begin{tabular}{lcccc}
+\toprule
+& SYN-2 & SYN-4 & SYN-8 & SYN-12 \\
+\midrule
+SYN-2 & 0.08 & 38.14 & 39.67 & 42.49 \\
+SYN-4 & 24.75 & 0.03 & 30.45 & 27.41 \\
+SYN-8 & 39.09 & 39.04 & 7.38 & 38.57 \\
+SYN-12 & 31.97 & 22.43 & 26.04 & 5.48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The four experiments converge on a single conclusion: the approximately 4-bit throughput of AI language models is data-driven. The architectural hypothesis is falsified (SYN-8 achieves 8.92 BPT). The thermodynamic hypothesis is falsified ($\phi \sim 10^{16}$). The data-driven hypothesis is the best-supported: models extract the entropy of their training distribution, and natural language has approximately 4 bits per token because the biological systems that produced it are constrained to the throughput basin.
 
 \subsection{The Refined Equation}
 
-The results across all seven corpora and synthetic tests confirm a refined equation:
+The results across all seven corpora and synthetic tests are organized by a descriptive decomposition:
 \begin{equation}
 \mathrm{BPT} \approx H_{\mathrm{source}} - f(\text{structural depth})
 \end{equation}
@@ -144,7 +187,7 @@ This paper resolves the central question of the nine-paper series. The throughpu
 
 \subsection{The INT4 Quantization Cliff}
 
-The universal INT4 to INT3 cliff has immediate practical implications for AI hardware design. INT3 and INT2 weight datapaths are non-viable for language model inference. The minimum-viable inference specification is INT4 weights with INT8 activations. This finding applies to all tested architectures (transformer and non-transformer) and all tested model sizes (70M to 1.4B parameters), suggesting it reflects a fundamental mathematical property of weight precision rather than an architecture-specific artifact.
+The INT4 to INT3 cliff has immediate practical implications for AI hardware design. INT3 and INT2 weight datapaths are non-viable for language model inference. The minimum-viable inference specification is INT4 weights with INT8 activations. This finding applies to all tested architectures (transformer and non-transformer) and all tested model sizes (70M to 1.4B parameters), suggesting it reflects a fundamental mathematical property of weight precision rather than an architecture-specific artifact.
 
 \subsection{Loss Function Independence}
 
@@ -156,7 +199,7 @@ A probabilistic context-free grammar (PCFG) experiment was conducted to test whe
 
 \subsection{Vision and Audio Modalities}
 
-Preliminary experiments extending the framework to non-text modalities found that vision models (MAE architecture) extract approximately 1.4 bits per pixel---different from language's approximately 4 bits per token but consistent with the refined equation when expressed in tokenizer-independent units. Audio speech models extract approximately 1.80 bits per mel dimension and audio music models approximately 1.69 bits per mel dimension. Noise produces 0.0 bits (correctly unable to predict random input). The approximately 4-bit coincidence between vision (approximately 4 bits per pixel at a specific patch size) and language (approximately 4 BPT) is a packaging artifact: in tokenizer-independent units, the numbers differ. This confirms that the basin is a property of the data distribution and its structural depth, not a universal constant across modalities.
+Preliminary experiments extending the framework to non-text modalities are reported in detail in the companion Vision Basin paper~\cite{whitmer2026vision} (Paper~8 of this series); there, source-native measurements---bits per pixel under lossless compression for vision, bits per mel dimension for audio---show each modality occupying its own throughput level rather than a single shared constant. Noise produces 0.0 bits of structural bonus (models correctly cannot predict random input). The point relevant here is that any apparent numerical coincidence between modalities dissolves once quantities are expressed in tokenizer-independent, source-native units: the basin is a property of the data distribution and its structural depth, not a single constant shared across modalities.
 
 \subsection{Limitations}
 
@@ -170,7 +213,17 @@ Preliminary experiments extending the framework to non-text modalities found tha
 
 \section{Conclusion}
 
-The origin of the approximately 4-bit throughput in AI language models is data-driven, not architectural or thermodynamic. Models extract the entropy of their training distribution (confirmed by synthetic corpus training at controlled entropy levels from 2 to 12 bits), architecture does not constrain the result (transformers and Mamba/RWKV are indistinguishable), and thermodynamic headroom is fifteen or more orders of magnitude (ruling out energy constraints). The INT4 to INT3 quantization cliff identifies a universal precision threshold for viable language model inference. The refined equation $\mathrm{BPT} \approx H_{\mathrm{source}} - f(\text{structural depth})$ unifies all observations across the nine-paper series. Natural language has approximately 4 bits per token because the biological serial decoders that produced it are constrained by thermodynamic cost to operate in the 3--6 bit throughput basin. AI inherits this constraint through training data. The causal chain---from the physics of molecular discrimination to the information structure of human language to the effective throughput of artificial intelligence---is now complete. The papers of The Windstorm Series trace a single thread from the Landauer bound through Hopfield kinetic proofreading through the rate-distortion surface through the cost of biological discrimination through the cognitive capacity of human brains through the syntactic structure of human language to the bits-per-token of artificial intelligence. Each link was derived, measured, and tested independently, producing a coherent framework that connects molecular biology to machine learning through information theory. The framework generates multiple falsifiable predictions---from wet-lab ribosome experiments at controlled temperatures to synthetic-data training controls for AI---that future work can test to refine or refute the claims made here.
+The origin of the approximately 4-bit throughput in AI language models is data-driven, not architectural or thermodynamic. Models extract the entropy of their training distribution (confirmed by synthetic corpus training at controlled entropy levels from 2 to 12 bits), architecture does not constrain the result (transformers and Mamba are indistinguishable), and thermodynamic headroom is fifteen or more orders of magnitude (ruling out energy constraints). The INT4 to INT3 quantization cliff identifies a precision threshold for viable language model inference across the tested models. The refined equation $\mathrm{BPT} \approx H_{\mathrm{source}} - f(\text{structural depth})$ unifies all observations across the nine-paper series. Natural language has approximately 4 bits per token because the biological serial decoders that produced it are constrained by thermodynamic cost to operate in the 3--6 bit throughput basin. AI inherits this constraint through training data. The causal chain---from the physics of molecular discrimination to the information structure of human language to the effective throughput of artificial intelligence---is now complete. The papers of The Windstorm Series trace a single thread from the Landauer bound through Hopfield kinetic proofreading through the rate-distortion surface through the cost of biological discrimination through the cognitive capacity of human brains through the syntactic structure of human language to the bits-per-token of artificial intelligence. Each link was derived, measured, and tested independently, producing a coherent framework that connects molecular biology to machine learning through information theory. The framework generates multiple falsifiable predictions---from wet-lab ribosome experiments at controlled temperatures to synthetic-data training controls for AI---that future work can test to refine or refute the claims made here.
+
+\subsection*{Predictions}
+
+\begin{enumerate}
+    \item A $\geq$1B-parameter model trained on SYN-8 extracts bits per source byte within 0.5 of the source entropy.
+    \item Hierarchically-structured synthetic data (e.g.\ PCFG-8) yields BPT between its raw source entropy and the natural-language basin.
+    \item The INT4$\to$INT3 cliff persists under alternative quantizers (GPTQ) and non-transformer weights.
+    \item Bits per source byte is invariant across tokenizer vocabularies for the same model and data, whereas BPT is not.
+    \item Shuffled natural-language text approaches its unigram entropy ($\sim$10 BPT).
+\end{enumerate}
 
 \subsection*{Author Contributions}
 
@@ -192,43 +245,58 @@ This paper was developed through adversarial review by six frontier AI models. A
 
 The author declares no conflict of interest.
 
+\subsection*{Data, Code \& Resources}
+\noindent Manuscript source and archived record: \url{https://github.com/Windstorm-Institute/throughput-basin-origin} (Zenodo: \href{https://doi.org/10.5281/zenodo.19498582}{10.5281/zenodo.19498582}). Experiments, datasets, and analysis code: \url{https://github.com/Windstorm-Labs/throughput-basin-origin}. Windstorm Institute: \url{https://windstorminstitute.org}. Windstorm Labs: \url{https://windstormlabs.com}.
+
 \begin{thebibliography}{99}
 
 \bibitem{whitmer2026fons}
 Whitmer, G.L., III.
 The Fons Constraint: Information-Theoretic Convergence on Encoding Depth in Self-Replicating Systems.
 \emph{Zenodo}, 2026.
-\href{https://doi.org/10.5281/zenodo.19274048}{DOI: 10.5281/zenodo.19274048}
+\href{https://doi.org/10.5281/zenodo.19274047}{DOI: 10.5281/zenodo.19274047}
 
 \bibitem{whitmer2026floor}
 Whitmer, G.L., III.
 The Receiver-Limited Floor: Rate-Distortion Bounds on Serial Decoding Throughput.
 \emph{Zenodo}, 2026.
-\href{https://doi.org/10.5281/zenodo.19322973}{DOI: 10.5281/zenodo.19322973}
+\href{https://doi.org/10.5281/zenodo.19322972}{DOI: 10.5281/zenodo.19322972}
 
 \bibitem{whitmer2026basin}
 Whitmer, G.L., III.
 The Throughput Basin: Cross-Substrate Convergence and Decomposition of Serial Decoding Throughput.
 \emph{Zenodo}, 2026.
-\href{https://doi.org/10.5281/zenodo.19323194}{DOI: 10.5281/zenodo.19323194}
+\href{https://doi.org/10.5281/zenodo.19323193}{DOI: 10.5281/zenodo.19323193}
 
 \bibitem{whitmer2026serial}
 Whitmer, G.L., III.
 The Serial Decoding Basin: Five Experiments on Convergence, Thermodynamic Anchoring, and Receiver-Limited Geometry.
 \emph{Zenodo}, 2026.
-\href{https://doi.org/10.5281/zenodo.19323423}{DOI: 10.5281/zenodo.19323423}
+\href{https://doi.org/10.5281/zenodo.19323422}{DOI: 10.5281/zenodo.19323422}
 
 \bibitem{whitmer2026dissipative}
 Whitmer, G.L., III.
 The Dissipative Decoder: Thermodynamic Cost Bounds on the Serial Decoding Throughput Basin.
 \emph{Zenodo}, 2026.
-\href{https://doi.org/10.5281/zenodo.19433048}{DOI: 10.5281/zenodo.19433048}
+\href{https://doi.org/10.5281/zenodo.19432785}{DOI: 10.5281/zenodo.19432785}
 
 \bibitem{whitmer2026inherited}
 Whitmer, G.L., III.
 The Inherited Constraint: Biological Throughput Limits Shape the Information Structure of Human Language and AI.
 \emph{Zenodo}, 2026.
-\href{https://doi.org/10.5281/zenodo.19432911}{DOI: 10.5281/zenodo.19432911}
+\href{https://doi.org/10.5281/zenodo.19432910}{DOI: 10.5281/zenodo.19432910}
+
+\bibitem{whitmer2026vision}
+Whitmer, G.L., III.
+The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates.
+\emph{Zenodo}, 2026.
+\href{https://doi.org/10.5281/zenodo.19672827}{DOI: 10.5281/zenodo.19672827}
+
+\bibitem{whitmer2026hardware}
+Whitmer, G.L., III.
+The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count.
+\emph{Zenodo}, 2026.
+\href{https://doi.org/10.5281/zenodo.19672921}{DOI: 10.5281/zenodo.19672921}
 
 \bibitem{shannon1948}
 Shannon, C.E.
@@ -252,12 +320,12 @@ Available online: \url{https://github.com/Windstorm-Labs/throughput-basin-origin
 
 \subsection*{Appendix A. Adversarial Review Summary}
 
-An internal adversarial review identified 13 issues, of which 4 were classified as blocking. The blocking issues (SYN-2/4 memorization in self-eval, BPT inconsistency between experiments, tokenizer dependence, and missing learning curves) are acknowledged in the Limitations section. The full adversarial review is available in the companion repository~\cite{whitmer2026code}.
+An internal adversarial review identified 13 issues, of which 4 were classified as blocking. The blocking issues (SYN-2/4 BPE tokenizer overshoot in self-eval, BPT inconsistency between experiments, tokenizer dependence, and missing learning curves) are acknowledged in the Limitations section. The full adversarial review is available in the companion repository~\cite{whitmer2026code}.
 
 \bigskip
-\noindent\emph{This paper is Paper~7 of The Windstorm Series, completing the core causal chain from physics to AI. The full series: Paper~1: The Fons Constraint~\cite{whitmer2026fons}, Paper~2: The Receiver-Limited Floor~\cite{whitmer2026floor}, Paper~3: The Throughput Basin~\cite{whitmer2026basin}, Paper~4: The Serial Decoding Basin~\cite{whitmer2026serial}, Paper~5: The Dissipative Decoder~\cite{whitmer2026dissipative}, Paper~6: The Inherited Constraint~\cite{whitmer2026inherited}, Paper~7: The Throughput Basin Origin (this paper), Paper~8: The Vision Basin (DOI: 10.5281/zenodo.19672827), and Paper~9: The Hardware Basin (DOI: 10.5281/zenodo.19672921).}
+\noindent\emph{This is Paper~7 of The Windstorm Series, completing the core causal chain from physics to AI. The full series: Paper~1: The Fons Constraint~\cite{whitmer2026fons}, Paper~2: The Receiver-Limited Floor~\cite{whitmer2026floor}, Paper~3: The Throughput Basin~\cite{whitmer2026basin}, Paper~4: The Serial Decoding Basin~\cite{whitmer2026serial}, Paper~5: The Dissipative Decoder~\cite{whitmer2026dissipative}, Paper~6: The Inherited Constraint~\cite{whitmer2026inherited}, Paper~7: The Throughput Basin Origin (this paper), Paper~8: The Vision Basin~\cite{whitmer2026vision}, and Paper~9: The Hardware Basin~\cite{whitmer2026hardware}.}
 
 \bigskip
-\noindent\textcopyright{} 2026 Grant Lavell Whitmer III. This article is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).
+\noindent\textcopyright{} 2026 Grant Whitmer. This article is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
 \end{document}
