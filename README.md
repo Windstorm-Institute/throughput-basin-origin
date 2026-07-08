@@ -2,7 +2,7 @@
 
 **Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven**
 
-Grant Lavell Whitmer III · Windstorm Labs, The Windstorm Institute · Fort Ann, NY, USA · [doi:10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582) (concept DOI, always-latest) · **Current version: v1.6** ([10.5281/zenodo.19672654](https://doi.org/10.5281/zenodo.19672654), April 2026)
+Grant Lavell Whitmer III · Windstorm Labs, The Windstorm Institute · Fort Ann, NY, USA · [doi:10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582) (concept DOI, always-latest) · **Current version: v1.6** ([10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582), April 2026)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -24,23 +24,23 @@ This work builds on the foundational Windstorm Institute research series establi
 
 ### Citations
 
-1. **Paper 1**: Whitmer III, G.L. (2026). "The Fons Constraint." *Windstorm Institute*. DOI: [10.5281/zenodo.19274048](https://doi.org/10.5281/zenodo.19274048)
+1. **Paper 1**: Whitmer III, G.L. (2026). "The Fons Constraint." *Windstorm Institute*. DOI: [10.5281/zenodo.19274047](https://doi.org/10.5281/zenodo.19274047)
 
-2. **Paper 2**: Whitmer III, G.L. (2026). "The Receiver-Limited Floor: Rate-Distortion Bounds on Serial Decoding Throughput." *Windstorm Institute*. DOI: [10.5281/zenodo.19322973](https://doi.org/10.5281/zenodo.19322973)
+2. **Paper 2**: Whitmer III, G.L. (2026). "The Receiver-Limited Floor: Rate-Distortion Bounds on Serial Decoding Throughput." *Windstorm Institute*. DOI: [10.5281/zenodo.19322972](https://doi.org/10.5281/zenodo.19322972)
 
-3. **Paper 3**: Whitmer III, G.L. (2026). "The Throughput Basin: Cross-Substrate Convergence." *Windstorm Institute*. DOI: [10.5281/zenodo.19323194](https://doi.org/10.5281/zenodo.19323194)
+3. **Paper 3**: Whitmer III, G.L. (2026). "The Throughput Basin: Cross-Substrate Convergence." *Windstorm Institute*. DOI: [10.5281/zenodo.19323193](https://doi.org/10.5281/zenodo.19323193)
 
-4. **Paper 4**: Whitmer III, G.L. (2026). "The Serial Decoding Basin τ: Five Convergence Experiments." *Windstorm Institute*. DOI: [10.5281/zenodo.19323423](https://doi.org/10.5281/zenodo.19323423)
+4. **Paper 4**: Whitmer III, G.L. (2026). "The Serial Decoding Basin τ: Five Convergence Experiments." *Windstorm Institute*. DOI: [10.5281/zenodo.19323422](https://doi.org/10.5281/zenodo.19323422)
 
-5. **Paper 5**: Whitmer III, G.L. (2026). "The Dissipative Decoder: Thermodynamic Cost Bounds on the Throughput Basin and Why Silicon Escapes Them." *Windstorm Institute*. DOI: [10.5281/zenodo.19433048](https://doi.org/10.5281/zenodo.19433048)
+5. **Paper 5**: Whitmer III, G.L. (2026). "The Dissipative Decoder: Thermodynamic Cost Bounds on the Throughput Basin and Why Silicon Escapes Them." *Windstorm Institute*. DOI: [10.5281/zenodo.19432785](https://doi.org/10.5281/zenodo.19432785)
 
-6. **Paper 6**: Whitmer III, G.L. (2026). "The Inherited Constraint: How Biological Throughput Limits Shape Language and AI." *Windstorm Institute*. DOI: [10.5281/zenodo.19432911](https://doi.org/10.5281/zenodo.19432911)
+6. **Paper 6**: Whitmer III, G.L. (2026). "The Inherited Constraint: How Biological Throughput Limits Shape Language and AI." *Windstorm Institute*. DOI: [10.5281/zenodo.19432910](https://doi.org/10.5281/zenodo.19432910)
 
-7. **Paper 7** *(this repository)*: Whitmer III, G.L. (2026). "The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582). Latest version v1.6: [10.5281/zenodo.19672654](https://doi.org/10.5281/zenodo.19672654)
+7. **Paper 7** *(this repository)*: Whitmer III, G.L. (2026). "The Throughput Basin Origin: Four Orthogonal Experiments on Whether Serial Decoding Convergence Is Architectural, Thermodynamic, or Data-Driven." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582). Latest version v1.6: [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582)
 
-8. **Paper 8**: Whitmer III, G.L. (2026). "The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827). Latest version v2.2: [10.5281/zenodo.19672828](https://doi.org/10.5281/zenodo.19672828)
+8. **Paper 8**: Whitmer III, G.L. (2026). "The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827). Latest version v2.2: [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827)
 
-9. **Paper 9**: Whitmer III, G.L. (2026). "The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921). Latest version v2.2: [10.5281/zenodo.19672922](https://doi.org/10.5281/zenodo.19672922)
+9. **Paper 9**: Whitmer III, G.L. (2026). "The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count." *Windstorm Institute*. Concept DOI: [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921). Latest version v2.2: [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921)
 
 **Key findings from Papers 1-6:**
 - Serial decoding systems converge to τ = 4.16 ± 0.19 bits/event
@@ -271,12 +271,12 @@ For questions or collaborations:
 
 | # | Paper | DOI |
 |---|-------|-----|
-| 1 | [The Fons Constraint](https://github.com/Windstorm-Institute/fons-constraint) | [10.5281/zenodo.19274048](https://doi.org/10.5281/zenodo.19274048) |
-| 2 | [The Receiver-Limited Floor](https://github.com/Windstorm-Institute/receiver-limited-floor) | [10.5281/zenodo.19322973](https://doi.org/10.5281/zenodo.19322973) |
-| 3 | [The Throughput Basin](https://github.com/Windstorm-Institute/throughput-basin) | [10.5281/zenodo.19323194](https://doi.org/10.5281/zenodo.19323194) |
-| 4 | [The Serial Decoding Basin τ](https://github.com/Windstorm-Institute/serial-decoding-basin) | [10.5281/zenodo.19323423](https://doi.org/10.5281/zenodo.19323423) |
-| 5 | [The Dissipative Decoder](https://github.com/Windstorm-Institute/dissipative-decoder) | [10.5281/zenodo.19433048](https://doi.org/10.5281/zenodo.19433048) |
-| 6 | [The Inherited Constraint](https://github.com/Windstorm-Institute/inherited-constraint) | [10.5281/zenodo.19432911](https://doi.org/10.5281/zenodo.19432911) |
+| 1 | [The Fons Constraint](https://github.com/Windstorm-Institute/fons-constraint) | [10.5281/zenodo.19274047](https://doi.org/10.5281/zenodo.19274047) |
+| 2 | [The Receiver-Limited Floor](https://github.com/Windstorm-Institute/receiver-limited-floor) | [10.5281/zenodo.19322972](https://doi.org/10.5281/zenodo.19322972) |
+| 3 | [The Throughput Basin](https://github.com/Windstorm-Institute/throughput-basin) | [10.5281/zenodo.19323193](https://doi.org/10.5281/zenodo.19323193) |
+| 4 | [The Serial Decoding Basin τ](https://github.com/Windstorm-Institute/serial-decoding-basin) | [10.5281/zenodo.19323422](https://doi.org/10.5281/zenodo.19323422) |
+| 5 | [The Dissipative Decoder](https://github.com/Windstorm-Institute/dissipative-decoder) | [10.5281/zenodo.19432785](https://doi.org/10.5281/zenodo.19432785) |
+| 6 | [The Inherited Constraint](https://github.com/Windstorm-Institute/inherited-constraint) | [10.5281/zenodo.19432910](https://doi.org/10.5281/zenodo.19432910) |
 | 7 | [The Throughput Basin Origin](https://github.com/Windstorm-Institute/throughput-basin-origin) *(this paper)* | [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582) |
 | 8 | [The Vision Basin](https://github.com/Windstorm-Institute/vision-basin) | [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827) |
 | 9 | [The Hardware Basin](https://github.com/Windstorm-Institute/hardware-basin) | [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921) |
@@ -285,13 +285,13 @@ For questions or collaborations:
 
 | # | Paper | DOI |
 |---|-------|-----|
-| 10 | [Phonon Extraction Bound (BEC Analog Gravity)](https://github.com/Windstorm-Institute/phonon-extraction-bound) | [10.5281/zenodo.20014391](https://doi.org/10.5281/zenodo.20014391) |
-| 11 | [Gravitational Entropy Escrow](https://github.com/Windstorm-Institute/gravitational-entropy-escrow) | [10.5281/zenodo.20032023](https://doi.org/10.5281/zenodo.20032023) |
-| 12 | [C8 Clarification Note](https://github.com/Windstorm-Institute/c8-clarification-note) | [10.5281/zenodo.20041992](https://doi.org/10.5281/zenodo.20041992) |
-| 13 | [Lattice QFT Test of the Static Escrow Postulate](https://github.com/Windstorm-Institute/lattice-qft-test) *(4th in track; supplement to Paper 11)* | [10.5281/zenodo.20057538](https://doi.org/10.5281/zenodo.20057538) |
-| 14 | [Spacetime as Escrow Bookkeeping](https://github.com/Windstorm-Institute/escrow-spacetime) *(5th in track; translation of standard GR results into the escrow vocabulary; companion to Paper 11)* | [10.5281/zenodo.20126091](https://doi.org/10.5281/zenodo.20126091) |
-| 15 | [The 𝒩<sub>esc</sub> Recipe](https://github.com/Windstorm-Institute/nesc-recipe) *(6th in track; formalizes 𝒩<sub>esc</sub> as a cross-regime function; continuation of Paper 14)* | [10.5281/zenodo.20145106](https://doi.org/10.5281/zenodo.20145106) |
-| 16 | [The Compton Corollary](https://github.com/Windstorm-Institute/compton-corollary) *(7th in track; short Bekenstein observation at the Compton scale; uses 𝒩<sub>esc</sub> notation only, escrow recipe not invoked)* | [10.5281/zenodo.20163451](https://doi.org/10.5281/zenodo.20163451) |
+| 10 | [Phonon Extraction Bound (BEC Analog Gravity)](https://github.com/Windstorm-Institute/phonon-extraction-bound) | [10.5281/zenodo.20014390](https://doi.org/10.5281/zenodo.20014390) |
+| 11 | [Gravitational Entropy Escrow](https://github.com/Windstorm-Institute/gravitational-entropy-escrow) | [10.5281/zenodo.20031931](https://doi.org/10.5281/zenodo.20031931) |
+| 12 | [C8 Clarification Note](https://github.com/Windstorm-Institute/c8-clarification-note) | [10.5281/zenodo.20041991](https://doi.org/10.5281/zenodo.20041991) |
+| 13 | [Lattice QFT Test of the Static Escrow Postulate](https://github.com/Windstorm-Institute/lattice-qft-test) *(4th in track; supplement to Paper 11)* | [10.5281/zenodo.20057537](https://doi.org/10.5281/zenodo.20057537) |
+| 14 | [Spacetime as Escrow Bookkeeping](https://github.com/Windstorm-Institute/escrow-spacetime) *(5th in track; translation of standard GR results into the escrow vocabulary; companion to Paper 11)* | [10.5281/zenodo.20126090](https://doi.org/10.5281/zenodo.20126090) |
+| 15 | [The 𝒩<sub>esc</sub> Recipe](https://github.com/Windstorm-Institute/nesc-recipe) *(6th in track; formalizes 𝒩<sub>esc</sub> as a cross-regime function; continuation of Paper 14)* | [10.5281/zenodo.20145105](https://doi.org/10.5281/zenodo.20145105) |
+| 16 | [The Compton Corollary](https://github.com/Windstorm-Institute/compton-corollary) *(7th in track; short Bekenstein observation at the Compton scale; uses 𝒩<sub>esc</sub> notation only, escrow recipe not invoked)* | [10.5281/zenodo.20163450](https://doi.org/10.5281/zenodo.20163450) |
 
 **Website:** [windstorminstitute.org](https://windstorminstitute.org)
 
